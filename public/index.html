@@ -1,13 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JuJutsu Vault</title>
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/index.css">
+  <link rel="stylesheet" href="/public/css/footer.css">
+  <link rel="stylesheet" href="/public/css/nav.css">
 </head>
+
 <body>
-  <h1>Meu siteeeeeee</h1>
-  <a href="./login.html">Login</a>
-  <a href="./cadastro.html">Cadastro</a>
+  <section class="hero_nav">
+
+    <header class="navbar">
+      <div class="container navbar_container">
+
+        <a href="#" class="navbar_logo">
+          <img src="/public/assets/imgs/logo.svg" alt="JuJutsu Vault Logo">
+        </a>
+
+        <nav class="navbar_nav">
+          <a href="#">Início</a>
+          <a href="#">Personagens</a>
+          <a href="#">História</a>
+          <a href="#">Sobre Mim</a>
+          <a href="#">Posts</a>
+        </nav>
+
+        <div class="navbar_actions">
+          <a href="#">Login</a>
+          <a href="#">Cadastro</a>
+        </div>
+
+      </div>
+    </header>
+
+    <section class="container hero_container">
+
+      <div class="hero_content">
+        <h1>JuJutsu Vault</h1>
+        <h2>Explore o universo das maldições, descubra personagens e teste seu conhecimento</h2>
+        <button class="btn" id="hero_btn">Explorar Agora</button>
+      </div>
+
+    </section>
+  </section>
+
+  <main>
+    <section class="destaques container">
+
+      <h2 class="section-title destaques_title">
+        <span>Registros do JuJutsu</span>
+        <span>Posts Principais</span>
+      </h2>
+
+      <div class="container-content">
+
+        <div class="cards">
+
+          <div class="card">
+            <div class="card__image">
+              <img src="/public/assets/imgs/gojo.svg" alt="Satoru Gojo">
+            </div>
+
+            <div class="card__badge">
+              <span>
+                <img src="/public/assets/icon/avatar1.svg" alt="Avatar de Satoru Gojo">
+              </span>
+            </div>
+
+            <div class="card__title">
+              Quem é Satoru Gojo?
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__image">
+              <img src="/public/assets/imgs/nanami.svg" alt="Nanami Kento">
+            </div>
+
+            <div class="card__badge">
+              <span>
+                <img src="/public/assets/icon/avatar2.svg" alt="Avatar de Nanami Kento">
+              </span>
+            </div>
+
+            <div class="card__title">
+              Energia Amaldiçoada
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__image">
+              <img src="/public/assets/imgs/sukuna.svg" alt="Ryomen Sukuna">
+            </div>
+
+            <div class="card__badge">
+              <span>
+                <img src="/public/assets/icon/avatar3.svg" alt="Avatar de Ryomen Sukuna">
+              </span>
+            </div>
+
+            <div class="card__title">
+              Rei das Maldições
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__image">
+              <img src="/public/assets/imgs/jinichi.svg" alt="Jinichi Zenin">
+            </div>
+
+            <div class="card__badge">
+              <span>
+                <img src="/public/assets/icon/avatar4.svg" alt="Avatar de Itadori Yuji">
+              </span>
+            </div>
+
+            <div class="card__title">
+              Jinichi Zenin é forte?
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card__image">
+              <img src="/public/assets/imgs/yuta.svg" alt="Yuta Okkotsu">
+            </div>
+
+            <div class="card__badge">
+              <span>
+                <img src="/public/assets/icon/avatar5.svg" alt="Avatar de Panda">
+              </span>
+            </div>
+
+            <div class="card__title">
+              Novo Episódio
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container-btn">
+          <button class="btn" id="destaques_btn">Confira Mais</button>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="arquivo_personagens container">
+
+      <h2 class="section-title">
+        <span>Arquivo de Personagens</span>
+        <span>Feiticeiros e Maldições</span>
+      </h2>
+
+      <div class="container-content">
+        <div class="select_characters">
+
+          <div class="select__character">
+            <a href="#">
+              <img class="img-default" src="/public/assets/imgs/ch_select/no_color/ch1.svg" alt="Personagem 1">
+              <img class="img-hover" src="/public/assets/imgs/ch_select/color/ch1.svg" alt="Personagem 1">
+            </a>
+          </div>
+
+          <div class="select__character">
+            <a href="#">
+              <img class="img-default" src="/public/assets/imgs/ch_select/no_color/ch2.svg" alt="Personagem 2">
+              <img class="img-hover" src="/public/assets/imgs/ch_select/color/ch2.svg" alt="Personagem 2">
+            </a>
+          </div>
+
+          <div class="select__character">
+            <a href="#">
+              <img class="img-default" src="/public/assets/imgs/ch_select/no_color/ch3.svg" alt="Personagem 3">
+              <img class="img-hover" src="/public/assets/imgs/ch_select/color/ch3.svg" alt="Personagem 3">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="container-btn">
+          <button class="btn" id="destaques_btn">Ver Todos os Personagens</button>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="quiz container">
+      <h2 class="section-title">
+        <span>Teste seu Conhecimento</span>
+        <span>Você é um verdadeiro feiticeiro?</span>
+      </h2>
+
+      <div class="container-content">
+
+        <div class="quiz__content">
+          <div class="card">
+            <div class="card__image">
+              <img src="/public/assets/imgs/teaching_gojo.svg" alt="Satoru Gojo ensinando">
+            </div>
+          </div>
+
+          <div class="quiz__call">
+            <h2>
+              <span>JuJutsu</span>
+              <span>Quiz</span>
+            </h2>
+            <button class="btn" id="quiz_btn">Jogar</button>
+          </div>
+        </div>
+
+    </section>
+
+    <section class="conceitos container">
+      <h2 class="section-title">
+        <span>Conceitos Importantes</span>
+        <span>Os Pilares do Universo JuJutsu</span>
+      </h2>
+
+      <div class="container-content">
+
+        <div class="conceitos_cards">
+
+          <div class="conceitos__card">
+            <div class="card-inner">
+
+              <div class="card-front">
+                <h3>Expansões de Domínio</h3>
+                <img src="/public/assets/imgs/domain_expansion.svg" alt="Expansões de Domínio">
+              </div>
+
+              <div class="card-back">
+                <p>
+                  Expansões de domínio são técnicas avançadas que criam uma realidade própria,
+                  garantindo acerto absoluto contra o inimigo.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <h2>Os fundamentos de um feiticeiro</h2>
+
+          <div class="conceitos__card">
+            <div class="card-inner">
+
+              <div class="card-front">
+                <h3>Técnicas Inatas</h3>
+                <img src="/public/assets/imgs/innate_technique.svg" alt="Técnicas Inatas">
+              </div>
+
+              <div class="card-back">
+                <p>
+                  Técnicas inatas são habilidades únicas de cada feiticeiro, adquiridas ao nascer.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="conceitos__card">
+          <div class="card-inner">
+
+            <div class="card-front">
+              <h3>Feiticeiros vs Maldições</h3>
+              <img src="/public/assets/imgs/sorcerers_curses.svg" alt="Feiticeiros vs Maldições">
+            </div>
+
+            <div class="card-back">
+              <p>
+                Feiticeiros e maldições são opostos, mas ambos dependem da energia amaldiçoada para existir.
+                A luta entre eles é o cerne do universo de Jujutsu Kaisen.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="historia container">
+      <h2 class="section-title">
+        <span>Sobre o universo</span>
+        <span>Conheça a história</span>
+      </h2>
+
+      <div class="container-content">
+        <p id="historia__text">
+          Em um mundo onde emoções negativas dão origem a maldições,
+          forças invisíveis ameaçam a humanidade. Para combatê-las, surgem os feiticeiros Jujutsu,
+          capazes de manipular uma energia sombria e poderosa. Mas por trás das batalhas, existem histórias,
+          segredos e um sistema muito mais complexo do que parece…
+        </p>
+
+        <div class="container-btn">
+          <button class="btn" id="historia_btn">Leia Mais</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+
+    <div class="container footer__grid">
+
+      <div class="footer__brand">
+        <img src="/public/assets/imgs/logo.svg" alt="Jujutsu Vault">
+
+        <p>
+          Um blog dedicado ao universo de Jujutsu Kaisen, reunindo informações sobre personagens,
+          história e conceitos.
+        </p>
+      </div>
+
+      <div class="footer__divider"></div>
+
+      <div class="footer__links">
+        <h3>Links</h3>
+        <a href="#">Home</a>
+        <a href="#">Personagens</a>
+        <a href="#">História</a>
+        <a href="#">Sobre Mim</a>
+        <a href="#">Posts</a>
+      </div>
+
+      <div class="footer__contact">
+        <h3>Contato</h3>
+
+        <div class="contact__item">
+          <img src="/public/assets/icon/email.svg">
+          <span>raphaelcanuto4@email.com</span>
+        </div>
+
+        <div class="contact__item">
+          <img src="/public/assets/icon/github.svg">
+          <span>github.com/Raphael567</span>
+        </div>
+
+        <div class="contact__item">
+          <img src="/public/assets/icon/linkedin.svg">
+          <span>linkedin.com/in/raphaelcanuto</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>
+        © 2026 Jujutsu Vault — Projeto educacional baseado na obra de Gege Akutami.
+      </p>
+
+      <p>
+        Desenvolvido por Raphael Canuto.
+      </p>
+    </div>
+
+  </footer>
 </body>
+
 </html>

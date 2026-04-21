@@ -1,0 +1,270 @@
+body {
+    background-color: #000;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 350px;
+}
+
+.hero_container {
+    display: grid;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.hero_content {
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / 7;
+    gap: 25px;
+}
+
+.hero_content h1 {
+    font-size: 110px;
+    color: #000000;
+    text-wrap: nowrap;
+    text-shadow:
+        -1px -1px 0 #D6CD81,
+        1px -1px 0 #D6CD81,
+        -1px 1px 0 #D6CD81,
+        1px 1px 0 #D6CD81;
+}
+
+.hero_content h2 {
+    font-size: 28px;
+}
+
+#hero_btn {
+    font-size: 24px;
+    padding: 16px;
+    width: 250px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.card__image {
+    position: relative;
+}
+
+.card__image img {
+    border: 1px solid #fff;
+}
+
+.card__image::before {
+    content: "";
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 5px;
+    left: 10px;
+    bottom: -10px;
+}
+
+.card__image::after {
+    content: "";
+    position: absolute;
+    background: #fff;
+    height: 100%;
+    width: 5px;
+    right: -15px;
+    top: 10px;
+}
+
+.card__badge {
+    position: relative;
+}
+
+.card__badge span {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 5px;
+    bottom: -30px;
+    left: 30px;
+}
+
+.card__title {
+    font-size: 20px;
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+
+.select_characters {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select__character a {
+    position: relative;
+    display: inline-block;
+}
+
+.img-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.select__character a:hover .img-hover {
+    opacity: 1;
+}
+
+.quiz__content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.quiz__call {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.quiz__call h2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.quiz__call span {
+    font-size: 100px;
+}
+
+#quiz_btn {
+    padding: 16px 45px 16px 45px;
+}
+
+.conceitos .container-content {
+    align-items: center;
+    position: relative;
+}
+
+.conceitos .container-content::before,
+.conceitos .container-content::after {
+    content: "";
+    position: absolute;
+    width: 570px;
+    height: 2px;
+    top: 61%;
+    background: white;
+}
+
+.conceitos .container-content::before {
+    left: 6%;
+    transform: rotate(35deg);
+}
+
+.conceitos .container-content::after {
+    right: 6%;
+    transform: rotate(-35deg);
+}
+
+.conceitos_cards {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 150px;
+}
+
+.conceitos_cards h2 {
+    text-align: center;
+    font-size: 35px;
+}
+
+.conceitos_cards::after {
+    content: "";
+    position: absolute;
+    bottom: 50%;
+    left: 20%;
+    width: 60%;
+    height: 2px;
+    background: white;
+}
+
+.conceitos__card {
+    text-align: center;
+    font-size: 28px;
+    width: 300px;
+    height: 445px;
+    transition: 0.3s;
+    perspective: 1000px;
+}
+
+.card-front {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.conceitos__card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    border: 4px solid #FFF;
+    border-radius: 12px;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    background: black;
+    justify-content: center;
+    padding: 20px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.conceitos__card h3 {
+    padding: 30px;
+}
+
+.historia .section-title,
+.historia .container-content {
+    grid-column: 2 / 7;
+}
+
+.historia .container-btn {
+    display: block;
+}
+
+#historia__text {
+    font-size: 26px;
+    line-height: 200%;
+}
+
+#historia_btn {
+    padding: 12px 16px 12px 16px;
+}

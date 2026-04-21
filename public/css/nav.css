@@ -1,0 +1,39 @@
+.hero_nav {
+    background: url('/public/assets/imgs/navhero_background.svg') no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.navbar {
+    font-size: 18px;
+    text-wrap: nowrap;
+}
+
+.navbar_logo {
+    padding-top: 28px;
+    grid-column: 2 / 3;
+}
+
+.navbar_logo img {
+    width: 243px;
+    height: 80px;
+}
+
+.navbar_nav,
+.navbar_actions {
+    padding-top: 52px;
+}
+
+.navbar_nav {
+    grid-column: 4 / 9;
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+}
+
+.navbar_actions {
+    grid-column: 10 / 12;
+    display: flex;
+    justify-content: flex-end;
+    gap: 75px;
+}

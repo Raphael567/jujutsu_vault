@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cinzel', sans-serif;
+    color: #fff;
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    justify-content: center;
+}
+
+.container-content {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.section-title {
+    grid-column: 4 / 10;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    margin-bottom: 120px;
+}
+
+.section-title span {
+    display: block;
+}
+
+.section-title span:first-child {
+    font-size: 65px;
+}
+
+.section-title:last-child {
+    font-size: 35px;
+}
+
+.section-title:before,
+.section-title::after
+{
+    content: "";
+    width: 78px;
+    height: 149px;
+    position: absolute;
+    top: 0;
+}
+
+.section-title:before {
+    background: url('/public/assets/imgs/deco1.svg') no-repeat 0 0 / 100%;
+    left: -50px;
+}
+
+.section-title::after {
+    background: url('/public/assets/imgs/deco2.svg') no-repeat 0 0 / 100%;
+    right: -50px;
+}
+
+.btn {
+    background: transparent;
+    text-align: center;
+    border: #fff solid 1px;
+    font-size: 24px;
+    padding: 12px;
+    cursor: pointer;
+}
