@@ -5,23 +5,39 @@ body {
 main {
     display: flex;
     flex-direction: column;
-    gap: 350px;
 }
 
 .hero_container {
+    background-image: url('/public/assets/imgs/hero_bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
     display: grid;
     align-items: center;
-    min-height: 70vh;
+}
+
+#hero_yuji {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 85%;
+}
+
+#hero_bt {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }
 
 .hero_content {
+    grid-column: 2 / 7;
     display: flex;
     flex-direction: column;
-    grid-column: 2 / 7;
     gap: 25px;
 }
 
 .hero_content h1 {
+    letter-spacing: 1rem;
     font-size: 110px;
     color: #000000;
     text-wrap: nowrap;
@@ -33,6 +49,7 @@ main {
 }
 
 .hero_content h2 {
+    line-height: 150%;
     font-size: 28px;
 }
 
@@ -40,6 +57,15 @@ main {
     font-size: 24px;
     padding: 16px;
     width: 250px;
+}
+
+.destaques {
+    margin-bottom: 150px;
+    padding-bottom: 250px;
+    background-image: url('/public/assets/imgs/gojo_bg.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+    /* X Y */
 }
 
 .cards {
@@ -101,10 +127,48 @@ main {
     align-self: flex-end;
 }
 
+#destaques_btn {
+    font-size: 28px;
+}
+
+.arquivo_personagens {
+    padding-bottom: 250px;
+    margin-bottom: 250px;
+    position: relative;
+}
+
+.decor {
+    position: absolute;
+    pointer-events: none;
+}
+
+.decor-1 {
+    left: 0;
+    bottom: 65%;
+}
+
+.decor-2 {
+    right: 0;
+    bottom: 70%;
+}
+
+.decor-3 {
+    top: 40%;
+    left: 0;
+}
+
+.decor-4 {
+    top: 65%;
+    right: 0;
+}
+
+.section_bg {
+    position: absolute;
+    right: 0;
+}
 
 .select_characters {
     display: flex;
-    justify-content: space-between;
 }
 
 .select__character a {
@@ -124,19 +188,45 @@ main {
     opacity: 1;
 }
 
+#arquivo_btn {
+    font-size: 35px;
+    padding: 12px 45px 12px 45px;
+}
+
+.quiz {
+    padding-bottom: 35%;
+    background-image: url('/public/assets/imgs/yaga_bg.svg');
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
+}
+
+.quiz .container-content {
+    position: relative;
+}
+
 .quiz__content {
     display: flex;
     justify-content: space-between;
 }
 
 .quiz__call {
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-end;
-    justify-content: space-between;
+    gap: 20px;
+}
+
+#quiz_decor {
+    position: absolute;
+    right: 0;
+    bottom: 35%;
 }
 
 .quiz__call h2 {
+    margin-top: -45px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -146,8 +236,32 @@ main {
     font-size: 100px;
 }
 
+.quiz__call div {
+    background-color: #FFF;
+    width: 2px;
+    height: 100%;
+}
+
 #quiz_btn {
-    padding: 16px 45px 16px 45px;
+    padding: 10px 45px 10px 45px;
+}
+
+.conceitos {
+    margin-bottom: 150px;
+    position: relative;
+    background-image: url('/public/assets/imgs/hand_bg.svg');
+    background-repeat: no-repeat;
+    background-position: center -25%;
+}
+
+.conceitos_decor-1 {
+    bottom: 80%;
+    right: 0;
+}
+
+.conceitos_decor-2 {
+    left: 0;
+    top: 50%;
 }
 
 .conceitos .container-content {
@@ -210,6 +324,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #000;
 }
 
 .card-inner {
@@ -240,7 +355,7 @@ main {
     width: 100%;
     height: 100%;
     transform: rotateY(180deg);
-    background: black;
+    background: #000;
     justify-content: center;
     padding: 20px;
     font-size: 18px;
@@ -249,6 +364,14 @@ main {
 
 .conceitos__card h3 {
     padding: 30px;
+}
+
+.historia {
+    padding-bottom: 250px;
+    position: relative;
+    background-image: url('/public/assets/imgs/chair_bg.png');
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
 .historia .section-title,
@@ -267,4 +390,10 @@ main {
 
 #historia_btn {
     padding: 12px 16px 12px 16px;
+}
+
+#historia_bt {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }

@@ -1,10 +1,11 @@
-.hero_nav {
-    background: url('/public/assets/imgs/navhero_background.svg') no-repeat;
-    background-size: cover;
-    height: 100vh;
-}
-
 .navbar {
+    position: absolute;
+    background-image: url('/public/assets/imgs/nav_bg.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 300px;
+    width: 100%;
+
     font-size: 18px;
     text-wrap: nowrap;
 }
