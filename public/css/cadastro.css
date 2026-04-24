@@ -1,6 +1,6 @@
 .cadastro {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: 2.5fr 2fr;
     height: 100vh;
 }
 
