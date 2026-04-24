@@ -12,11 +12,18 @@ function cadastrar() {
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
 
     // Verificando se há algum campo em branco
+
+    const campos = [nomeVar, emailVar, senhaVar, confirmacaoSenhaVar];
+
+    // Verifica campos vazios
+    for(i = 0; i < campos.length; i++) {
+        if (campos[i] == "") {
+            alert("Preencha todos os campos!");
+            return false;
+        }
+    }
+
     if (
-        nomeVar == "" ||
-        emailVar == "" ||
-        senhaVar == "" ||
-        confirmacaoSenhaVar == "" ||
         nomeVar.length < 1 ||
         (!emailVar.includes("@") || !emailVar.includes(".")) ||
         senhaVar != confirmacaoSenhaVar
