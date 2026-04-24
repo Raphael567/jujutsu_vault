@@ -18,6 +18,9 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var perguntaRouter = require("./src/routes/perguntas");
+var respostaRouter = require("./src/routes/respostas");
+var respostaUsuarioRouter = require("./src/routes/respostasUsuario");
+var tentativaRouter = require("./src/routes/tentativas");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -28,6 +31,9 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/perguntas", perguntaRouter);
+app.use("/respostas", respostaRouter);
+app.use("/respostasUsuario", respostaUsuarioRouter);
+app.use("/tentativas", tentativaRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
