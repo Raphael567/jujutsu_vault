@@ -8,7 +8,7 @@ main {
 }
 
 .hero_container {
-    background-image: url('/public/assets/imgs/hero_bg.svg');
+    background-image: url('../assets/imgs/hero_bg.svg');
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -98,19 +98,19 @@ main {
 }
 
 .section-title:before {
-    background: url('/public/assets/imgs/deco1.svg') no-repeat 0 0 / 100%;
+    background: url('../assets/imgs/deco1.svg') no-repeat 0 0 / 100%;
     left: -50px;
 }
 
 .section-title::after {
-    background: url('/public/assets/imgs/deco2.svg') no-repeat 0 0 / 100%;
+    background: url('../assets/imgs/deco2.svg') no-repeat 0 0 / 100%;
     right: -50px;
 }
 
 .destaques {
     margin-bottom: 150px;
     padding-bottom: 250px;
-    background-image: url('/public/assets/imgs/gojo_bg.svg');
+    background-image: url('../assets/imgs/gojo_bg.svg');
     background-repeat: no-repeat;
     background-position: 100% 100%;
     /* X Y */
@@ -255,7 +255,7 @@ main {
 
 .quiz {
     padding-bottom: 35%;
-    background-image: url('/public/assets/imgs/yaga_bg.svg');
+    background-image: url('../assets/imgs/yaga_bg.svg');
     background-repeat: no-repeat;
     background-position: 100% 100%;
 }
@@ -309,7 +309,7 @@ main {
 .conceitos {
     margin-bottom: 150px;
     position: relative;
-    background-image: url('/public/assets/imgs/hand_bg.svg');
+    background-image: url('../assets/imgs/hand_bg.svg');
     background-repeat: no-repeat;
     background-position: center -25%;
 }
@@ -329,26 +329,6 @@ main {
     position: relative;
 }
 
-.conceitos .container-content::before,
-.conceitos .container-content::after {
-    content: "";
-    position: absolute;
-    width: 570px;
-    height: 2px;
-    top: 61%;
-    background: white;
-}
-
-.conceitos .container-content::before {
-    left: 6%;
-    transform: rotate(35deg);
-}
-
-.conceitos .container-content::after {
-    right: 6%;
-    transform: rotate(-35deg);
-}
-
 .conceitos_cards {
     position: relative;
     display: flex;
@@ -359,16 +339,6 @@ main {
 .conceitos_cards h2 {
     text-align: center;
     font-size: 35px;
-}
-
-.conceitos_cards::after {
-    content: "";
-    position: absolute;
-    bottom: 50%;
-    left: 20%;
-    width: 60%;
-    height: 2px;
-    background: white;
 }
 
 .conceitos__card {
@@ -429,7 +399,7 @@ main {
 .historia {
     padding-bottom: 250px;
     position: relative;
-    background-image: url('/public/assets/imgs/chair_bg.png');
+    background-image: url('../assets/imgs/chair_bg.png');
     background-repeat: no-repeat;
     background-position: right;
 }

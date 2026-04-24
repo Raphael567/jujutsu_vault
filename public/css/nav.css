@@ -1,6 +1,6 @@
 .navbar {
     position: absolute;
-    background-image: url('/public/assets/imgs/nav_bg.svg');
+    background-image: url('../assets/imgs/nav_bg.svg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 300px;

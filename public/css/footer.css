@@ -2,7 +2,7 @@
     padding: 5rem 0em 2rem 0rem;
     font-size: 18px;
 
-    background: url('/public/assets/imgs/footer_bg.svg') center/cover no-repeat;
+    background: url('../assets/imgs/footer_bg.svg') center/cover no-repeat;
 }
 
 .footer__grid {
