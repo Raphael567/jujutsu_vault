@@ -16,6 +16,14 @@ main {
     align-items: center;
 }
 
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    justify-content: center;
+}
+
 #hero_yuji {
     position: absolute;
     right: 0;
@@ -59,6 +67,46 @@ main {
     width: 250px;
 }
 
+.section-title {
+    grid-column: 4 / 10;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    margin-bottom: 120px;
+}
+
+.section-title span {
+    display: block;
+}
+
+.section-title span:first-child {
+    font-size: 65px;
+}
+
+.section-title:last-child {
+    font-size: 35px;
+}
+
+.section-title:before,
+.section-title::after
+{
+    content: "";
+    width: 78px;
+    height: 149px;
+    position: absolute;
+    top: 0;
+}
+
+.section-title:before {
+    background: url('/public/assets/imgs/deco1.svg') no-repeat 0 0 / 100%;
+    left: -50px;
+}
+
+.section-title::after {
+    background: url('/public/assets/imgs/deco2.svg') no-repeat 0 0 / 100%;
+    right: -50px;
+}
+
 .destaques {
     margin-bottom: 150px;
     padding-bottom: 250px;
@@ -66,6 +114,13 @@ main {
     background-repeat: no-repeat;
     background-position: 100% 100%;
     /* X Y */
+}
+
+.container-content {
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
 }
 
 .cards {
@@ -125,6 +180,11 @@ main {
     font-size: 20px;
     justify-self: flex-end;
     align-self: flex-end;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
 }
 
 #destaques_btn {

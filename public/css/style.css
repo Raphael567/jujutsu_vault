@@ -6,7 +6,7 @@
     box-sizing: border-box;
     font-family: 'Cinzel', sans-serif;
     color: #fff;
-    font-weight: 500;
+    font-weight: 400;
 }
 
 a {
@@ -18,64 +18,12 @@ li {
     list-style: none;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
-
-    justify-content: center;
-}
-
-.container-content {
-    grid-column: 2 / 12;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-}
-
-.container-btn {
-    display: flex;
-    justify-content: center;
-}
-
-.section-title {
-    grid-column: 4 / 10;
-    text-align: center;
-    position: relative;
-    color: #fff;
-    margin-bottom: 120px;
-}
-
-.section-title span {
-    display: block;
-}
-
-.section-title span:first-child {
-    font-size: 65px;
-}
-
-.section-title:last-child {
-    font-size: 35px;
-}
-
-.section-title:before,
-.section-title::after
-{
-    content: "";
-    width: 78px;
-    height: 149px;
-    position: absolute;
-    top: 0;
-}
-
-.section-title:before {
-    background: url('/public/assets/imgs/deco1.svg') no-repeat 0 0 / 100%;
-    left: -50px;
-}
-
-.section-title::after {
-    background: url('/public/assets/imgs/deco2.svg') no-repeat 0 0 / 100%;
-    right: -50px;
+input {
+    font-size: 18px;
+    padding: 14px 0px 14px 16px;
+    background: transparent;
+    border: 1px solid #FFF;
+    border-radius: 5px;
 }
 
 .btn {
@@ -92,4 +40,47 @@ li {
     background: #fff;
     color: #000;
     transition: 0.3s ease-in-out;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    background-color: #000;
+    padding: 100px 111px 0px 130px;
+}
+
+.welcome {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.welcome h1, h2 {
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 50px;
+    text-wrap: wrap;
+}
+
+.welcome h2 {
+    font-size: 24px;
+    color: #888787;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.ipt {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.ipt span {
+    font-size: 18px;
+    letter-spacing: 3%;
 }

@@ -4,29 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>JuJutsu Vault | Cadastro</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 
 <body>
-  <div class="formulario">
-    <div class="campo">
-      <span>Nome:</span>
-      <input id="nome_input" type="text" placeholder="Seu nome" />
+  <section class="cadastro">
+    <img src="./assets/imgs/cadastro/todo_bg.svg" alt="Aoi Todo" class="decor">
+
+    <div class="form">
+      <div class="welcome">
+        <h1>Torne-se um Feticeiro JuJutsu</h1>
+        <h2>Por Favor, coloque suas credenciais</h2>
+      </div>
+
+      <div class="inputs">
+        <div class="ipt">
+          <span>Nome:</span>
+          <input id="nome_input" type="text" placeholder="Seu nome">
+        </div>
+
+        <div class="ipt">
+          <span>Email:</span>
+          <input id="email_input" type="text" placeholder="meuemail@provedor.com">
+        </div>
+
+        <div class="ipt">
+          <span>Senha:</span>
+          <input id="senha_input" type="password" placeholder="******">
+        </div>
+
+        <div class="ipt">
+          <span>Confirmar Senha:</span>
+          <input id="confirmacao_senha_input" type="password" placeholder="******">
+        </div>
+      </div>
+
+      <button onclick="cadastrar()" class="btn" id="cadastro-btn">Cadastrar-Se</button>
     </div>
-    <div class="campo">
-      <span>E-mail:</span>
-      <input id="email_input" type="text" placeholder="meuemail@provedor.com" />
-    </div>
-    <div class="campo">
-      <span>Senha:</span>
-      <input id="senha_input" type="password" placeholder="******" />
-    </div>
-    <div class="campo">
-      <span>Confirmação da Senha:</span>
-      <input id="confirmacao_senha_input" type="password" placeholder="******" />
-    </div>
-    <button class="botao" onclick="cadastrar()">Cadastrar</button>
-  </div>
+  </section>
 </body>
 
 </html>

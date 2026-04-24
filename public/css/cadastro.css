@@ -1,0 +1,23 @@
+.cadastro {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    height: 100vh;
+}
+
+.form {
+    gap: 65px;
+}
+
+.decor {
+    width: 100%;
+    align-self: flex-end;
+}
+
+#cadastro-btn {
+    align-self: center;
+    padding: 15px 20px;
+}
+
+.inputs {
+    gap: 20px;
+}
