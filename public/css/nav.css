@@ -1,11 +1,3 @@
-.container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
-
-    justify-content: center;
-}
-
 .navbar {
     position: absolute;
     background-image: url('../assets/imgs/nav_bg.svg');

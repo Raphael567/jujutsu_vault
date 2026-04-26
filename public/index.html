@@ -23,6 +23,7 @@
         <a href="#">Início</a>
         <a href="#">Personagens</a>
         <a href="#">História</a>
+        <a href="./quiz.html">Quiz</a>
         <a href="#">Sobre Mim</a>
         <a href="#">Posts</a>
       </nav>
@@ -39,7 +40,7 @@
     <section class="hero_container container">
 
       <div class="hero_content">
-        <h1>JuJutsu Vault</h1>
+        <h1 id="jujutsu_title">JuJutsu Vault</h1>
         <h2>Explore o universo das maldições, descubra personagens e teste seu conhecimento</h2>
         <button class="btn" id="hero_btn">Explorar Agora</button>
       </div>
@@ -214,7 +215,10 @@
               <span>JuJutsu</span>
               <span>Quiz</span>
             </h2>
-            <button class="btn" id="quiz_btn">Jogar</button>
+            <div id="quiz_line"></div>
+            <button class="btn" id="quiz_btn">
+              <a href="./quiz.html">Jogar</a>
+            </button>
           </div>
         </div>
 
@@ -237,12 +241,12 @@
           <div class="conceitos__card">
             <div class="card-inner">
 
-              <div class="card-front">
+              <div class="card-front card--domain">
                 <h3>Expansões de Domínio</h3>
-                <img src="./assets/imgs/domain_expansion.svg" alt="Expansões de Domínio">
+                <img src="./assets/imgs/domain_expansion.svg" alt="Expansões de Domínio" >
               </div>
 
-              <div class="card-back">
+              <div class="card-back card--domain">
                 <p>
                   Expansões de domínio são técnicas avançadas que criam uma realidade própria,
                   garantindo acerto absoluto contra o inimigo.
@@ -257,12 +261,12 @@
           <div class="conceitos__card">
             <div class="card-inner">
 
-              <div class="card-front">
+              <div class="card-front card--innate">
                 <h3>Técnicas Inatas</h3>
                 <img src="./assets/imgs/innate_technique.svg" alt="Técnicas Inatas">
               </div>
 
-              <div class="card-back">
+              <div class="card-back card--innate">
                 <p>
                   Técnicas inatas são habilidades únicas de cada feiticeiro, adquiridas ao nascer.
                 </p>
@@ -276,12 +280,12 @@
         <div class="conceitos__card">
           <div class="card-inner">
 
-            <div class="card-front">
+            <div class="card-front card--sorcerers">
               <h3>Feiticeiros vs Maldições</h3>
               <img src="./assets/imgs/sorcerers_curses.svg" alt="Feiticeiros vs Maldições">
             </div>
 
-            <div class="card-back">
+            <div class="card-back card--sorcerers">
               <p>
                 Feiticeiros e maldições são opostos, mas ambos dependem da energia amaldiçoada para existir.
                 A luta entre eles é o cerne do universo de Jujutsu Kaisen.

@@ -16,14 +16,6 @@ main {
     align-items: center;
 }
 
-.container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 30px;
-
-    justify-content: center;
-}
-
 #hero_yuji {
     position: absolute;
     right: 0;
@@ -44,16 +36,9 @@ main {
     gap: 25px;
 }
 
-.hero_content h1 {
-    letter-spacing: 1rem;
+#jujutsu_title {
     font-size: 110px;
-    color: #000000;
     text-wrap: nowrap;
-    text-shadow:
-        -1px -1px 0 #D6CD81,
-        1px -1px 0 #D6CD81,
-        -1px 1px 0 #D6CD81,
-        1px 1px 0 #D6CD81;
 }
 
 .hero_content h2 {
@@ -296,7 +281,7 @@ main {
     font-size: 100px;
 }
 
-.quiz__call div {
+#quiz_line {
     background-color: #FFF;
     width: 2px;
     height: 100%;
@@ -371,14 +356,34 @@ main {
 
 .card-front,
 .card-back {
+    border: 4px solid var(--cor);
     position: absolute;
-    border: 4px solid #FFF;
-    border-radius: 12px;
+    border-radius: 22px;
     backface-visibility: hidden;
 }
 
+.card-front h3,
+.card-back h3 {
+    padding: 30px;
+    color: var(--cor-light);
+}
+
+.card--domain {
+    --cor: var(--zenin-green);
+    --cor-light: var(--zenin-green-light);
+}
+
+.card--innate {
+    --cor: var(--blue-jujutsu-dark);
+    --cor-light: var(--blue-jujutsu);
+}
+
+.card--sorcerers {
+    --cor: var(--toji-purple);
+    --cor-light: var(--toji-purple-light);
+}
+
 .card-back {
-    border-radius: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -390,10 +395,6 @@ main {
     padding: 20px;
     font-size: 18px;
     line-height: 1.4;
-}
-
-.conceitos__card h3 {
-    padding: 30px;
 }
 
 .historia {

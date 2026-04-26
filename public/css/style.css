@@ -1,11 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
 
+:root {
+    --black: #000000;
+    --white: #FFFFFF;
+    --blue-jujutsu: #71abac;
+    --blue-jujutsu-dark: #367E8C;
+    --yellow-jujutsu: #D6CD81;
+    --zenin-green: #3A5B33;
+    --zenin-green-light: #518a43;
+    --toji-purple: #72506B;
+    --toji-purple-light: #B485AA;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cinzel', sans-serif;
-    color: #fff;
+    color: var(--white);
     font-weight: 400;
 }
 
@@ -22,14 +34,33 @@ input {
     font-size: 18px;
     padding: 14px 0px 14px 16px;
     background: transparent;
-    border: 1px solid #FFF;
+    border: 1px solid var(--white);
     border-radius: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 30px;
+
+    justify-content: center;
+}
+
+#jujutsu_title {
+    font-weight: 600;
+    letter-spacing: 1rem;
+    color: var(--black);
+    text-shadow:
+        -1px -1px 0 var(--yellow-jujutsu),
+        1px -1px 0 var(--yellow-jujutsu),
+        -1px 1px 0 var(--yellow-jujutsu),
+        1px 1px 0 var(--yellow-jujutsu);
 }
 
 .btn {
     background: transparent;
     text-align: center;
-    border: #fff solid 1px;
+    border: var(--white) solid 1px;
     font-size: 24px;
     padding: 12px;
     cursor: pointer;
@@ -37,15 +68,20 @@ input {
 }
 
 .btn:hover {
-    background: #fff;
-    color: #000;
+    background: var(--white);
+    color: var(--black);
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover a{
+    color: var(--black);
     transition: 0.3s ease-in-out;
 }
 
 .form {
     display: flex;
     flex-direction: column;
-    background-color: #000;
+    background-color: var(--black);
     justify-content: center;
     padding: 0px 111px 0px 130px;
 }

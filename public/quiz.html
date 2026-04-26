@@ -22,6 +22,7 @@
                 <a href="./index.html">Início</a>
                 <a href="#">Personagens</a>
                 <a href="#">História</a>
+                <a href="./quiz.html">Quiz</a>
                 <a href="#">Sobre Mim</a>
                 <a href="#">Posts</a>
             </nav>
@@ -35,21 +36,22 @@
     </header>
 
     <main>
-        <section class="quiz">
-            <div class="quiz_content">
-                <img src="./assets/imgs/quiz/maki_card.svg" alt="Maki Zenin" class="card">
-    
-                <div class="quiz_info">
-                    <h1>Desafio JuJutsu Vault</h1>
-                    <p>
-                        Teste seus conhecimentos sobre o mundo de Jujutsu, enfrente perguntas desafiadoras sobre maldições,
-                        técnicas e personagens icônicos, e descubra qual é o seu verdadeiro nível de feiticeiro dentro do
-                        universo Jujutsu.
-                    </p>
-    
+        <section class="quiz container">
+            <div class="quiz_container">
+                <div class="quiz_content">
+                    <img src="./assets/imgs/quiz/maki_card.svg" alt="Maki Zenin" class="card">
+                    <div class="quiz_info">
+                        <h1 id="jujutsu_title">Desafio JuJutsu Vault</h1>
+                        <p>
+                            Teste seus conhecimentos sobre o mundo de Jujutsu, enfrente perguntas desafiadoras sobre maldições,
+                            técnicas e personagens icônicos, e descubra qual é o seu verdadeiro nível de feiticeiro dentro do
+                            universo Jujutsu.
+                        </p>
+                    </div>
                 </div>
+                <button class="btn" id="quiz_btn">Iniciar Quiz</button> 
             </div>
-            <button class="btn">Iniciar Quiz</button>
+
         </section>
     </main>
 </body>
