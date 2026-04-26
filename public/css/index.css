@@ -1,5 +1,5 @@
 body {
-    background-color: #000;
+    background-color: var(--black);
 }
 
 main {
@@ -56,7 +56,7 @@ main {
     grid-column: 4 / 10;
     text-align: center;
     position: relative;
-    color: #fff;
+    color: var(--white);
     margin-bottom: 120px;
 }
 
@@ -126,13 +126,13 @@ main {
 }
 
 .card__image img {
-    border: 1px solid #fff;
+    border: 1px solid var(--white);
 }
 
 .card__image::before {
     content: "";
     position: absolute;
-    background: #fff;
+    background: var(--white);
     width: 100%;
     height: 5px;
     left: 10px;
@@ -142,7 +142,7 @@ main {
 .card__image::after {
     content: "";
     position: absolute;
-    background: #fff;
+    background: var(--white);
     height: 100%;
     width: 5px;
     right: -15px;
@@ -155,7 +155,7 @@ main {
 
 .card__badge span {
     position: absolute;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 5px;
     bottom: -30px;
     left: 30px;
@@ -282,7 +282,7 @@ main {
 }
 
 #quiz_line {
-    background-color: #FFF;
+    background-color: var(--white);
     width: 2px;
     height: 100%;
 }
@@ -339,7 +339,7 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: #000;
+    background-color: var(--black);
 }
 
 .card-inner {
@@ -369,18 +369,18 @@ main {
 }
 
 .card--domain {
-    --cor: var(--zenin-green);
-    --cor-light: var(--zenin-green-light);
+    --cor: var(--green-zenin);
+    --cor-light: var(--light-green-zenin);
 }
 
 .card--innate {
-    --cor: var(--blue-jujutsu-dark);
+    --cor: var(--dark-blue-jujutsu);
     --cor-light: var(--blue-jujutsu);
 }
 
 .card--sorcerers {
-    --cor: var(--toji-purple);
-    --cor-light: var(--toji-purple-light);
+    --cor: var(--light-purple-toji);
+    --cor-light: var(--light-purple-toji);
 }
 
 .card-back {
@@ -390,7 +390,7 @@ main {
     width: 100%;
     height: 100%;
     transform: rotateY(180deg);
-    background: #000;
+    background: var(--black);
     justify-content: center;
     padding: 20px;
     font-size: 18px;

@@ -15,7 +15,7 @@
 }
 
 .card {
-    border: 3px solid var(--zenin-green);
+    border: 3px solid var(--green-zenin);
     background-color: var(--black);
 }
 
@@ -46,7 +46,7 @@
     font-size: 20px;
     line-height: 180%;
     letter-spacing: 0.25rem;
-    border-left: 3px solid white;
+    border-left: 3px solid var(--white);
     padding-left: 20px;
 }
 

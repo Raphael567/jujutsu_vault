@@ -3,13 +3,14 @@
 :root {
     --black: #000000;
     --white: #FFFFFF;
+    --gray: #D9D9D9;
     --blue-jujutsu: #71abac;
-    --blue-jujutsu-dark: #367E8C;
+    --dark-blue-jujutsu: #367E8C;
     --yellow-jujutsu: #D6CD81;
-    --zenin-green: #3A5B33;
-    --zenin-green-light: #518a43;
-    --toji-purple: #72506B;
-    --toji-purple-light: #B485AA;
+    --green-zenin: #3A5B33;
+    --light-green-zenin: #518A43;
+    --purple-toji: #72506B;
+    --light-purple-toji: #B485AA;
 }
 
 * {
