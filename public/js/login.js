@@ -1,15 +1,40 @@
+let usuariosCadastrados = [];
+
+function listarUsuarios() {
+    fetch("/usuarios").then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(data => {
+                usuariosCadastrados = data;
+            });
+        }
+    }).catch(erro => {
+        console.log(erro);
+    });
+}
+
 function entrar() {
     var emailVar = email_input.value;
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "" || (!emailVar.includes("@") || !emailVar.includes("."))) {
-        cardErro.style.display = "block"
-        mensagem_erro.innerHTML = "Campos inválidos!";
-        finalizarAguardar();
+        error_msg.innerHTML = "Preencha os campos corretamente!";
         return false;
     }
     else {
         setInterval(sumirMensagem, 5000)
+    }
+
+    let encontrou = false;
+    for(let i = 0; i < usuariosCadastrados.length; i++) {
+        if(usuariosCadastrados[i].email === emailVar && usuariosCadastrados[i].senha === senhaVar) {
+            encontrou = true;
+            break;
+        }
+    }
+
+    if (!encontrou) {
+        error_msg.innerHTML = "Usuário não encontrado!";
+        return;
     }
 
     console.log("FORM LOGIN: ", emailVar);
@@ -24,7 +49,7 @@ function entrar() {
             emailServer: emailVar,
             senhaServer: senhaVar
         })
-    }).then(function (resposta) {
+    }).then(resposta => {
         console.log("ESTOU NO THEN DO entrar()!")
 
         if (resposta.ok) {
@@ -52,7 +77,7 @@ function entrar() {
             });
         }
 
-    }).catch(function (erro) {
+    }).catch(erro => {
         console.log(erro);
     })
 
@@ -60,5 +85,7 @@ function entrar() {
 }
 
 function sumirMensagem() {
-    cardErro.style.display = "none"
+    error_msg.innerHTML = "";
 }
+
+listarUsuarios();

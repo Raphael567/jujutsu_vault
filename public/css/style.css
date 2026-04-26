@@ -50,6 +50,10 @@ input {
     padding: 0px 111px 0px 130px;
 }
 
+#error_msg {
+    text-align: center;
+}
+
 .welcome {
     display: flex;
     flex-direction: column;
