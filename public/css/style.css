@@ -56,7 +56,7 @@ input {
     gap: 25px;
 }
 
-.welcome h1, h2 {
+.welcome h1, .welcome h2 {
     text-align: center;
 }
 
