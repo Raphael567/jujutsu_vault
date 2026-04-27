@@ -11,7 +11,8 @@ CREATE TABLE usuario (
 
 CREATE TABLE pergunta (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    descricao VARCHAR(255)
+    descricao VARCHAR(255),
+    caminho_gif VARCHAR(255)
 );
 
 CREATE TABLE resposta (
@@ -25,7 +26,7 @@ CREATE TABLE resposta (
 CREATE TABLE tentativa (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pontuacao INT,
-    _data DATETIME,
+    data_tentativa DATETIME,
     fk_usuario INT,
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
@@ -42,12 +43,12 @@ INSERT INTO usuario (nome, email, senha) VALUES
 ('Raphael', 'raphael@email.com', '123'),
 ('teste', 'teste@email.com', '123');
 
-INSERT INTO pergunta (descricao) VALUES
-('Qual é o nome completo do protagonista de Jujutsu Kaisen?'),
-('Quem é conhecido como o feiticeiro mais forte?'),
-('Qual é o nome da escola onde os feiticeiros estudam em Tóquio?'),
-('Qual é o nome da maldição mais poderosa que habita o corpo de Yuji?'),
-('Qual técnica amaldiçoada permite manipular o infinito?');
+INSERT INTO pergunta (descricao, caminho_gif) VALUES
+('Qual é o nome completo do protagonista de Jujutsu Kaisen?', './assets/gifs/yuji.gif'),
+('Quem é conhecido como o feiticeiro mais forte?', './assets/gifs/gojo.gif'),
+('Qual é o nome da escola onde os feiticeiros estudam em Tóquio?', './assets/gifs/jujutsu_school.gif'),
+('Qual é o nome da maldição mais poderosa que habita o corpo de Yuji?', './assets/gifs/sukuna.gif'),
+('Qual técnica amaldiçoada permite manipular o infinito?', './assets/gifs/gojo2.gif');
 
 -- Pergunta 1
 INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
@@ -94,7 +95,7 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (1, 13), -- Sukuna (correto)
 (1, 18); -- Black Flash (errou)
 
-INSERT INTO tentativa (pontuacao, _data, fk_usuario) VALUES
+INSERT INTO tentativa (pontuacao, data_tentativa, fk_usuario) VALUES
 (2, NOW(), 2);
 
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
@@ -107,12 +108,14 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 -- perguntas com respostas (quiz)
 SELECT 
     p.id AS id_pergunta,
-    p.descricao AS pergunta,
+	p.descricao AS pergunta,
+    p.caminho_gif AS gif,
     r.id AS id_resposta,
     r.descricao AS resposta,
     r.correta AS correta
 FROM pergunta p
-JOIN resposta r ON r.fk_pergunta = p.id;
+JOIN resposta r ON r.fk_pergunta = p.id
+ORDER BY p.id;
 
 -- respostas de uma pergunta específica
 SELECT 

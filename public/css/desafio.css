@@ -1,0 +1,87 @@
+body {
+    background-color: var(--black);
+}
+
+button:disabled:hover {
+    color: var(--white);
+}
+
+.navbar {
+    background-image: none;
+}
+
+#leave-btn {
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 0px 65px;
+}
+
+.desafio {
+    background-image: url('../assets/imgs/quiz/question_bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--black);
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2 / 12;
+}
+
+.desafio-container {
+    margin-top: 100px;
+    grid-column: 2 / 12;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.desafio-title {
+    align-self: center;
+    max-width: 900px;
+}
+
+.desafio h1 {    
+    text-align: center;
+    font-size: 45px;
+}
+
+.desafio-content {
+    display: flex;
+    gap: 45px;
+}
+
+.desafio-content img {
+    width: 750px;
+    height: 430px;
+    border: 3px solid var(--white);
+    border-radius: 10px;
+}
+
+.answers {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.answers .btn {
+
+    padding: 20px 0px 19px 28px;
+    text-align: start;
+    border-radius: 6px;
+    border: 2px solid var(--white);
+    font-weight: 600;
+    text-wrap: nowrap;
+}
+
+#next_question {
+    display: none;
+    align-self: end;
+    background-color: var(--white);
+    color: var(--black);
+    border-radius: 6px;
+    font-weight: 600;
+    padding: 18px 34px;
+}

@@ -13,6 +13,17 @@ function listarPerguntas(_req, res) {
         })
 }
 
-module.exports = {
-    listarPerguntas
+function listarPerguntasRespostas(_req, res) {
+    perguntaModel.listarPerguntasRespostas()
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(error => {
+            console.log(error);
+            res.status(500).json(error.message);
+        })
 }
+
+module.exports = {
+    listarPerguntas,
+    listarPerguntasRespostas
+};

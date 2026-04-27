@@ -8,4 +8,8 @@ router.get("/", (_req, res) => {
     tentativaController.listarTentativas(_req, res);
 })
 
+router.post("/salvar", (req, res) => {
+    tentativaController.salvarTentativa(req, res);
+})
+
 module.exports = router;

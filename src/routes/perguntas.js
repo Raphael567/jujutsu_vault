@@ -8,4 +8,8 @@ router.get("/", (_req, res) => {
     perguntaController.listarPerguntas(_req, res)
 })
 
+router.get("/perguntas-respostas", (_req, res) => {
+    perguntaController.listarPerguntasRespostas(_req, res)
+});
+
 module.exports = router;
