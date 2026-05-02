@@ -1,0 +1,62 @@
+.navbar {
+    background-image: url('../assets/imgs/quiz/nav_bg_green.svg');
+}
+
+.ranking {
+    background-image: url('../assets/imgs/ranking/ranking_bg.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: var(--black);
+    min-height: 100vh;
+    align-items: center;
+}
+
+.ranking-container {
+    grid-column: 2 / 9;
+}
+
+.ranking-container h1 {
+    font-size: 65px;
+    margin-bottom: 75px;
+}
+
+.ranking-header,
+.ranking-row {
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr 0.8fr 0.5fr;
+    gap: 30px;
+}
+
+.ranking-header span {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 15px;
+}
+
+.ranking-row span {
+    color: var(--black);
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-height: calc(60px * 6);
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.ranking-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ranking-list::-webkit-scrollbar-thumb {
+    background: var(--green-zenin);
+    border-radius: 10px;
+}

@@ -38,6 +38,7 @@ main {
 
 #jujutsu_title {
     font-size: 110px;
+    letter-spacing: 1rem;
     text-wrap: nowrap;
 }
 

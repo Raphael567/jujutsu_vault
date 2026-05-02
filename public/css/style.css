@@ -50,7 +50,6 @@ input {
 
 #jujutsu_title {
     font-weight: 600;
-    letter-spacing: 1rem;
     color: var(--black);
     text-shadow:
         -1px -1px 0 var(--yellow-jujutsu),

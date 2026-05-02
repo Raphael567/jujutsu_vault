@@ -26,7 +26,7 @@ CREATE TABLE resposta (
 CREATE TABLE tentativa (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pontuacao INT,
-    _data DATETIME,
+    data_tentativa DATETIME,
     fk_usuario INT,
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
@@ -85,7 +85,7 @@ INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
 ('Técnica das Dez Sombras', 0, 5),
 ('Fala Amaldiçoada', 0, 5);
 
-INSERT INTO tentativa (pontuacao, _data, fk_usuario) VALUES
+INSERT INTO tentativa (pontuacao, data_tentativa, fk_usuario) VALUES
 (4, NOW(), 1);
 
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
@@ -95,7 +95,7 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (1, 13), -- Sukuna (correto)
 (1, 18); -- Black Flash (errou)
 
-INSERT INTO tentativa (pontuacao, _data, fk_usuario) VALUES
+INSERT INTO tentativa (pontuacao, data_tentativa, fk_usuario) VALUES
 (2, NOW(), 2);
 
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
@@ -105,15 +105,19 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (1, 14), -- Mahito (errou)
 (1, 18); -- Black Flash (errou)
 
+SELECT * FROM tentativa;
+
 -- perguntas com respostas (quiz)
 SELECT 
     p.id AS id_pergunta,
-    p.descricao AS pergunta,
+	p.descricao AS pergunta,
+    p.caminho_gif AS gif,
     r.id AS id_resposta,
     r.descricao AS resposta,
     r.correta AS correta
 FROM pergunta p
-JOIN resposta r ON r.fk_pergunta = p.id;
+JOIN resposta r ON r.fk_pergunta = p.id
+ORDER BY p.id;
 
 -- respostas de uma pergunta específica
 SELECT 
