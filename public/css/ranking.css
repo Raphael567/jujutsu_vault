@@ -29,7 +29,9 @@
 }
 
 .ranking-header span {
-    text-align: center;
+    display: flex;
+
+    justify-content: center;
     color: var(--white);
     margin-bottom: 15px;
 }

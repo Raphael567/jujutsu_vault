@@ -26,6 +26,7 @@ CREATE TABLE resposta (
 CREATE TABLE tentativa (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pontuacao INT,
+    tempo_segundos INT,
     data_tentativa DATETIME,
     fk_usuario INT,
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
@@ -41,7 +42,7 @@ CREATE TABLE resposta_usuario (
 
 INSERT INTO usuario (nome, email, senha) VALUES
 ('Raphael', 'raphael@email.com', '123'),
-('teste', 'teste@email.com', '123');
+('Teste', 'teste@email.com', '123');
 
 INSERT INTO pergunta (descricao, caminho_gif) VALUES
 ('Qual é o nome completo do protagonista de Jujutsu Kaisen?', './assets/gifs/yuji.gif'),
@@ -85,76 +86,78 @@ INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
 ('Técnica das Dez Sombras', 0, 5),
 ('Fala Amaldiçoada', 0, 5);
 
-INSERT INTO tentativa (pontuacao, data_tentativa, fk_usuario) VALUES
-(4, NOW(), 1);
+-- Raphael
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(4, 150, NOW(), 1);
 
+-- Teste
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(2, 210, NOW(), 2);
+
+-- Tentativa 1 (Raphael)
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
-(1, 1),  -- Yuji (correto)
-(1, 5),  -- Gojo (correto)
-(1, 9),  -- Escola (correto)
-(1, 13), -- Sukuna (correto)
-(1, 18); -- Black Flash (errou)
+(1, 1),
+(1, 5),
+(1, 9),
+(1, 13),
+(1, 18);
 
-INSERT INTO tentativa (pontuacao, data_tentativa, fk_usuario) VALUES
-(2, NOW(), 2);
-
+-- Tentativa 2 (Teste)
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
-(1, 1),  -- Yuji (correto)
-(1, 5),  -- Gojo (correto)
-(1, 8),  -- Instituto (errou)
-(1, 14), -- Mahito (errou)
-(1, 18); -- Black Flash (errou)
+(2, 1),
+(2, 5),
+(2, 11),
+(2, 14),
+(2, 18);
 
-SELECT * FROM tentativa;
+CREATE OR REPLACE VIEW tentativas_usuario AS
+SELECT
+    u.id,
+    u.nome,
+    t.pontuacao,
+    t.tempo_segundos,
+    t.data_tentativa
+FROM usuario u
+JOIN tentativa t ON u.id = t.fk_usuario;
 
--- perguntas com respostas (quiz)
+CREATE VIEW perguntas_respostas AS
 SELECT 
     p.id AS id_pergunta,
-	p.descricao AS pergunta,
+    p.descricao AS pergunta,
     p.caminho_gif AS gif,
     r.id AS id_resposta,
     r.descricao AS resposta,
-    r.correta AS correta
+    r.correta
 FROM pergunta p
 JOIN resposta r ON r.fk_pergunta = p.id
 ORDER BY p.id;
 
--- respostas de uma pergunta específica
-SELECT 
-    id,
-    descricao
-FROM resposta
-WHERE fk_pergunta = 1 AND correta = 1;
-
--- usuário acertou na tentativa
+CREATE VIEW respostas_usuarios AS
 SELECT 
     ru.fk_tentativa,
     u.nome,
-    p.descricao,
-    r.descricao,
-    r.correta
+    p.descricao AS pergunta,
+    r.descricao AS resposta,
+    r.correta AS correta
 FROM resposta_usuario ru
 JOIN resposta r ON ru.fk_resposta = r.id
 JOIN pergunta p ON r.fk_pergunta = p.id
 JOIN tentativa t ON ru.fk_tentativa = t.id
-JOIN usuario u ON t.fk_usuario = u.id
-WHERE ru.fk_tentativa = 1;
+JOIN usuario u ON t.fk_usuario = u.id;
 
--- pontuacao específica
-SELECT 
+CREATE VIEW ranking AS
+SELECT
     u.nome,
-    SUM(t.pontuacao) AS total_pontos
-FROM usuario u
-JOIN tentativa t ON u.id = t.fk_usuario
-WHERE u.id = 1
-GROUP BY u.id
-ORDER BY total_pontos DESC;
+    t.pontuacao,
+    t.tempo_segundos,
+    DATE_FORMAT(t.data_tentativa, '%d/%m') AS data_tentativa
+FROM tentativa t
+JOIN usuario u ON u.id = t.fk_usuario;
 
--- pontuacao geral
 SELECT 
-    u.nome,
-    SUM(t.pontuacao) AS total_pontos
-FROM usuario u
-JOIN tentativa t ON u.id = t.fk_usuario
-GROUP BY u.id
-ORDER BY total_pontos DESC;
+    nome,
+    CONCAT(pontuacao, '/5') AS acertos,
+    tempo_segundos,
+    data_tentativa
+FROM ranking
+ORDER BY pontuacao DESC, tempo_segundos ASC;

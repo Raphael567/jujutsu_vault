@@ -6,6 +6,6 @@ var respostaUsuarioController = require("../controllers/respostaUsuarioControlle
 //Recebendo os dados do html e direcionando para a função listarRespostas de respostaController.js
 router.get("/", (_req, res) => {
     respostaUsuarioController.listarRespostasUsuario(_req, res);
-})
+});
 
 module.exports = router;

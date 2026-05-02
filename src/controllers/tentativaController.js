@@ -10,7 +10,20 @@ function listarTentativas(_req, res) {
         }).catch(error => {
             console.log(error);
             res.status(500).json(error.message);
-        })
+        });
+}
+
+function listarRanking(_req, res) {
+    tentativaModel.listarRanking()
+        .then(resultado => {
+            console.log(`Resultados encontrados: ${resultado.length}`);
+            console.log(`Resultados: ${JSON.stringify(resultado)}`);
+
+            res.json(resultado);
+        }).catch(error => {
+            console.log(error);
+            res.status(500).json(error.message);
+        });
 }
 
 function salvarTentativa(req, res) {
@@ -19,7 +32,7 @@ function salvarTentativa(req, res) {
     tentativaModel.salvarTentativa(pontuacaoServer, idUsuarioServer)
         .then(resultado => {
             console.log(`Tentativa salva com sucesso: ${JSON.stringify(resultado)}`);
-            
+
             res.json(resultado);
         }).catch(error => {
             console.log(error);
@@ -29,5 +42,6 @@ function salvarTentativa(req, res) {
 
 module.exports = {
     listarTentativas,
+    listarRanking,
     salvarTentativa
 }
