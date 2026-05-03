@@ -40,6 +40,12 @@ input {
     border-radius: 5px;
 }
 
+canvas {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 20px;
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(12, 1fr);

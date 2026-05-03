@@ -12,6 +12,7 @@
 
     <script src="./js/perfil.js" defer></script>
     <script src="./js/ranking.js" defer></script>
+    <script src="./js/dashboards/individual.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -135,9 +136,7 @@
                                 </div>
                             </div>
 
-                            <div class="titulo">
-                                FEITICEIRO GRAU ESPECIAL
-                            </div>
+                            <div id="nivel" class="titulo" style="text-transform: uppercase;"></div>
 
                             <div class="titulo">
                                 #1 NO RANKING
@@ -147,19 +146,19 @@
                         <div class="kpis top">
                             <div class="kpi">
                                 <h2>Média de Acertos</h2>
-                                <p id="media-acertos">3.8/5</p>
+                                <p id="media-acertos"></p>
                             </div>
                             <div class="kpi">
                                 <h2>Melhor Pontuação</h2>
-                                <p id="melhor-pontuacao">4.5/5</p>
+                                <p id="melhor-pontuacao"></p>
                             </div>
                             <div class="kpi">
                                 <h2>Tempo Médio</h2>
-                                <p id="tempo-medio">50s</p>
+                                <p id="tempo-medio"></p>
                             </div>
                             <div class="kpi">
                                 <h2>Total de Tentativas</h2>
-                                <p id="total-tentativas">12</p>
+                                <p id="total-tentativas"></p>
                             </div>
                         </div>
 
@@ -168,11 +167,11 @@
                         <div class="kpis bottom">
                             <div class="kpi">
                                 <h2>Nível Atual</h2>
-                                <p id="nivel">Especial</p>
+                                <p id="nivel"></p>
                             </div>
                             <div class="kpi">
                                 <h2>Próximo Nível</h2>
-                                <p id="proximo-nivel">80%</p>
+                                <p id="proximo-nivel"></p>
                             </div>
                         </div>
                     </section>
