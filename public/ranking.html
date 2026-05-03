@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./css/ranking.css">
 
     <script src="./js/ranking.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -24,7 +25,6 @@
                 <a href="./index.html">Início</a>
                 <a href="#">Personagens</a>
                 <a href="./quiz.html">Quiz</a>
-                <a href="./ranking.html">Ranking</a>
                 <a href="#">História</a>
                 <a href="#">Sobre Mim</a>
                 <a href="#">Posts</a>
@@ -33,15 +33,38 @@
             <div class="navbar_actions">
                 <a href="./login.html">Login</a>
                 <a href="./cadastro.html">Cadastro</a>
+                <a href="./perfil.html">Perfil</a>
             </div>
 
         </div>
     </header>
 
     <main>
+        <section class="dashboard container">
+            <div class="dash-container">
+                <h1 class="title">Visão Geral</h1>
+
+                <canvas class="dashboard-chart" style="height: 600px; width: 1240px;"></canvas>
+
+                <div class="kpis">
+                    <div class="kpi">
+                        <h2>Média Geral de Acertos</h2>
+                        <p id="media-acertos">3.8/5</p>
+                    </div>
+                    <div class="kpi">
+                        <h2>Total de Jogadores</h2>
+                        <p id="total-jogadores">128</p>
+                    </div>
+                    <div class="kpi">
+                        <h2>Tempo Médio Global</h2>
+                        <p id="tempo-medio">50s</p>
+                    </div>
+                </div>
+        </section>
+
         <section class="ranking container">
             <div class="ranking-container">
-                <h1 class="ranking-title">Ranking Geral</h1>
+                <h1 class="title">Ranking Geral</h1>
 
                 <div class="ranking-header">
                     <span>Rank</span>

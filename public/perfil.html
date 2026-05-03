@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil | JuJutsu Vault</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/ranking.css">
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/perfil.css">
+
+    <script src="./js/perfil.js" defer></script>
+    <script src="./js/ranking.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container navbar_container">
+
+            <a href="./index.html" class="navbar_logo">
+                <img src="./assets/imgs/logo.svg" alt="JuJutsu Vault Logo">
+            </a>
+
+            <nav class="navbar_nav">
+                <a href="./index.html">Início</a>
+                <a href="#">Personagens</a>
+                <a href="./quiz.html">Quiz</a>
+                <a href="#">História</a>
+                <a href="#">Sobre Mim</a>
+                <a href="#">Posts</a>
+            </nav>
+
+            <div class="navbar_actions">
+                <a href="./login.html">Login</a>
+                <a href="./cadastro.html">Cadastro</a>
+                <a href="./perfil.html">Perfil</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main>
+        <section class="perfil container">
+            <div class="perfil-container">
+                <div class="menu">
+                    <button class="item active">
+                        <h2>Configurações</h2>
+                    </button>
+                    <button class="item">
+                        <h2>Visão Geral</h2>
+                    </button>
+                    <button class="item">
+                        <h2>Ranking</h2>
+                    </button>
+                    <button class="item">
+                        <h2>Histórico</h2>
+                    </button>
+                </div>
+
+                <div class="content">
+                    <section id="config" class="section active">
+                        <div class="perfil-header">
+                            <div class="perfil-info">
+                                <img src="./assets/icon/avatar1.svg" class="avatar">
+
+                                <div class="user">
+                                    <h3>RAPHAEL PEREIRA CANUTO</h3>
+                                    <span>raphael@email.com</span>
+                                </div>
+                            </div>
+
+                            <button class="white-btn">EDITAR</button>
+                        </div>
+
+                        <div class="config-container">
+                            <div class="form-grid">
+
+                                <div class="input-group">
+                                    <label>Nome</label>
+                                    <input type="text" placeholder="RAPHAEL PEREIRA CANUTO">
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="RAPHAEL@EMAIL.COM">
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Confirmar senha atual</label>
+                                    <input type="password" placeholder="******">
+                                </div>
+
+                                <div class="input-group">
+                                    <label>Senha nova</label>
+                                    <input type="password" placeholder="Digite uma nova senha">
+                                </div>
+
+                            </div>
+
+
+                            <div class="avatar-section">
+                                <h3>Mudar avatar</h3>
+
+                                <div class="avatar-list">
+                                    <img src="./assets/icon/avatar1.svg" class="avatar selected">
+                                    <img src="./assets/icon/avatar2.svg" class="avatar">
+                                    <img src="./assets/icon/avatar3.svg" class="avatar">
+                                    <img src="./assets/icon/avatar4.svg" class="avatar">
+                                    <img src="./assets/icon/avatar5.svg" class="avatar">
+                                    <img src="./assets/icon/avatar6.svg" class="avatar">
+                                    <img src="./assets/icon/avatar7.svg" class="avatar">
+                                    <img src="./assets/icon/avatar8.svg" class="avatar">
+                                </div>
+                            </div>
+
+                            <div class="actions">
+                                <button class="white-btn">Cancelar</button>
+                                <button class="btn">Salvar</button>
+                            </div>
+
+                        </div>
+                    </section>
+                    <section id="visao" class="section">
+
+                        <div class="perfil-header">
+
+                            <div class="perfil-info">
+                                <img src="./assets/icon/avatar1.svg" class="avatar">
+
+                                <div class="user">
+                                    <h3>RAPHAEL PEREIRA CANUTO</h3>
+                                    <span>raphael@email.com</span>
+                                </div>
+                            </div>
+
+                            <div class="titulo">
+                                FEITICEIRO GRAU ESPECIAL
+                            </div>
+
+                            <div class="titulo">
+                                #1 NO RANKING
+                            </div>
+                        </div>
+
+                        <div class="kpis top">
+                            <div class="kpi">
+                                <h2>Média de Acertos</h2>
+                                <p id="media-acertos">3.8/5</p>
+                            </div>
+                            <div class="kpi">
+                                <h2>Melhor Pontuação</h2>
+                                <p id="melhor-pontuacao">4.5/5</p>
+                            </div>
+                            <div class="kpi">
+                                <h2>Tempo Médio</h2>
+                                <p id="tempo-medio">50s</p>
+                            </div>
+                            <div class="kpi">
+                                <h2>Total de Tentativas</h2>
+                                <p id="total-tentativas">12</p>
+                            </div>
+                        </div>
+
+                        <canvas class="dashboard-chart"></canvas>
+
+                        <div class="kpis bottom">
+                            <div class="kpi">
+                                <h2>Nível Atual</h2>
+                                <p id="nivel">Especial</p>
+                            </div>
+                            <div class="kpi">
+                                <h2>Próximo Nível</h2>
+                                <p id="proximo-nivel">80%</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="ranking" class="section container">
+                        <h1>Você está na 1° posição</h1>
+
+                        <div class="ranking-header">
+                            <span>Rank</span>
+                            <span>Nome</span>
+                            <span>Pontuação</span>
+                            <span>Tempo</span>
+                            <span>Data</span>
+                        </div>
+
+                        <div class="ranking-list"></div>
+                    </section>
+
+                    <section id="historico" class="section container">
+                        <h1>Suas Tentativas</h1>
+
+                        <div class="ranking-header">
+                            <span>Data</span>
+                            <span>Pontuação</span>
+                            <span>Tempo</span>
+                        </div>
+
+                        <div class="ranking-list"></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

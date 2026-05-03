@@ -1,0 +1,212 @@
+.perfil {
+    background-color: var(--black);
+    min-height: 100vh;
+    justify-content: center;
+    padding-bottom: 150px;
+}
+
+.perfil-container {
+    grid-column: 2 / 12;
+    margin-top: 220px;
+    display: flex;
+    flex-direction: column;
+    gap: 75px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 75px;
+}
+
+.menu button {
+    opacity: 40%;
+    cursor: pointer;
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 2px solid var(--white);
+    color: var(--white);
+    font-size: 18px;
+    text-align: center;
+    text-wrap: nowrap;
+    padding-bottom: 15px;
+}
+
+.menu button.active {
+    opacity: 100%;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+#ranking.active {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+#ranking h1 {
+    font-size: 30px;
+    letter-spacing: 0.12em;
+}
+
+#historico.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#historico.active .ranking-header {
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+#visao.active {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.perfil-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.perfil-info .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 10px;
+}
+
+.user {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+} 
+
+.user h3 {
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.user span {
+    font-size: 18px;
+    opacity: 0.4;
+}
+
+.titulo {
+    font-weight: 500;
+    font-size: 40px;
+}
+
+#config.active .perfil-header {
+    margin-bottom: 30px;
+}
+
+.config-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    color: white;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 40px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 25px;
+}
+
+.input-group input {
+    background: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 25px;
+}
+
+.avatar-section h3 {
+    font-size: 25px;
+    margin-bottom: 25px;
+    letter-spacing: 0.1em;
+}
+
+.avatar-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.avatar-list .avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background-color: var(--white);
+    transition: 0.2s;
+}
+
+.avatar-list .avatar:hover {
+    transform: scale(1.05);
+    background: none;
+    border: 2px solid white;
+}
+
+.avatar-list .avatar.selected {
+    background: none;
+    border: 2px solid white;
+    opacity: 50%;
+}
+
+.avatar-list .avatar.selected:hover {
+    transform: none;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.cancelar {
+    background: #d9d9d9;
+}
+
+.salvar {
+    background: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.bottom {
+    align-self: center;
+    width: 50%;
+}

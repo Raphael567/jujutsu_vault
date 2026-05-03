@@ -63,7 +63,19 @@ input {
     text-align: center;
     border: var(--white) solid 1px;
     font-size: 24px;
-    padding: 12px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.white-btn {
+    background: var(--white);
+    color: var(--black);
+    text-align: center;
+    border: var(--white) solid 1px;
+    font-size: 24px;
+    padding: 12px 35px;
+    font-weight: 500;
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
@@ -76,6 +88,17 @@ input {
 
 .btn:hover a{
     color: var(--black);
+    transition: 0.3s ease-in-out;
+}
+
+.white-btn:hover {
+    background: transparent;
+    color: var(--white);
+    transition: 0.3s ease-in-out;
+}
+
+.white-btn:hover a{
+    color: var(--white);
     transition: 0.3s ease-in-out;
 }
 
