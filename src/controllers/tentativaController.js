@@ -26,6 +26,21 @@ function listarRanking(_req, res) {
         });
 }
 
+function listarTentativasPorUsuario(req, res) {
+    const idUsuario = req.params.idUsuario;
+
+    tentativaModel.listarTentativasPorUsuario(idUsuario)
+        .then(resultado => {
+            console.log(`Resultados encontrados: ${resultado.length}`);
+            console.log(`Resultados: ${JSON.stringify(resultado)}`);
+
+            res.json(resultado);
+        }).catch(error => {
+            console.log(error);
+            res.status(500).json(error.message);
+        });
+}
+
 function salvarTentativa(req, res) {
     const { pontuacaoServer, idUsuarioServer } = req.body;
 
@@ -43,5 +58,6 @@ function salvarTentativa(req, res) {
 module.exports = {
     listarTentativas,
     listarRanking,
+    listarTentativasPorUsuario,
     salvarTentativa
 }

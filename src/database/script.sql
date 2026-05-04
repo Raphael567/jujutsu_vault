@@ -90,6 +90,14 @@ INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
 (4, 150, NOW(), 1);
 
+-- Raphael
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(3, 80, NOW(), 1);
+
+-- Raphael
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(2, 50, NOW(), 1);
+
 -- Teste
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
 (2, 210, NOW(), 2);
@@ -110,15 +118,29 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (2, 14),
 (2, 18);
 
-CREATE OR REPLACE VIEW tentativas_usuario AS
+CREATE VIEW tentativas_usuario AS
 SELECT
-    u.id,
-    u.nome,
-    t.pontuacao,
-    t.tempo_segundos,
-    t.data_tentativa
+    u.id AS id_usuario,
+    u.nome AS nome,
+    t.pontuacao AS pontuacao,
+    t.tempo_segundos AS tempo,
+    DATE_FORMAT(t.data_tentativa, '%d/%m') AS data_tentativa
 FROM usuario u
 JOIN tentativa t ON u.id = t.fk_usuario;
+
+SELECT
+	data_tentativa,
+    pontuacao,
+    tempo
+FROM tentativas_usuario 
+WHERE id_usuario = 1;
+
+SELECT
+	id_usuario,
+	nome,
+    pontuacao,
+    tempo
+FROM tentativas_usuario;
 
 CREATE VIEW perguntas_respostas AS
 SELECT 
@@ -147,6 +169,7 @@ JOIN usuario u ON t.fk_usuario = u.id;
 
 CREATE VIEW ranking AS
 SELECT
+	u.id,
     u.nome,
     t.pontuacao,
     t.tempo_segundos,
@@ -155,6 +178,7 @@ FROM tentativa t
 JOIN usuario u ON u.id = t.fk_usuario;
 
 SELECT 
+	id,
     nome,
     CONCAT(pontuacao, '/5') AS acertos,
     tempo_segundos,

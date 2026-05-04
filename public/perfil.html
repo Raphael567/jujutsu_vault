@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="./css/perfil.css">
 
     <script src="./js/perfil.js" defer></script>
-    <script src="./js/ranking.js" defer></script>
     <script src="./js/dashboards/individual.js" defer></script>
+    <script src="./js/ranking.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -34,9 +34,8 @@
             </nav>
 
             <div class="navbar_actions">
-                <a href="./login.html">Login</a>
-                <a href="./cadastro.html">Cadastro</a>
                 <a href="./perfil.html">Perfil</a>
+                <a href="./cadastro.html">Sair</a>
             </div>
 
         </div>
@@ -136,7 +135,7 @@
                                 </div>
                             </div>
 
-                            <div id="nivel" class="titulo" style="text-transform: uppercase;"></div>
+                            <div id="nivel-titulo" class="titulo" style="text-transform: uppercase;"></div>
 
                             <div class="titulo">
                                 #1 NO RANKING
@@ -177,29 +176,33 @@
                     </section>
 
                     <section id="ranking" class="section container">
-                        <h1>Você está na 1° posição</h1>
+                        <h1>
+                            Você está na posição: <span id="posicao-usuario" style="font-weight: 600;"></span>
+                        </h1>
 
-                        <div class="ranking-header">
-                            <span>Rank</span>
-                            <span>Nome</span>
-                            <span>Pontuação</span>
-                            <span>Tempo</span>
-                            <span>Data</span>
+                        <div>
+                            <div class="ranking-header">
+                                <span>Rank</span>
+                                <span>Nome</span>
+                                <span>Pontuação</span>
+                                <span>Tempo</span>
+                                <span>Data</span>
+                            </div>
+    
+                            <div class="ranking-list"></div>
                         </div>
-
-                        <div class="ranking-list"></div>
                     </section>
 
                     <section id="historico" class="section container">
                         <h1>Suas Tentativas</h1>
 
-                        <div class="ranking-header">
+                        <div class="tentativa-header">
                             <span>Data</span>
                             <span>Pontuação</span>
                             <span>Tempo</span>
                         </div>
 
-                        <div class="ranking-list"></div>
+                        <div class="tentativas-list"></div>
                     </section>
                 </div>
             </div>

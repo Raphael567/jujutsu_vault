@@ -1,11 +1,21 @@
-const tentativasUsuario = [
-    { pontuacao: 3, tempo: 40, data: "2026-05-01" },
-    { pontuacao: 4, tempo: 35, data: "2026-05-02" },
-    { pontuacao: 5, tempo: 30, data: "2026-05-03" },
-    { pontuacao: 4, tempo: 38, data: "2026-05-04" }
-];
 
-function calcularKPIsUsuario() {
+function listarTentativasPorUsuario(idUsuario) {
+    fetch(`/tentativas/usuario/${idUsuario}`)
+        .then(response => response.json())
+        .then(data => {
+            exibirGraficoEKPIs(data);
+        })
+        .catch(error => {
+            console.error("Erro ao listar tentativas:", error);
+        });
+}
+
+function exibirGraficoEKPIs(tentativas) {
+    calcularKPIsUsuario(tentativas);
+    gerarGraficoUsuario(tentativas);
+}
+
+function calcularKPIsUsuario(tentativasUsuario) {
     if (tentativasUsuario.length === 0) return;
 
     let somaPontuacao = 0;
@@ -74,10 +84,11 @@ function calcularNivel(media, tentativas) {
     }
 
     document.getElementById("nivel").innerText = nivel;
+    document.getElementById("nivel-titulo").innerText = nivel;
     document.getElementById("proximo-nivel").innerText = proximoNivel;
 }
 
-function gerarGraficoUsuario() {
+function gerarGraficoUsuario(tentativasUsuario) {
     const ctx = document.querySelector(".dashboard-chart");
 
     const labels = [];
@@ -127,5 +138,4 @@ function gerarGraficoUsuario() {
     });
 }
 
-calcularKPIsUsuario();
-gerarGraficoUsuario();
+listarTentativasPorUsuario(usuarioLogado);

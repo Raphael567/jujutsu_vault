@@ -62,11 +62,47 @@
     align-items: center;
 }
 
-#historico.active .ranking-header {
+.tentativas-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.tentativa-header,
+.tentativa-row {
     font-size: 25px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 2fr;
+    align-items: center;
     gap: 30px;
+}
+
+.tentativa-header span {
+    display: flex;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.tentativa-row span {
+    color: var(--black);
+    padding: 0px 25px;
+    font-weight: 500;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.tentativas-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.tentativas-list::-webkit-scrollbar-thumb {
+    background: var(--green-zenin);
+    border-radius: 10px;
 }
 
 #visao.active {
@@ -210,4 +246,8 @@
 .bottom {
     align-self: center;
     width: 50%;
+}
+
+.bottom .kpi {
+    text-align: center;
 }

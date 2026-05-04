@@ -10,15 +10,21 @@ function listarRanking() {
 }
 
 function exibirRanking(ranking) {
-    console.log(ranking)
     const rankingContainer = document.querySelector(".ranking-list");
     rankingContainer.innerHTML = "";
+
+    const usuarioLogado = sessionStorage.getItem("ID_USUARIO");
 
     for (let i = 0; i < ranking.length; i++) {
         const item = ranking[i];
 
         const row = document.createElement("div");
         row.classList.add("ranking-row");
+
+        if (item.id == usuarioLogado) {
+            row.classList.add("me");
+            document.getElementById("posicao-usuario").innerHTML = "#" + (i + 1);
+        }
 
         row.innerHTML = `
             <span class="rank">${i + 1}</span>
@@ -37,3 +43,5 @@ function formatarTempo(segundos) {
     const sec = segundos % 60;
     return `${min}MIN${sec}s`;
 }
+
+listarRanking();

@@ -3,7 +3,26 @@ var database = require("../database/config")
 function listarTentativas() {
     console.log("ACESSEI O PERGUNTA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente");
     var instrucaoSql = `
-        SELECT id, pontuacao, data_tentativa, fk_usuario FROM tentativa;
+        SELECT
+            id_usuario,
+            nome,
+            pontuacao,
+            tempo
+        FROM tentativas_usuario;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function listarTentativasPorUsuario(idUsuario) {
+    console.log("ACESSEI O PERGUNTA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente");
+    var instrucaoSql = `
+        SELECT
+            data_tentativa,
+            pontuacao,
+            tempo
+        FROM tentativas_usuario 
+        WHERE id_usuario = ${idUsuario};
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -12,7 +31,8 @@ function listarTentativas() {
 function listarRanking() {
     console.log("ACESSEI O PERGUNTA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente");
     var instrucaoSql = `
-        SELECT 
+        SELECT
+            id,
             nome,
             CONCAT(pontuacao, '/5') AS acertos,
             tempo_segundos,
@@ -35,5 +55,6 @@ function salvarTentativa(pontuacao, fk_usuario) {
 module.exports = {
     listarTentativas,
     listarRanking,
+    listarTentativasPorUsuario,
     salvarTentativa
 };

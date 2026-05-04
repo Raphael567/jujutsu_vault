@@ -12,6 +12,10 @@ router.get("/ranking", (_req, res) => {
     tentativaController.listarRanking(_req, res);
 });
 
+router.get("/usuario/:idUsuario", (req, res) => {
+    tentativaController.listarTentativasPorUsuario(req, res);
+});
+
 router.post("/salvar", (req, res) => {
     tentativaController.salvarTentativa(req, res);
 });
