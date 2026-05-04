@@ -31,11 +31,11 @@ function listarTentativasPorUsuario(idUsuario) {
 function listarRanking() {
     console.log("ACESSEI O PERGUNTA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente");
     var instrucaoSql = `
-        SELECT
+        SELECT 
             id,
             nome,
-            CONCAT(pontuacao, '/5') AS acertos,
-            tempo_segundos,
+            CONCAT(pontuacao, '/5') AS pontuacao,
+            tempo_segundos AS tempo,
             data_tentativa
         FROM ranking
         ORDER BY pontuacao DESC, tempo_segundos ASC;

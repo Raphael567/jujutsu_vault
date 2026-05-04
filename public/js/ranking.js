@@ -29,8 +29,8 @@ function exibirRanking(ranking) {
         row.innerHTML = `
             <span class="rank">${i + 1}</span>
             <span class="name">${item.nome}</span>
-            <span class="score">${item.acertos}</span>
-            <span class="time">${formatarTempo(item.tempo_segundos)}</span>
+            <span class="score">${item.pontuacao}</span>
+            <span class="time">${formatarTempo(item.tempo)}</span>
             <span class="date">${item.data_tentativa}</span>
         `;
 
