@@ -160,7 +160,7 @@ function finalizarQuiz() {
         .then(res => res.json())
         .then(data => {
             console.log("Tentativa salva:", data);
-            window.location.href = "./index.html";
+            window.location.href = "./ranking.html";
         })
         .catch(err => {
             console.error("Erro ao salvar tentativa:", err);
