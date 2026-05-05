@@ -13,38 +13,6 @@
     gap: 75px;
 }
 
-.menu {
-    display: flex;
-    justify-content: space-between;
-    gap: 75px;
-}
-
-.menu button {
-    opacity: 40%;
-    cursor: pointer;
-    width: 100%;
-    background: none;
-    border: none;
-    border-bottom: 2px solid var(--white);
-    color: var(--white);
-    font-size: 18px;
-    text-align: center;
-    text-wrap: nowrap;
-    padding-bottom: 15px;
-}
-
-.menu button.active {
-    opacity: 100%;
-}
-
-.section {
-    display: none;
-}
-
-.section.active {
-    display: block;
-}
-
 #ranking.active {
     display: flex;
     flex-direction: column;

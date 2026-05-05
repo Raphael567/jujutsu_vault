@@ -12,6 +12,81 @@ function listarUsuarios() {
     });
 }
 
+function entrar() {
+    var emailVar = email_login.value;
+    var senhaVar = senha_login.value;
+
+    if (emailVar == "" || senhaVar == "" || (!emailVar.includes("@") || !emailVar.includes("."))) {
+        error_msg_login.innerHTML = "Preencha os campos corretamente!";
+        return false;
+    }
+    else {
+        setTimeout(sumirMensagem, 5000)
+    }
+
+    let encontrou = false;
+    for(let i = 0; i < usuariosCadastrados.length; i++) {
+        if(usuariosCadastrados[i].email === emailVar && usuariosCadastrados[i].senha === senhaVar) {
+            encontrou = true;
+            break;
+        }
+    }
+
+    if (!encontrou) {
+        error_msg_login.innerHTML = "Usuário não encontrado!";
+        return;
+    }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        })
+    }).then(resposta => {
+        console.log("ESTOU NO THEN DO entrar()!")
+
+        if (resposta.ok) {
+            console.log(resposta);
+
+            resposta.json().then(json => {
+                console.log(json);
+                console.log(JSON.stringify(json));
+                sessionStorage.EMAIL_USUARIO = json.email;
+                sessionStorage.NOME_USUARIO = json.nome;
+                sessionStorage.ID_USUARIO = json.id;
+
+                setTimeout(function () {
+                    window.location = "./index.html";
+                });
+            });
+
+        } else {
+
+            console.log("Houve um erro ao tentar realizar o login!");
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+
+    }).catch(erro => {
+        console.log(erro);
+    })
+
+    return false;
+}
+
+function sumirMensagem() {
+    error_msg_login.innerHTML = "";
+}
+
 function verificarUsuarioCadastrado(nome, email) {
     const erros = [];
 
@@ -63,14 +138,14 @@ function verificarCampos(campos) {
 }
 
 function exibirMensagemErro(mensagem) {
-    error_msg.innerHTML = mensagem;
+    error_msg_cadastro.innerHTML = mensagem;
 }
 
 function cadastrar() {
-    var nomeVar = nome_input.value;
-    var emailVar = email_input.value;
-    var senhaVar = senha_input.value;
-    var confirmacaoSenhaVar = confirmacao_senha_input.value;
+    var nomeVar = nome_cadastro.value;
+    var emailVar = email_cadastro.value;
+    var senhaVar = senha_cadastro.value;
+    var confirmacaoSenhaVar = confirmacao_senha_cadastro.value;
 
     const campos = [nomeVar, emailVar, senhaVar, confirmacaoSenhaVar];
 
@@ -98,10 +173,6 @@ function cadastrar() {
 
             if (resposta.ok) {
                 alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
-
-                setTimeout(() => {
-                    window.location = './login.html';
-                });
 
             } else {
                 throw "Houve um erro ao tentar realizar o cadastro!";
