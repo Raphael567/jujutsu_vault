@@ -181,6 +181,7 @@ canvas {
 
 .menu button.active {
     opacity: 100%;
+    cursor: default;
 }
 
 .section {

@@ -17,16 +17,23 @@ function inicializarMenu() {
 }
 
 function alternarSecao(btn, index) {
-    atualizarBotoes(btn);
+    atualizarBotoes(btn, index);
     atualizarSecoes(index);
 }
 
-function atualizarBotoes(btn) {
-    for (let j = 0; j < buttons.length; j++) {
-        buttons[j].classList.remove('active');
+function atualizarBotoes(btn, index) {
+    const todosBotoes = document.querySelectorAll('.item');
+
+    for (let i = 0; i < todosBotoes.length; i++) {
+        todosBotoes[i].classList.remove('active');
     }
 
-    btn.classList.add('active');
+    const menus = document.querySelectorAll('.menu');
+
+    for (let k = 0; k < menus.length; k++) {
+        const botoes = menus[k].querySelectorAll('.item');
+        botoes[index].classList.add('active');
+    }
 }
 
 function atualizarSecoes(index) {
