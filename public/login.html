@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JuJutsu Vault | Login</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/login_cadastro.css">
+
+    <script src="./js/login.js" defer></script>
+</head>
+
+<body>
+    <section class="login">
+        <div class="form">
+            <div class="menu">
+                <button class="item login-btn active">
+                    <h2>Login</h2>
+                </button>
+                <button class="item cadastro-btn">
+                    <a href="./cadastro.html"><h2>Cadastro</h2></a>
+                </button>
+            </div>
+
+            <div class="welcome">
+                <h1>
+                    <span>Bem Vindo de</span>
+                    <span>Volta Feiticeiro</span>
+                </h1>
+                <h2>Por Favor, coloque suas credenciais</h2>
+            </div>
+
+            <div class="inputs">
+                <div class="ipt">
+                    <span>Email:</span>
+                    <input id="email_input" type="text" placeholder="Login">
+                </div>
+
+                <div class="ipt">
+                    <span>Senha:</span>
+                    <input id="senha_input" type="password" placeholder="******">
+                </div>
+            </div>
+
+            <button onclick="entrar()" class="btn" id="login-btn">Login</button>
+            <h1 id="error_msg_login"></h1>
+        </div>
+        <img src="./assets/imgs/login/gojo_bg.svg" alt="Satoru Gojo" class="decor decor-1">
+        <img src="./assets/imgs/login/toji_bg.svg" alt="Toji Fushiguro Renascido" class="decor decor-2">
+    </section>
+</body>
+
+</html>
