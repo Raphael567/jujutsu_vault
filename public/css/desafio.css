@@ -10,10 +10,31 @@ button:disabled:hover {
     background-image: none;
 }
 
+.navbar_actions {
+    align-items: center;
+}
+
 #leave-btn {
     border-radius: 6px;
     font-weight: 600;
     padding: 0px 65px;
+    background: transparent;
+    text-align: center;
+    border: var(--white) solid 1px;
+    font-size: 24px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+#leave-btn:hover {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+.timer {
+    font-size: 28px;
+    font-weight: 600;
 }
 
 .desafio {
@@ -35,6 +56,22 @@ button:disabled:hover {
     gap: 50px;
 }
 
+.progress-container {
+    width: 100%;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background-color: var(--white);
+    transition: width 0.3s ease;
+}
+
 .desafio-title {
     align-self: center;
     border-radius: 10px;
@@ -51,13 +88,13 @@ button:disabled:hover {
     gap: 45px;
 }
 
-.desafio-content img, #question_gif {
+.desafio-content img,
+#question_gif {
     width: 750px;
     height: 430px;
     border: 3px solid var(--white);
     border-radius: 10px;
 }
-
 
 .answers {
     align-self: center;
@@ -106,7 +143,8 @@ button:disabled:hover {
     gap: 30px;
 }
 
-.resultado-final p, .resultado-final h2 {
+.resultado-final p,
+.resultado-final h2 {
     font-size: 32px;
     font-weight: 600;
 }

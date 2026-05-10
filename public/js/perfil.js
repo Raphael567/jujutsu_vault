@@ -293,11 +293,9 @@ saveBtn.addEventListener("click", () => {
 
 
             //Atualiza a tela com os novos dados
-
             carregarPerfil();
 
             perfilAvatar.src = avatarSelecionado;
-
 
             // Sair da Edição
             editBtn.classList.remove("editing");

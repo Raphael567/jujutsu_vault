@@ -15,6 +15,7 @@
     <script src="./js/utils/alternarSecao.js" defer></script>
     <script src="./js/dashboards/individual.js" defer></script>
     <script src="./js/ranking.js" defer></script>
+    <script src="./js/sessao.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -37,7 +38,7 @@
 
             <div class="navbar_actions">
                 <a href="./perfil.html">Perfil</a>
-                <a href="./cadastro.html">Sair</a>
+                <button onclick="limparSessao()">Sair</button>
             </div>
 
         </div>
@@ -96,7 +97,8 @@
 
                                 <div class="input-group">
                                     <label>Senha nova</label>
-                                    <input id="new-password" type="password" placeholder="Digite uma nova senha" disabled>
+                                    <input id="new-password" type="password" placeholder="Digite uma nova senha"
+                                        disabled>
                                 </div>
 
                             </div>
@@ -166,7 +168,7 @@
 
                         <div class="graficos">
                             <canvas class="dashboard-chart"></canvas>
-    
+
                             <canvas class="dashboard-pizza"></canvas>
                         </div>
 
@@ -195,7 +197,7 @@
                                 <span>Tempo</span>
                                 <span>Data</span>
                             </div>
-    
+
                             <div class="ranking-list"></div>
                         </div>
                     </section>

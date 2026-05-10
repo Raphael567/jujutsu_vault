@@ -11,13 +11,14 @@ function listarTentativas() {
 
 function exibirGraficoEKPIs(tentativas) {
     calcularKPIs(tentativas);
-    gerarGrafico(tentativas);
+    gerarGraficoBarras(tentativas);
+    gerarGraficoPizza(tentativas);
 }
 
-function gerarGrafico(tentativas) {
+function gerarGraficoBarras(tentativas) {
     const ctx = document.querySelector(".dashboard-chart");
 
-    const distribuicao = [0, 0, 0, 0, 0, 0];
+    const distribuicao = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 
     for (let i = 0; i < tentativas.length; i++) {
         const pontuacao = tentativas[i].pontuacao;
@@ -27,7 +28,7 @@ function gerarGrafico(tentativas) {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['0', '1', '2', '3', '4', '5'],
+            labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
             datasets: [{
                 label: 'Distribuição de Acertos',
                 data: distribuicao,
@@ -39,8 +40,24 @@ function gerarGrafico(tentativas) {
             scales: {
                 y: {
                     beginAtZero: true,
+                    max: 10,
                     ticks: {
-                        stepSize: 1
+                        stepSize: 1,
+                        color: '#000',
+                        font: {
+                            size: 18,
+                            weight: '600'
+                        }
+                    }
+                },
+
+                x: {
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 18,
+                            weight: '600'
+                        }
                     }
                 }
             },
@@ -51,8 +68,59 @@ function gerarGrafico(tentativas) {
                     color: '#000',
                     font: {
                         size: 32,
-                        weight: '500',
+                        weight: '800',
                         family: 'Cinzel, serif'
+                    }
+                }
+            }
+        }
+    });
+}
+
+function gerarGraficoPizza(tentativas) {
+
+    const ctx = document.querySelector(".dashboard-pizza");
+
+    let baixo = 0;
+    let medio = 0;
+    let alto = 0;
+
+    for (let i = 0; i < tentativas.length; i++) {
+
+        const p = tentativas[i].pontuacao;
+
+        if (p <= 3) baixo++;
+        else if (p <= 7) medio++;
+        else alto++;
+    }
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Baixo (0-3)', 'Médio (4-7)', 'Alto (8-10)'],
+            datasets: [{
+                data: [baixo, medio, alto],
+                backgroundColor: ['#a00000', '#D6CD81', '#518A43']
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Distribuição de Desempenho (0 a 10)',
+                    color: '#000',
+                    font: {
+                        size: 32,
+                        weight: '800',
+                        family: 'Cinzel, serif'
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#000',
+                        font: {
+                            size: 20
+                        }
                     }
                 }
             }
@@ -82,7 +150,7 @@ function calcularKPIs(tentativas) {
     const tempoMedio = somaTempo / tentativas.length;
     const totalJogadores = usuarios.length;
 
-    document.getElementById("media-acertos").innerText = media.toFixed(1) + "/5";
+    document.getElementById("media-acertos").innerText = media.toFixed(1) + "/10";
     document.getElementById("total-jogadores").innerText = totalJogadores;
     document.getElementById("tempo-medio").innerText = Math.round(tempoMedio) + "s";
 }

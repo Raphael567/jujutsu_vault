@@ -6,7 +6,7 @@
     height: 300px;
     width: 100%;
 
-    font-size: 18px;
+    font-size: 20px;
     text-wrap: nowrap;
 }
 
@@ -36,5 +36,13 @@
     grid-column: 10 / 12;
     display: flex;
     justify-content: flex-end;
+    align-items: start;
     gap: 75px;
+}
+
+.navbar_actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
 }

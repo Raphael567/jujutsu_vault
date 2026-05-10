@@ -1,5 +1,6 @@
 let perguntasRespostas = [];
 let perguntaAtual = 0;
+let totalPerguntas = 0;
 let pontuacao = 0;
 let tempoSegundos = 0;
 let intervaloTempo;
@@ -39,12 +40,15 @@ function listarPerguntasRespostas() {
 
 
             perguntasRespostas = embaralharPerguntasRespostas(perguntasRespostas);
+            totalPerguntas = perguntasRespostas.length;
 
             for (let i = 0; i < perguntasRespostas.length; i++) {
                 perguntasRespostas[i].respostas = embaralharPerguntasRespostas(perguntasRespostas[i].respostas);
             }
 
             console.log("Perguntas e Respostas: ", perguntasRespostas);
+
+            atualizarBarraProgresso();
             exibirPerguntasRespostas();
             iniciarContador();
         })
@@ -64,16 +68,44 @@ function embaralharPerguntasRespostas(respostas) {
     return respostas;
 }
 
+function atualizarBarraProgresso() {
+
+    const barra = document.getElementById("progress-bar");
+
+    const progresso = ((perguntaAtual + 1) / totalPerguntas) * 100;
+
+    barra.style.width = `${progresso}%`;
+}
+
 function exibirPerguntasRespostas() {
+    pausarContador();
     resetarRespostas();
 
     const titulo = document.getElementById("question_title");
     const gif = document.getElementById("question_gif");
     const respostas = document.querySelectorAll(".answers button");
+    const container = document.querySelector(".desafio-content");
 
     const item = perguntasRespostas[perguntaAtual];
 
-    titulo.textContent = item.pergunta
+    // trava UI enquanto carrega
+    container.style.opacity = "0.4";
+    container.style.pointerEvents = "none";
+
+    titulo.textContent = item.pergunta;
+
+    // limpa imagem anterior
+    gif.src = "";
+
+    gif.onload = () => {
+
+        // libera só quando o gif terminar de carregar
+        container.style.opacity = "1";
+        container.style.pointerEvents = "auto";
+
+        iniciarContador();
+    };
+
     gif.src = item.gif;
 
     for (let j = 0; j < item.respostas.length; j++) {
@@ -82,17 +114,23 @@ function exibirPerguntasRespostas() {
         respostas[j].textContent = resposta.resposta;
         respostas[j].onclick = () => verificarResposta(j);
     }
+
+    atualizarBarraProgresso();
 }
 
 function iniciarContador() {
+    clearInterval(intervaloTempo);
 
     intervaloTempo = setInterval(() => {
-        tempoSegundos++;
-    }, 1000);
 
+        tempoSegundos++;
+
+        document.getElementById("tempo-display").innerText = tempoSegundos + "s";
+
+    }, 1000);
 }
 
-function pararContador() {
+function pausarContador() {
     clearInterval(intervaloTempo);
 }
 
@@ -107,6 +145,7 @@ function proximaPergunta() {
     }
 
     exibirPerguntasRespostas();
+    atualizarBarraProgresso();
 }
 
 function exibirBotaoProximo() {
@@ -186,7 +225,7 @@ function finalizarQuiz() {
 }
 
 function mostrarTelaFinal() {
-    pararContador();
+    pausarContador();
 
     const container = document.querySelector(".desafio-container");
 

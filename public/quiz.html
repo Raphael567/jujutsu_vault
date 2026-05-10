@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/quiz.css">
     <link rel="icon" href="./assets/icon/avatar6.svg" type="image/svg">
+
+    <script src="./js/sessao.js" defer></script>
 </head>
 
 <body>
@@ -30,7 +32,7 @@
 
             <div class="navbar_actions">
                 <a href="./perfil.html">Perfil</a>
-                <a href="./cadastro.html">Sair</a>
+                <button onclick="limparSessao()">Sair</button>
             </div>
 
         </div>
@@ -44,13 +46,15 @@
                     <div class="quiz_info">
                         <h1 id="jujutsu_title">Desafio JuJutsu Vault</h1>
                         <p>
-                            Teste seus conhecimentos sobre o mundo de Jujutsu, enfrente perguntas desafiadoras sobre maldições,
-                            técnicas e personagens icônicos, e descubra qual é o seu verdadeiro nível de feiticeiro dentro do
+                            Teste seus conhecimentos sobre o mundo de Jujutsu, enfrente perguntas desafiadoras sobre
+                            maldições,
+                            técnicas e personagens icônicos, e descubra qual é o seu verdadeiro nível de feiticeiro
+                            dentro do
                             universo Jujutsu.
                         </p>
                     </div>
                 </div>
-                <button class="btn" id="quiz_btn"><a href="./desafio.html">Iniciar Quiz</a></button> 
+                <button class="btn" id="quiz_btn"><a href="./desafio.html">Iniciar Quiz</a></button>
             </div>
 
         </section>
