@@ -30,18 +30,12 @@ function exibirRanking(ranking) {
             <span class="rank">${i + 1}</span>
             <span class="name">${item.nome}</span>
             <span class="score">${item.pontuacao}</span>
-            <span class="time">${formatarTempo(item.tempo)}</span>
+            <span class="time">${item.tempo_segundos}s</span>
             <span class="date">${item.data_tentativa}</span>
         `;
 
         rankingContainer.appendChild(row);
     }
-}
-
-function formatarTempo(segundos) {
-    const min = Math.floor(segundos / 60);
-    const sec = segundos % 60;
-    return `${min}MIN${sec}s`;
 }
 
 listarRanking();

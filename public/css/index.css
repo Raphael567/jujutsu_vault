@@ -162,6 +162,10 @@ main {
     left: 30px;
 }
 
+.card__badge img {
+    width: 70px;
+}
+
 .card__title {
     font-size: 20px;
     justify-self: flex-end;

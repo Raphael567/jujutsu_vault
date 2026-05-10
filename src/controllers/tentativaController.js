@@ -42,9 +42,9 @@ function listarTentativasPorUsuario(req, res) {
 }
 
 function salvarTentativa(req, res) {
-    const { pontuacaoServer, idUsuarioServer } = req.body;
+    const { pontuacaoServer, tempoSegundosServer, idUsuarioServer } = req.body;
 
-    tentativaModel.salvarTentativa(pontuacaoServer, idUsuarioServer)
+    tentativaModel.salvarTentativa(pontuacaoServer, tempoSegundosServer, idUsuarioServer)
         .then(resultado => {
             console.log(`Tentativa salva com sucesso: ${JSON.stringify(resultado)}`);
 

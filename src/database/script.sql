@@ -45,11 +45,11 @@ INSERT INTO usuario (nome, email, senha) VALUES
 ('Teste', 'teste@email.com', '123');
 
 INSERT INTO pergunta (descricao, caminho_gif) VALUES
-('Qual é o nome completo do protagonista de Jujutsu Kaisen?', './assets/gifs/yuji.gif'),
-('Quem é conhecido como o feiticeiro mais forte?', './assets/gifs/gojo.gif'),
-('Qual é o nome da escola onde os feiticeiros estudam em Tóquio?', './assets/gifs/jujutsu_school.gif'),
-('Qual é o nome da maldição mais poderosa que habita o corpo de Yuji?', './assets/gifs/sukuna.gif'),
-('Qual técnica amaldiçoada permite manipular o infinito?', './assets/gifs/gojo2.gif');
+('Qual é o nome completo do protagonista de Jujutsu Kaisen?', 'https://giffiles.alphacoders.com/211/211840.gif'),
+('Quem é conhecido como o feiticeiro mais forte?', 'https://giffiles.alphacoders.com/211/211810.gif'),
+('Qual é o nome da escola onde os feiticeiros estudam em Tóquio?', 'https://i.pinimg.com/originals/88/d9/3e/88d93e0aab6efc10d61607021750e3fc.gif'),
+('Qual é o nome da maldição mais poderosa que habita o corpo de Yuji?', 'https://giffiles.alphacoders.com/211/211834.gif'),
+('Qual técnica amaldiçoada permite manipular o infinito?', 'https://64.media.tumblr.com/e9af0cb7a4743216a90c239b9fd0638b/148151f997a45335-74/s1280x1920/1d34db2b5efd164d8d5c8fc1d6ce86203c48bc7c.gifv');
 
 -- Pergunta 1
 INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
@@ -178,10 +178,12 @@ FROM tentativa t
 JOIN usuario u ON u.id = t.fk_usuario;
 
 SELECT 
-	id,
-    nome,
-    CONCAT(pontuacao, '/5') AS acertos,
-    tempo_segundos,
-    data_tentativa
-FROM ranking
-ORDER BY pontuacao DESC, tempo_segundos ASC;
+    r.id,
+    r.nome,
+    CONCAT(r.pontuacao, '/', (
+        SELECT COUNT(*) FROM pergunta
+    )) AS pontuacao,
+    r.tempo_segundos,
+    r.data_tentativa
+FROM ranking r
+ORDER BY r.pontuacao DESC, r.tempo_segundos ASC;

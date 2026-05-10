@@ -1,6 +1,8 @@
 let perguntasRespostas = [];
 let perguntaAtual = 0;
 let pontuacao = 0;
+let tempoSegundos = 0;
+let intervaloTempo;
 
 function listarPerguntasRespostas() {
     fetch("/perguntas/perguntas-respostas")
@@ -35,15 +37,16 @@ function listarPerguntasRespostas() {
                 })
             }
 
-            
+
             perguntasRespostas = embaralharPerguntasRespostas(perguntasRespostas);
-            
+
             for (let i = 0; i < perguntasRespostas.length; i++) {
                 perguntasRespostas[i].respostas = embaralharPerguntasRespostas(perguntasRespostas[i].respostas);
             }
 
             console.log("Perguntas e Respostas: ", perguntasRespostas);
             exibirPerguntasRespostas();
+            iniciarContador();
         })
         .catch(erro => {
             console.error("Erro ao obter perguntas e respostas: ", erro);
@@ -81,12 +84,29 @@ function exibirPerguntasRespostas() {
     }
 }
 
+function iniciarContador() {
+
+    intervaloTempo = setInterval(() => {
+        tempoSegundos++;
+    }, 1000);
+
+}
+
+function pararContador() {
+    clearInterval(intervaloTempo);
+}
+
 function proximaPergunta() {
     perguntaAtual++;
 
-    if (perguntaAtual < perguntasRespostas.length) exibirPerguntasRespostas();
-
     esconderBotaoProximo();
+
+    if (perguntaAtual >= perguntasRespostas.length) {
+        mostrarTelaFinal();
+        return;
+    }
+
+    exibirPerguntasRespostas();
 }
 
 function exibirBotaoProximo() {
@@ -109,11 +129,13 @@ function desabilitarRespostasEColorir(index, respostas) {
         botoes[i].disabled = true;
 
         if (resp.correta) {
-            botoes[i].style.backgroundColor = "var(--green-zenin)";
+            botoes[i].style.backgroundColor = "var(--light-green-zenin)";
+            botoes[i].style.color = "var(--white)";
         }
 
         if (!resp.correta) {
             botoes[i].style.backgroundColor = "var(--red)";
+            botoes[i].style.color = "var(--white)";
         }
 
         botoes[i].style.cursor = "not-allowed";
@@ -126,6 +148,7 @@ function resetarRespostas() {
     for (let i = 0; i < botoes.length; i++) {
         botoes[i].disabled = false;
         botoes[i].style.backgroundColor = "";
+        botoes[i].style.color = "";
         botoes[i].style.cursor = "pointer";
     }
 }
@@ -137,11 +160,6 @@ function verificarResposta(index) {
 
     desabilitarRespostasEColorir(index, perguntasRespostas[perguntaAtual].respostas);
     exibirBotaoProximo();
-
-    if (perguntaAtual === perguntasRespostas.length - 1) {
-        alert(`Quiz finalizado! Sua pontuação: ${pontuacao}/${perguntasRespostas.length}`);
-        finalizarQuiz();
-    }
 }
 
 function finalizarQuiz() {
@@ -154,17 +172,85 @@ function finalizarQuiz() {
         },
         body: JSON.stringify({
             pontuacaoServer: pontuacao,
+            tempoSegundosServer: tempoSegundos,
             idUsuarioServer: idUsuario
         })
     })
         .then(res => res.json())
         .then(data => {
             console.log("Tentativa salva:", data);
-            window.location.href = "./ranking.html";
         })
         .catch(err => {
             console.error("Erro ao salvar tentativa:", err);
         });
+}
+
+function mostrarTelaFinal() {
+    pararContador();
+
+    const container = document.querySelector(".desafio-container");
+
+    let mensagem = "";
+    let gif = "";
+
+    const porcentagem = (pontuacao / perguntasRespostas.length) * 100;
+
+    if (porcentagem <= 40) {
+
+        mensagem = "Você precisa treinar mais suas técnicas amaldiçoadas!";
+        gif = "https://64.media.tumblr.com/e2c23969f3bb611370195dbfe2129a6c/90d749d3a9719346-aa/s1280x1920/47a444ea94a71991ef69f6e9666cbec6e1c1ccf1.gifv";
+
+    }
+
+    else if (porcentagem <= 70) {
+
+        mensagem = "Nada mal! Você já é um feiticeiro promissor.";
+        gif = "https://i.pinimg.com/originals/d1/d9/69/d1d969c21a6d798f004127f4b87cfe8f.gif";
+
+    }
+
+    else {
+
+        mensagem = "Incrível! Você alcançou nível especial no universo Jujutsu!";
+        gif = "https://i.makeagif.com/media/2-15-2024/siLH2i.gif";
+
+    }
+
+    container.innerHTML = `
+        <div class="resultado-final">
+
+            <h1>Quiz Finalizado!</h1>
+
+            <img 
+                id="question_gif" 
+                src="${gif}" 
+                alt="Resultado Final"
+            >
+
+            <p>
+                Você acertou ${pontuacao} de ${perguntasRespostas.length} perguntas!
+            </p>
+            
+            <p>
+                Tempo total: ${tempoSegundos} segundos
+            </p>
+
+            <h2>
+                ${mensagem}
+            </h2>
+
+            <button class="btn" onclick="irParaRanking()">
+                Ver Ranking
+            </button>
+
+        </div>
+    `;
+
+    finalizarQuiz();
+}
+
+function irParaRanking() {
+    window.location.href = "./ranking.html";
 }
 
 listarPerguntasRespostas();
