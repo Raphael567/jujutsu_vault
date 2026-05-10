@@ -177,13 +177,27 @@ SELECT
 FROM tentativa t
 JOIN usuario u ON u.id = t.fk_usuario;
 
-SELECT 
-    r.id,
-    r.nome,
-    CONCAT(r.pontuacao, '/', (
-        SELECT COUNT(*) FROM pergunta
+SELECT
+    u.id,
+    u.nome,
+    CONCAT(t.pontuacao, '/', (
+		SELECT COUNT(*) FROM pergunta
     )) AS pontuacao,
-    r.tempo_segundos,
-    r.data_tentativa
-FROM ranking r
-ORDER BY r.pontuacao DESC, r.tempo_segundos ASC;
+    t.tempo_segundos,
+    DATE_FORMAT(t.data_tentativa, '%d/%m') AS data_tentativa
+FROM usuario u
+JOIN tentativa t 
+    ON t.fk_usuario = u.id
+WHERE t.id = (
+    SELECT t2.id
+    FROM tentativa t2
+    WHERE t2.fk_usuario = u.id
+
+    ORDER BY 
+        t2.pontuacao DESC,
+        t2.tempo_segundos ASC
+    LIMIT 1
+)
+ORDER BY 
+    t.pontuacao DESC,
+    t.tempo_segundos ASC;

@@ -22,7 +22,8 @@ function listarTentativasPorUsuario(idUsuario) {
             pontuacao,
             tempo
         FROM tentativas_usuario 
-        WHERE id_usuario = ${idUsuario};
+        WHERE id_usuario = ${idUsuario}
+        ORDER BY data_tentativa DESC;
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -31,16 +32,30 @@ function listarTentativasPorUsuario(idUsuario) {
 function listarRanking() {
     console.log("ACESSEI O PERGUNTA MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente");
     var instrucaoSql = `
-        SELECT 
-            r.id,
-            r.nome,
-            CONCAT(r.pontuacao, '/', (
+        SELECT
+            u.id,
+            u.nome,
+            CONCAT(t.pontuacao, '/', (
                 SELECT COUNT(*) FROM pergunta
             )) AS pontuacao,
-            r.tempo_segundos,
-            r.data_tentativa
-        FROM ranking r
-        ORDER BY r.pontuacao DESC, r.tempo_segundos ASC;
+            t.tempo_segundos,
+            DATE_FORMAT(t.data_tentativa, '%d/%m') AS data_tentativa
+        FROM usuario u
+        JOIN tentativa t 
+            ON t.fk_usuario = u.id
+        WHERE t.id = (
+            SELECT t2.id
+            FROM tentativa t2
+            WHERE t2.fk_usuario = u.id
+
+            ORDER BY 
+                t2.pontuacao DESC,
+                t2.tempo_segundos ASC
+            LIMIT 1
+        )
+        ORDER BY 
+            t.pontuacao DESC,
+            t.tempo_segundos ASC;
     `
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
