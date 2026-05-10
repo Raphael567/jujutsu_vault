@@ -12,6 +12,26 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.post("/verificarSenha", function (req, res) {
+    usuarioController.verificarSenha(req, res);
+});
+
+router.put("/atualizarNome", function (req, res) {
+    usuarioController.atualizarNome(req, res);
+});
+
+router.put("/atualizarEmail", function (req, res) {
+    usuarioController.atualizarEmail(req, res);
+});
+
+router.put("/atualizarSenha", function (req, res) {
+    usuarioController.atualizarSenha(req, res);
+});
+
+router.put("/atualizarAvatar", function (req, res) {
+    usuarioController.atualizarAvatar(req, res);
+});
+
 router.get("/", function (_req, res) {
     usuarioController.listar(_req, res);
 });

@@ -6,7 +6,8 @@ CREATE TABLE usuario (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50),
     email VARCHAR(50),
-    senha VARCHAR(50)
+    senha VARCHAR(50),
+    avatar VARCHAR(255) DEFAULT "./assets/icon/no_user.png"
 );
 
 CREATE TABLE pergunta (

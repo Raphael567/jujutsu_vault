@@ -77,10 +77,12 @@
 }
 
 #visao.active {
-    display: flex;
+    display: grid;
     flex-direction: column;
+    align-items: center;
     gap: 40px;
 }
+
 
 .perfil-header {
     display: flex;
@@ -128,6 +130,19 @@
     margin-bottom: 30px;
 }
 
+.graficos {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    width: 100%;
+    height: 600px;
+}
+
+.graficos canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .config-container {
     display: flex;
     flex-direction: column;
@@ -157,6 +172,7 @@
     padding: 15px;
     border-radius: 4px;
     font-size: 25px;
+    color: var(--black);
 }
 
 .avatar-section h3 {
@@ -209,16 +225,34 @@
 }
 
 .salvar {
-    background: black;
-    color: white;
-    border: 1px solid white;
+    background: var(--black);
+    color: var(--white);
+    border: 1px solid var(--white);
 }
 
 .bottom {
-    align-self: center;
+    justify-self: center;
     width: 50%;
 }
 
 .bottom .kpi {
     text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.editing {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+.form-grid input:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.avatar.selected {
+    border: 4px solid var(--black);
 }

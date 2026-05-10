@@ -3,14 +3,14 @@ function listarTentativasPorUsuario(idUsuario) {
     fetch(`/tentativas/usuario/${idUsuario}`)
         .then(response => response.json())
         .then(data => {
-            exibirGraficoEKPIs(data);
+            carregarDashboard(data);
         })
         .catch(error => {
             console.error("Erro ao listar tentativas:", error);
         });
 }
 
-function exibirGraficoEKPIs(tentativas) {
+function carregarDashboard(tentativas) {
     calcularKPIsUsuario(tentativas);
     gerarGraficoUsuario(tentativas);
 }
@@ -35,8 +35,8 @@ function calcularKPIsUsuario(tentativasUsuario) {
     const media = somaPontuacao / tentativasUsuario.length;
     const tempoMedio = somaTempo / tentativasUsuario.length;
 
-    document.getElementById("media-acertos").innerText = media.toFixed(1) + "/5";
-    document.getElementById("melhor-pontuacao").innerText = melhor + "/5";
+    document.getElementById("media-acertos").innerText = media.toFixed(1) + "/10";
+    document.getElementById("melhor-pontuacao").innerText = melhor + "/10";
     document.getElementById("tempo-medio").innerText = Math.round(tempoMedio) + "s";
     document.getElementById("total-tentativas").innerText = tentativasUsuario.length;
 
@@ -89,14 +89,22 @@ function calcularNivel(media, tentativas) {
 }
 
 function gerarGraficoUsuario(tentativasUsuario) {
+
     const ctx = document.querySelector(".dashboard-chart");
 
     const labels = [];
     const dados = [];
 
+    let totalAcertos = 0;
+
     for (let i = 0; i < tentativasUsuario.length; i++) {
         labels.push("#" + (i + 1));
-        dados.push(tentativasUsuario[i].pontuacao);
+
+        const pontuacao = tentativasUsuario[i].pontuacao;
+
+        dados.push(pontuacao);
+
+        totalAcertos += pontuacao;
     }
 
     new Chart(ctx, {
@@ -113,12 +121,28 @@ function gerarGraficoUsuario(tentativasUsuario) {
             }]
         },
         options: {
+            responsive: true,
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 5,
+                    max: 10,
                     ticks: {
-                        stepSize: 1
+                        stepSize: 1,
+                        color: '#000',
+                        font: {
+                            size: 18,
+                            weight: '600'
+                        }
+                    }
+                },
+
+                x: {
+                    ticks: {
+                        color: '#000',
+                        font: {
+                            size: 18,
+                            weight: '600'
+                        }
                     }
                 }
             },
@@ -129,8 +153,61 @@ function gerarGraficoUsuario(tentativasUsuario) {
                     color: '#000',
                     font: {
                         size: 32,
-                        weight: '500',
+                        weight: '800',
                         family: 'Cinzel, serif'
+                    }
+                },
+
+                legend: {
+                    labels: {
+                        color: '#000',
+                        font: {
+                            size: 20,
+                            weight: '500'
+                        }
+                    }
+                }
+            }
+        },
+    });
+
+    const totalQuestoes = tentativasUsuario.length * 10;
+    const totalErros = totalQuestoes - totalAcertos;
+
+    const ctxPizza = document.querySelector(".dashboard-pizza");
+
+    new Chart(ctxPizza, {
+        type: 'doughnut',
+        data: {
+            labels: ['Acertos', 'Erros'],
+            datasets: [{
+                data: [totalAcertos, totalErros],
+                backgroundColor: [
+                    '#518A43',
+                    '#a00000'
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: 'Proporção de Acertos e Erros',
+                    color: '#000',
+                    font: {
+                        size: 32,
+                        weight: '800',
+                        family: 'Cinzel, serif'
+                    }
+                },
+                legend: {
+                    labels: {
+                        color: '#000',
+                        font: {
+                            size: 20
+                        }
                     }
                 }
             }

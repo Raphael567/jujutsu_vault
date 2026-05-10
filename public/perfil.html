@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="./css/ranking.css">
     <link rel="stylesheet" href="./css/nav.css">
     <link rel="stylesheet" href="./css/perfil.css">
+    <link rel="icon" href="./assets/icon/avatar6.svg" type="image/svg">
 
     <script src="./js/perfil.js" defer></script>
     <script src="./js/utils/alternarSecao.js" defer></script>
@@ -64,15 +65,15 @@
                     <section id="config" class="section active">
                         <div class="perfil-header">
                             <div class="perfil-info">
-                                <img src="./assets/icon/avatar1.svg" class="avatar">
+                                <img src="./assets/icon/no_user.png" class="avatar perfil-avatar">
 
                                 <div class="user">
-                                    <h3>RAPHAEL PEREIRA CANUTO</h3>
-                                    <span>raphael@email.com</span>
+                                    <h3 id="user-name"></h3>
+                                    <span id="user-email"></span>
                                 </div>
                             </div>
 
-                            <button class="white-btn">EDITAR</button>
+                            <button class="white-btn" id="edit-btn">EDITAR</button>
                         </div>
 
                         <div class="config-container">
@@ -80,32 +81,31 @@
 
                                 <div class="input-group">
                                     <label>Nome</label>
-                                    <input type="text" placeholder="RAPHAEL PEREIRA CANUTO">
+                                    <input id="input-name" type="text" placeholder="" disabled>
                                 </div>
 
                                 <div class="input-group">
                                     <label>Email</label>
-                                    <input type="text" placeholder="RAPHAEL@EMAIL.COM">
+                                    <input id="input-email" type="text" placeholder="" disabled>
                                 </div>
 
                                 <div class="input-group">
                                     <label>Confirmar senha atual</label>
-                                    <input type="password" placeholder="******">
+                                    <input id="current-password" type="password" placeholder="******" disabled>
                                 </div>
 
                                 <div class="input-group">
                                     <label>Senha nova</label>
-                                    <input type="password" placeholder="Digite uma nova senha">
+                                    <input id="new-password" type="password" placeholder="Digite uma nova senha" disabled>
                                 </div>
 
                             </div>
-
 
                             <div class="avatar-section">
                                 <h3>Mudar avatar</h3>
 
                                 <div class="avatar-list">
-                                    <img src="./assets/icon/avatar1.svg" class="avatar selected">
+                                    <img src="./assets/icon/avatar1.svg" class="avatar">
                                     <img src="./assets/icon/avatar2.svg" class="avatar">
                                     <img src="./assets/icon/avatar3.svg" class="avatar">
                                     <img src="./assets/icon/avatar4.svg" class="avatar">
@@ -116,9 +116,9 @@
                                 </div>
                             </div>
 
-                            <div class="actions">
-                                <button class="white-btn">Cancelar</button>
-                                <button class="btn">Salvar</button>
+                            <div class="actions hidden">
+                                <button id="cancel-btn" class="white-btn">Cancelar</button>
+                                <button id="save-btn" class="btn">Salvar</button>
                             </div>
 
                         </div>
@@ -131,12 +131,14 @@
                                 <img src="./assets/icon/avatar1.svg" class="avatar">
 
                                 <div class="user">
-                                    <h3>RAPHAEL PEREIRA CANUTO</h3>
-                                    <span>raphael@email.com</span>
+                                    <h3 id="user-name"></h3>
+                                    <span id="user-email"></span>
                                 </div>
                             </div>
 
-                            <div id="nivel-titulo" class="titulo" style="text-transform: uppercase;"></div>
+                            <div class="titulo">
+                                FEITICEIRO <span id="nivel-titulo" style="text-transform: uppercase;"></span>
+                            </div>
 
                             <div class="titulo">
                                 <span id="posicao-usuario" style="font-weight: 600;"></span> NO RANKING
@@ -162,7 +164,11 @@
                             </div>
                         </div>
 
-                        <canvas class="dashboard-chart"></canvas>
+                        <div class="graficos">
+                            <canvas class="dashboard-chart"></canvas>
+    
+                            <canvas class="dashboard-pizza"></canvas>
+                        </div>
 
                         <div class="kpis bottom">
                             <div class="kpi">

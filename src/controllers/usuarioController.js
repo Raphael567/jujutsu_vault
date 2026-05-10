@@ -66,6 +66,19 @@ function cadastrar(req, res) {
     }
 }
 
+function verificarSenha(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var senhaAtual = req.body.senhaAtualServer;
+
+    usuarioModel.verificarSenha(idUsuario, senhaAtual)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 function listar(_req, res) {
     usuarioModel.listar()
         .then(resultado => {
@@ -77,8 +90,67 @@ function listar(_req, res) {
         });
 }
 
+function atualizarNome(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var novoNome = req.body.novoNomeServer;
+
+    usuarioModel.atualizarNome(idUsuario, novoNome)
+        .then(resultado => {
+            res.json(resultado);
+        }
+        ).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function atualizarEmail(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var novoEmail = req.body.novoEmailServer;
+
+    usuarioModel.atualizarEmail(idUsuario, novoEmail)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function atualizarSenha(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var novaSenha = req.body.novaSenhaServer;
+
+    usuarioModel.atualizarSenha(idUsuario, novaSenha)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function atualizarAvatar(req, res) {
+    var idUsuario = req.body.idUsuarioServer;
+    var novoAvatar = req.body.novoAvatarServer;
+
+    usuarioModel.atualizarAvatar(idUsuario, novoAvatar)
+        .then(resultado => {
+            res.json(resultado);
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
 module.exports = {
     autenticar,
     cadastrar,
-    listar
+    listar,
+    verificarSenha,
+    atualizarNome,
+    atualizarEmail,
+    atualizarSenha,
+    atualizarAvatar
 }
