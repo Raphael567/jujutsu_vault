@@ -122,7 +122,7 @@ function selecionarAvatar(event) {
 
     avatarSelecionado = avatar.src;
 
-    perfilAvatar.src = avatarSelecionado;
+    perfilAvatar[0].src = avatarSelecionado;
 }
 
 //Cancelar edição
