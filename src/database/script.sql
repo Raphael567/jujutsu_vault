@@ -13,7 +13,8 @@ CREATE TABLE usuario (
 CREATE TABLE pergunta (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(255),
-    caminho_gif VARCHAR(255)
+    caminho_local VARCHAR(255),
+    caminho_url TEXT
 );
 
 CREATE TABLE resposta (
@@ -45,12 +46,12 @@ INSERT INTO usuario (nome, email, senha) VALUES
 ('Raphael', 'raphael@email.com', '123'),
 ('Teste', 'teste@email.com', '123');
 
-INSERT INTO pergunta (descricao, caminho_gif) VALUES
-('Qual é o nome completo do protagonista de Jujutsu Kaisen?', 'https://giffiles.alphacoders.com/211/211840.gif'),
-('Quem é conhecido como o feiticeiro mais forte?', 'https://giffiles.alphacoders.com/211/211810.gif'),
-('Qual é o nome da escola onde os feiticeiros estudam em Tóquio?', 'https://i.pinimg.com/originals/88/d9/3e/88d93e0aab6efc10d61607021750e3fc.gif'),
-('Qual é o nome da maldição mais poderosa que habita o corpo de Yuji?', 'https://giffiles.alphacoders.com/211/211834.gif'),
-('Qual técnica amaldiçoada permite manipular o infinito?', 'https://64.media.tumblr.com/e9af0cb7a4743216a90c239b9fd0638b/148151f997a45335-74/s1280x1920/1d34db2b5efd164d8d5c8fc1d6ce86203c48bc7c.gifv');
+INSERT INTO pergunta (descricao, caminho_local, caminho_url) VALUES
+('Qual é o nome completo do protagonista de Jujutsu Kaisen?', './assets/gifs/yuji.gif', 'https://giffiles.alphacoders.com/211/211840.gif'),
+('Quem é conhecido como o feiticeiro mais forte?', './assets/gifs/gojo.gif', 'https://giffiles.alphacoders.com/211/211810.gif'),
+('Qual é o nome da escola onde os feiticeiros estudam em Tóquio?', './assets/gifs/opening.gif', 'https://i.pinimg.com/originals/88/d9/3e/88d93e0aab6efc10d61607021750e3fc.gif'),
+('Qual é o nome da maldição mais poderosa que habita o corpo de Yuji?', './assets/gifs/sukuna.gif', 'https://giffiles.alphacoders.com/211/211834.gif'),
+('Qual técnica amaldiçoada permite manipular o infinito?', './assets/gifs/gojo2.gif', 'https://64.media.tumblr.com/e9af0cb7a4743216a90c239b9fd0638b/148151f997a45335-74/s1280x1920/1d34db2b5efd164d8d5c8fc1d6ce86203c48bc7c.gifv');
 
 -- Pergunta 1
 INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
@@ -86,6 +87,49 @@ INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
 ('Black Flash', 0, 5),
 ('Técnica das Dez Sombras', 0, 5),
 ('Fala Amaldiçoada', 0, 5);
+
+-- Novas perguntas
+INSERT INTO pergunta (descricao, caminho_local, caminho_url) VALUES
+('Qual personagem utiliza a Técnica das Dez Sombras?', './assets/gifs/megumi.gif', 'https://giffiles.alphacoders.com/220/220159.gif'),
+('Quem é o melhor amigo de Yuji no primeiro ano?', './assets/gifs/todou_yuji.gif', 'https://i.pinimg.com/originals/f0/65/33/f06533eea7b286622b7ab17d9b841cf6.gif'),
+('Qual maldição possui poderes relacionados a vulcões?', './assets/gifs/jogo.gif', 'https://i.redd.it/80lldb7nve6f1.gif'),
+('Qual personagem usa fala amaldiçoada como técnica?', './assets/gifs/inumaki.gif', 'https://i.pinimg.com/originals/10/01/2d/10012d13b32f83ea68b1c837f84991f7.gif'),
+('Qual personagem derrotou Toji Fushiguro no passado?', './assets/gifs/toji.gif', 'https://i.makeagif.com/media/11-12-2023/9VSuhr.gif');
+
+-- Pergunta 6
+INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
+('Megumi Fushiguro', 1, 6),
+('Yuji Itadori', 0, 6),
+('Maki Zenin', 0, 6),
+('Aoi Todo', 0, 6);
+
+-- Pergunta 7
+INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
+('Aoi Todo', 1, 7),
+('Kento Nanami', 0, 7),
+('Panda', 0, 7),
+('Yuta Okkotsu', 0, 7);
+
+-- Pergunta 8
+INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
+('Jogo', 1, 8),
+('Mahito', 0, 8),
+('Dagon', 0, 8),
+('Hanami', 0, 8);
+
+-- Pergunta 9
+INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
+('Toge Inumaki', 1, 9),
+('Yuta Okkotsu', 0, 9),
+('Noritoshi Kamo', 0, 9),
+('Megumi Fushiguro', 0, 9);
+
+-- Pergunta 10
+INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
+('Satoru Gojo', 1, 10),
+('Suguru Geto', 0, 10),
+('Ryomen Sukuna', 0, 10),
+('Kento Nanami', 0, 10);
 
 -- Raphael
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
@@ -202,3 +246,4 @@ WHERE t.id = (
 ORDER BY 
     t.pontuacao DESC,
     t.tempo_segundos ASC;
+    

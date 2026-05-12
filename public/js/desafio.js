@@ -24,7 +24,8 @@ function listarPerguntasRespostas() {
                     perguntasMap = {
                         id_pergunta: item.id_pergunta,
                         pergunta: item.pergunta,
-                        gif: item.gif,
+                        gif_local: item.gif_local,
+                        gif_url: item.gif_url,
                         respostas: []
                     }
 
@@ -106,7 +107,7 @@ function exibirPerguntasRespostas() {
         iniciarContador();
     };
 
-    gif.src = item.gif;
+    gif.src = item.gif_local || item.gif_url;
 
     for (let j = 0; j < item.respostas.length; j++) {
         const resposta = item.respostas[j];
@@ -237,21 +238,21 @@ function mostrarTelaFinal() {
     if (porcentagem <= 40) {
 
         mensagem = "Você precisa treinar mais suas técnicas amaldiçoadas!";
-        gif = "https://64.media.tumblr.com/e2c23969f3bb611370195dbfe2129a6c/90d749d3a9719346-aa/s1280x1920/47a444ea94a71991ef69f6e9666cbec6e1c1ccf1.gifv";
+        gif = "./assets/gifs/result1.gif";
 
     }
 
     else if (porcentagem <= 70) {
 
         mensagem = "Nada mal! Você já é um feiticeiro promissor.";
-        gif = "https://i.pinimg.com/originals/d1/d9/69/d1d969c21a6d798f004127f4b87cfe8f.gif";
+        gif = "./assets/gifs/result2.gif";
 
     }
 
     else {
 
         mensagem = "Incrível! Você alcançou nível especial no universo Jujutsu!";
-        gif = "https://i.makeagif.com/media/2-15-2024/siLH2i.gif";
+        gif = "./assets/gifs/result3.gif";
 
     }
 
