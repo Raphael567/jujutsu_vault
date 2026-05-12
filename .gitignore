@@ -419,4 +419,4 @@ FodyWeavers.xsd
 
 .env
 .env.dev
-/gifs
+public/assets/gifs/
