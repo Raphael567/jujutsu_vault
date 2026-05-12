@@ -1,6 +1,6 @@
 const usuarioLogado = sessionStorage.getItem("ID_USUARIO");
 
-// ===== LISTAR TENTATIVAS =====
+// Listar tentativas
 
 function listarTentativasPorUsuario(idUsuario) {
     fetch(`/tentativas/usuario/${idUsuario}`)
@@ -13,7 +13,7 @@ function listarTentativasPorUsuario(idUsuario) {
         });
 }
 
-// ===== EXIBIR TENTATIVAS =====
+// Exibir tentatvias
 
 function exibirTentativas(tentativas) {
 
@@ -51,7 +51,7 @@ const inputs = document.querySelectorAll(".form-grid input");
 
 const avatars = document.querySelectorAll(".avatar-list .avatar");
 
-const perfilAvatar = document.querySelector(".perfil-avatar");
+const perfilAvatar = document.querySelectorAll(".perfil-avatar");
 
 const nomePerfil = document.querySelectorAll(".user h3");
 
@@ -76,9 +76,9 @@ function carregarPerfil() {
         emailUsuario[i].innerText = sessionStorage.getItem("EMAIL_USUARIO");
     }
 
-    perfilAvatar.src =
-        sessionStorage.getItem("AVATAR_USUARIO")
-        || "./assets/icon/no_user.png";
+    for (let i = 0; i < perfilAvatar.length; i++) {
+        perfilAvatar[i].src = sessionStorage.getItem("AVATAR_USUARIO") || "./assets/icon/no_user.png";
+    }
 
     // Marcar o avatar selecionado
     for (let i = 0; i < avatares.length; i++) {
@@ -122,7 +122,7 @@ function selecionarAvatar(event) {
 
     avatarSelecionado = avatar.src;
 
-    perfilAvatar.src = avatarSelecionado;
+    perfilAvatar[0].src = avatarSelecionado;
 }
 
 //Cancelar edição
