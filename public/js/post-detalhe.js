@@ -64,4 +64,40 @@ function montarComentarios(dados) {
     container.innerHTML = html;
 }
 
+function comentar() {
+    const input = document.getElementById("inputComentario");
+    const comentario = input.value.trim();
+
+    if (!comentario) {
+        alert("Digite um comentário");
+        return;
+    }
+
+    console.log(comentario, idPost, sessionStorage.ID_USUARIO)
+
+    fetch("comentario/comentarios", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            conteudo: comentario,
+            fkPost: idPost,
+            fkUsuario: sessionStorage.ID_USUARIO
+        })
+    })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Erro ao comentar");
+            }
+
+            return res.json();
+        })
+        .then(() => {
+            input.value = "";
+            carregarPost();
+        })
+        .catch(err => console.log(err));
+}
+
 carregarPost();

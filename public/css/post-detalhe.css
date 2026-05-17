@@ -1,21 +1,21 @@
 .autor-post {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 15px;
     font-size: 14px;
     color: #ccc;
 }
 
 .autor-post .avatar {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
     border: 2px solid var(--white);
     padding: 5px;
 }
 
 .autor-post span {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--white);
 }
@@ -35,7 +35,6 @@
 
 .info-post {
     display: grid;
-    gap: 1rem;
     max-width: 700px;
 }
 
@@ -43,7 +42,7 @@
     width: fit-content;
     border: 1px solid var(--white);
     padding: .4rem .8rem;
-    font-size: .9rem;
+    font-size: 1.2rem;
 }
 
 .info-post h1 {
@@ -82,6 +81,23 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.lista-comentarios::-webkit-scrollbar {
+    width: 8px;
+}
+
+.lista-comentarios::-webkit-scrollbar-track {
+    background: #111;
+    border-radius: 10px;
+}
+
+.lista-comentarios::-webkit-scrollbar-thumb {
+    background: var(--white);
+    border-radius: 10px;
 }
 
 .comentario {
@@ -121,6 +137,7 @@
 }
 
 textarea {
+    font-size: 16px;
     min-height: 140px;
     background: #111;
     border: 1px solid rgba(255, 255, 255, 0.2);
