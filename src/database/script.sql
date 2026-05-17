@@ -14,7 +14,7 @@ CREATE TABLE post (
     id INT PRIMARY KEY AUTO_INCREMENT,
     titulo VARCHAR(100) NOT NULL,
     conteudo TEXT NOT NULL,
-    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dt_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_usuario INT NOT NULL,
 
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
@@ -23,7 +23,7 @@ CREATE TABLE post (
 CREATE TABLE comentario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     conteudo TEXT NOT NULL,
-    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    dt_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_post INT NOT NULL,
     fk_usuario INT NOT NULL,
 
