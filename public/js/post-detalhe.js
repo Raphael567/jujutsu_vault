@@ -20,14 +20,12 @@ function carregarPost() {
 function preencherPost(dado) {
     document.getElementById("tituloPost").innerText = dado.titulo;
 
-    const data = new Date(dado.data_post).toLocaleDateString("pt-BR");
-
     document.getElementById("infoPost").innerHTML = `
         <div class="autor-post">
             <img src="${dado.autor_post_avatar}" class="avatar">
             <span class="nome-autor">${dado.autor_post}</span>
             <span class="separador">•</span>
-            <span class="data-post">${data}</span>
+            <span class="data-post">${dado.data_post}</span>
         </div>
     `;
 

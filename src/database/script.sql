@@ -268,3 +268,46 @@ WHERE t.id = (
 ORDER BY 
     t.pontuacao DESC,
     t.tempo_segundos ASC;
+
+CREATE VIEW post_usuario AS 
+SELECT 
+    p.id AS post_id,
+    p.titulo AS titulo,
+    p.conteudo AS conteudo,
+    DATE_FORMAT(p.dt_criacao, '%d/%m/%Y') AS data_post,
+
+    u.nome AS autor_post,
+    u.avatar AS autor_post_avatar,
+
+    c.id AS comentario_id,
+    c.conteudo AS comentario,
+    c.dt_criacao AS data_comentario,
+
+    uc.nome AS autor_comentario,
+    uc.avatar AS autor_comentario_avatar
+
+FROM post p
+
+JOIN usuario u 
+    ON p.fk_usuario = u.id
+
+LEFT JOIN comentario c 
+    ON c.fk_post = p.id
+
+LEFT JOIN usuario uc 
+    ON c.fk_usuario = uc.id;
+
+SELECT
+    post_id,
+    titulo,
+    conteudo,
+    data_post,
+    autor_post,
+    autor_post_avatar,
+    comentario_id,
+    comentario,
+    data_comentario,
+    autor_comentario,
+    autor_comentario_avatar
+FROM post_usuario
+WHERE post_id = 1;
