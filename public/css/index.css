@@ -172,6 +172,15 @@ main {
     align-self: flex-end;
 }
 
+.card {
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
 .container-btn {
     display: flex;
     justify-content: center;

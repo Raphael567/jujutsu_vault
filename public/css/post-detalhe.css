@@ -1,3 +1,16 @@
+body {
+    background-color: var(--black);
+}
+
+.pagina-post {
+    background-image: url('../assets/imgs/post-detalhe/toji_bg.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    min-height: 100vh;
+    color: var(--white);
+
+}
+
 .autor-post {
     display: flex;
     align-items: center;
@@ -20,12 +33,6 @@
     color: var(--white);
 }
 
-.pagina-post {
-    min-height: 100vh;
-    background: #000;
-    color: var(--white);
-}
-
 .banner-post {
     min-height: 70vh;
     display: grid;
@@ -35,7 +42,7 @@
 
 .info-post {
     display: grid;
-    max-width: 700px;
+    max-width: 1000px;
 }
 
 .categoria {
@@ -48,7 +55,6 @@
 .info-post h1 {
     font-size: 4rem;
     margin: 1rem 0;
-    text-wrap: nowrap;
 }
 
 .info-post p {

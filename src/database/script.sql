@@ -63,9 +63,12 @@ CREATE TABLE resposta_usuario (
     FOREIGN KEY (fk_resposta) REFERENCES resposta(id)
 );
 
-INSERT INTO usuario (nome, email, senha) VALUES
-('Raphael', 'raphael@email.com', '123'),
-('Teste', 'teste@email.com', '123');
+INSERT INTO usuario (nome, email, senha, avatar) VALUES
+('Raphael', 'raphael@email.com', '123', 'http://localhost:3333/assets/icon/avatar1.svg'),
+('Lucas', 'lucas@email.com', '123', 'http://localhost:3333/assets/icon/avatar3.svg'),
+('Ana', 'ana@email.com', '123', 'http://localhost:3333/assets/icon/avatar2.svg'),
+('Ricardo', 'ricardo@email.com', '123', 'http://localhost:3333/assets/icon/avatar4.svg'),
+('Julia', 'julia@email.com', '123', 'http://localhost:3333/assets/icon/avatar5.svg');
 
 INSERT INTO pergunta (descricao, caminho_local, caminho_url) VALUES
 ('Qual é o nome completo do protagonista de Jujutsu Kaisen?', './assets/gifs/yuji.gif', 'https://giffiles.alphacoders.com/211/211840.gif'),
@@ -156,17 +159,27 @@ INSERT INTO resposta (descricao, correta, fk_pergunta) VALUES
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
 (4, 150, NOW(), 1);
 
--- Raphael
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
 (3, 80, NOW(), 1);
 
--- Raphael
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
 (2, 50, NOW(), 1);
 
--- Teste
+-- Lucas
 INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
 (2, 210, NOW(), 2);
+
+-- Ana
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(5, 120, NOW(), 3);
+
+-- Ricardo
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(3, 180, NOW(), 4);
+
+-- Julia
+INSERT INTO tentativa (pontuacao, tempo_segundos, data_tentativa, fk_usuario) VALUES
+(4, 95, NOW(), 5);
 
 -- Tentativa 1 (Raphael)
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
@@ -176,13 +189,132 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (1, 13),
 (1, 18);
 
--- Tentativa 2 (Teste)
+-- Tentativa 2 (Raphael)
 INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (2, 1),
 (2, 5),
 (2, 11),
 (2, 14),
 (2, 18);
+
+-- Tentativa 3 (Raphael)
+INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
+(3, 2),
+(3, 6),
+(3, 10),
+(3, 14),
+(3, 17);
+
+-- Tentativa 4 (Lucas)
+INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
+(4, 3),
+(4, 7),
+(4, 11),
+(4, 15),
+(4, 19);
+
+-- Tentativa 5 (Ana)
+INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
+(5, 1),
+(5, 5),
+(5, 9),
+(5, 13),
+(5, 17);
+
+-- Tentativa 6 (Ricardo)
+INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
+(6, 2),
+(6, 6),
+(6, 10),
+(6, 14),
+(6, 18);
+
+-- Tentativa 7 (Julia)
+INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
+(7, 1),
+(7, 4),
+(7, 8),
+(7, 12),
+(7, 16);
+
+INSERT INTO post (titulo, conteudo, fk_usuario) VALUES
+(
+'Quem é Satoru Gojo?',
+'Satoru Gojo sempre foi apresentado como o ápice absoluto do universo jujutsu. Desde sua introdução, a obra deixa claro que ele está em um nível completamente acima dos demais feiticeiros, sendo tratado como uma força capaz de alterar sozinho o equilíbrio entre humanidade e maldições.
+
+Sua técnica Ilimitada, combinada com os Seis Olhos, oferece uma combinação praticamente perfeita entre defesa, percepção e eficiência energética. Isso faz com que, em teoria, poucos personagens sequer consigam tocá-lo.
+
+Por outro lado, Sukuna representa algo diferente. Ele não é apenas poder bruto, mas também inteligência estratégica, domínio técnico refinado e uma experiência absurda acumulada ao longo dos séculos.
+
+Na minha opinião, se analisarmos apenas força pura e técnicas base, Gojo teria vantagem em vários cenários. Porém, quando se considera a capacidade adaptativa e a crueldade estratégica de Sukuna, o confronto se torna extremamente equilibrado.
+
+O que torna esse embate fascinante é justamente o contraste entre o talento absoluto de Gojo e a experiência monstruosa de Sukuna.',
+1
+),
+
+(
+'Energia Amaldiçoada',
+'O sistema de energia amaldiçoada em Jujutsu Kaisen me chama muita atenção pela forma como ele consegue equilibrar criatividade, lógica interna e impacto narrativo.
+
+Diferente de outros sistemas que dependem apenas de aumento bruto de força, aqui existe toda uma construção baseada em emoções negativas, controle refinado e interpretação técnica das habilidades.
+
+A expansão de domínio, por exemplo, é uma das mecânicas mais interessantes já criadas em shounen recentes. Ela transforma batalhas em confrontos de conceito, estratégia e domínio psicológico.
+
+Outro ponto muito forte é como o sistema permite individualidade. Cada feiticeiro possui técnicas únicas que refletem personalidade, história e até filosofia de combate.
+
+Isso torna cada luta imprevisível e muito mais interessante do que apenas medir quem tem mais energia ou mais força física.
+
+Pra mim, esse é um dos sistemas mais bem escritos da nova geração.',
+2
+),
+
+(
+'Rei das Maldições',
+'Sukuna é tratado como uma figura lendária desde os primeiros capítulos, e quanto mais a obra avança, mais entendemos por que ele recebe esse título.
+
+Não é apenas por força destrutiva. Sua presença impõe terror psicológico até mesmo em feiticeiros experientes, algo que poucos antagonistas conseguem transmitir.
+
+O domínio técnico dele é assustador. Sukuna demonstra controle absoluto sobre energia amaldiçoada, adaptação rápida e capacidade estratégica superior.
+
+Além disso, ele não depende de exageros narrativos para parecer ameaçador. Cada aparição dele reforça sua superioridade de forma natural.
+
+O que mais me impressiona é como ele consegue ser brutal e calculista ao mesmo tempo.
+
+Pra mim, ele não apenas merece o título, como é um dos antagonistas mais bem construídos dos animes modernos.',
+3
+),
+
+(
+'Jinichi Zenin é Forte?',
+'Jinichi Zenin é um personagem pouco explorado, mas que gera bastante discussão entre os fãs justamente pelo potencial que aparenta possuir.
+
+Por pertencer à elite do clã Zenin, presume-se que ele tenha passado por treinamento rigoroso e desenvolvido habilidades relevantes.
+
+Mesmo sem grande destaque narrativo, sua postura, influência dentro do clã e presença em momentos importantes sugerem alguém muito acima da média.
+
+Muitos personagens secundários em Jujutsu Kaisen escondem níveis de poder impressionantes, e acredito que Jinichi poderia ter sido melhor explorado.
+
+Talvez, com mais tempo de tela, ele se tornasse uma peça interessante para aprofundar os conflitos internos do clã Zenin.
+
+Na minha visão, ele foi um personagem com potencial desperdiçado.',
+4
+),
+
+(
+'Novo Episódio',
+'O episódio mais recente trouxe uma sequência absurda de acontecimentos que podem redefinir completamente os rumos da narrativa.
+
+A direção conseguiu construir tensão do começo ao fim, e a animação elevou momentos importantes para outro nível.
+
+Além do impacto visual, o episódio trouxe revelações que mudam nossa percepção sobre certos personagens.
+
+Algumas teorias antigas ganharam força, enquanto outras foram praticamente descartadas.
+
+O mais interessante foi como pequenos detalhes deixados em episódios anteriores finalmente começaram a fazer sentido.
+
+Se a obra continuar nesse ritmo, os próximos acontecimentos têm tudo para entregar um dos arcos mais memoráveis do anime.',
+5
+);
 
 CREATE VIEW tentativas_usuario AS
 SELECT
