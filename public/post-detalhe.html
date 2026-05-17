@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Detalhe | JuJutsu Vault</title>
+    <link rel="shortcut icon" href="../../assets/icon/avatar6.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/post-detalhe.css">
+
+    <script src="../js/post-detalhe.js" defer></script>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container navbar_container">
+
+            <a href="./index.html" class="navbar_logo">
+                <img src="../../assets/imgs/logo.svg" alt="JuJutsu Vault Logo">
+            </a>
+
+            <nav class="navbar_nav">
+                <a href="./index.html">Início</a>
+                <a href="#">Personagens</a>
+                <a href="./quiz.html">Quiz</a>
+                <a href="./ranking.html">Visão Geral</a>
+                <a href="#">História</a>
+                <a href="#">Posts</a>
+            </nav>
+
+            <div class="navbar_actions">
+                <a href="./perfil.html">Perfil</a>
+                <button onclick="limparSessao()">Sair</button>
+            </div>
+
+        </div>
+    </header>
+
+    <div class="pagina-post ">
+
+        <section class="banner-post">
+            <div class="info-post">
+                <span class="categoria">Personagens</span>
+                <h1 id="tituloPost"></h1>
+                <p id="infoPost"></p>
+            </div>
+        </section>
+
+        <main class="conteudo-post">
+
+            <article class="texto-post">
+                <p></p>
+            </article>
+
+            <section class="comentarios">
+                <h2>Discussão</h2>
+
+                <div class="lista-comentarios"></div>
+
+                <div class="novo-comentario">
+                    <textarea placeholder="Compartilhe sua opinião..."></textarea>
+                    <button>Comentar</button>
+                </div>
+
+            </section>
+        </main>
+
+    </div>
+</body>
+
+</html>

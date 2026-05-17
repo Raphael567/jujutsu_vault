@@ -1,0 +1,146 @@
+.autor-post {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.autor-post .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    padding: 5px;
+}
+
+.autor-post span {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+}
+
+.pagina-post {
+    min-height: 100vh;
+    background: #000;
+    color: var(--white);
+}
+
+.banner-post {
+    min-height: 70vh;
+    display: grid;
+    align-items: end;
+    padding: 4rem 5rem;
+}
+
+.info-post {
+    display: grid;
+    gap: 1rem;
+    max-width: 700px;
+}
+
+.categoria {
+    width: fit-content;
+    border: 1px solid var(--white);
+    padding: .4rem .8rem;
+    font-size: .9rem;
+}
+
+.info-post h1 {
+    font-size: 4rem;
+    margin: 1rem 0;
+    text-wrap: nowrap;
+}
+
+.info-post p {
+    color: #ccc;
+}
+
+.conteudo-post {
+    max-width: 1100px;
+    margin: auto;
+    padding: 5rem 2rem;
+}
+
+.texto-post {
+    font-size: 1.15rem;
+    line-height: 2;
+    color: #ddd;
+    margin-bottom: 5rem;
+}
+
+.texto-post p {
+    margin-bottom: 2rem;
+}
+
+.comentarios h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.lista-comentarios {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.comentario {
+    display: flex;
+    gap: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 1.5rem;
+    background: #0b0b0b;
+}
+
+.comentario .avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid var(--white);
+    padding: 5px;
+}
+
+.comentario h4 {
+    margin-bottom: .8rem;
+}
+
+.comentario p {
+    color: #cfcfcf;
+}
+
+.comentario-autor {
+    display: flex;
+    gap: 10px;
+}
+
+.novo-comentario {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+textarea {
+    min-height: 140px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    padding: 1rem;
+    resize: none;
+}
+
+.novo-comentario button {
+    font-size: 18px;
+    width: fit-content;
+    padding: .9rem 2rem;
+    border: 1px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.novo-comentario button:hover {
+    background: var(--white);
+    color: var(--black);
+}
