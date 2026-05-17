@@ -17,7 +17,7 @@ function entrar() {
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "" || (!emailVar.includes("@") || !emailVar.includes("."))) {
-        error_msg.innerHTML = "Preencha os campos corretamente!";
+        error_msg_login.innerHTML = "Preencha os campos corretamente!";
         return false;
     }
     else {
@@ -33,7 +33,7 @@ function entrar() {
     }
 
     if (!encontrou) {
-        error_msg.innerHTML = "Usuário não encontrado!";
+        error_msg_login.innerHTML = "Usuário não encontrado!";
         return;
     }
 
@@ -86,7 +86,7 @@ function entrar() {
 }
 
 function sumirMensagem() {
-    error_msg.innerHTML = "";
+    error_msg_login.innerHTML = "";
 }
 
 listarUsuarios();

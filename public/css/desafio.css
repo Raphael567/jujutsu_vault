@@ -1,5 +1,6 @@
 body {
     background-color: var(--black);
+    overflow: hidden;
 }
 
 button:disabled:hover {
@@ -8,6 +9,7 @@ button:disabled:hover {
 
 .navbar {
     background-image: none;
+    height: 2vh;
 }
 
 .navbar_actions {

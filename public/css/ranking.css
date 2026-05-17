@@ -3,7 +3,6 @@
 }
 
 .dashboard {
-    background-image: url('../assets/imgs/ranking/dash_bg.png');
     background-repeat: no-repeat;
     background-position: right;
     background-color: var(--black);

@@ -64,7 +64,7 @@ function gerarGraficoBarras(tentativas) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Distribuição de Acertos dos Jogadores',
+                    text: 'Distribuição de Acertos nas Tentativas dos Jogadores',
                     color: '#000',
                     font: {
                         size: 32,
@@ -107,10 +107,10 @@ function gerarGraficoPizza(tentativas) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Distribuição de Desempenho (0 a 10)',
+                    text: 'Distribuição de Desempenho em Tentativas (0 a 10)',
                     color: '#000',
                     font: {
-                        size: 32,
+                        size: 24,
                         weight: '800',
                         family: 'Cinzel, serif'
                     }
@@ -149,10 +149,12 @@ function calcularKPIs(tentativas) {
     const media = somaPontuacao / tentativas.length;
     const tempoMedio = somaTempo / tentativas.length;
     const totalJogadores = usuarios.length;
+    const totalTentativas = tentativas.length;
 
     document.getElementById("media-acertos").innerText = media.toFixed(1) + "/10";
     document.getElementById("total-jogadores").innerText = totalJogadores;
     document.getElementById("tempo-medio").innerText = Math.round(tempoMedio) + "s";
+    document.getElementById("total-tentativas").innerText = totalTentativas;
 }
 
 listarTentativas();

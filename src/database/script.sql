@@ -10,6 +10,27 @@ CREATE TABLE usuario (
     avatar VARCHAR(255) DEFAULT "./assets/icon/no_user.png"
 );
 
+CREATE TABLE post (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    titulo VARCHAR(100) NOT NULL,
+    conteudo TEXT NOT NULL,
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fk_usuario INT NOT NULL,
+
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+);
+
+CREATE TABLE comentario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    conteudo TEXT NOT NULL,
+    data_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fk_post INT NOT NULL,
+    fk_usuario INT NOT NULL,
+
+    FOREIGN KEY (fk_post) REFERENCES post(id),
+    FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+);
+
 CREATE TABLE pergunta (
     id INT AUTO_INCREMENT PRIMARY KEY,
     descricao VARCHAR(255),
@@ -188,10 +209,11 @@ SELECT
 FROM tentativas_usuario;
 
 CREATE VIEW perguntas_respostas AS
-SELECT 
+SELECT
     p.id AS id_pergunta,
     p.descricao AS pergunta,
-    p.caminho_gif AS gif,
+    p.caminho_local AS gif_local,
+    p.caminho_url AS gif_url,
     r.id AS id_resposta,
     r.descricao AS resposta,
     r.correta
@@ -246,4 +268,3 @@ WHERE t.id = (
 ORDER BY 
     t.pontuacao DESC,
     t.tempo_segundos ASC;
-    

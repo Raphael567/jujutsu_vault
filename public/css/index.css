@@ -98,7 +98,7 @@ main {
     padding-bottom: 250px;
     background-image: url('../assets/imgs/gojo_bg.svg');
     background-repeat: no-repeat;
-    background-position: 100% 100%;
+    background-position: bottom right;
     /* X Y */
 }
 
