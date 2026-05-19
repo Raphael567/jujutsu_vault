@@ -26,7 +26,7 @@ function renderizarPosts(posts) {
 
     for (let i = 0; i < posts.length; i++) {
         grid.innerHTML += `
-            <article class="card-post">
+            <article class="card-post" onclick="abrirPost(${posts[i].id})">
                 <div class="conteudo-post">
                     <span class="categoria">${posts[i].categoria}</span>
                     <h2>${posts[i].titulo}</h2>
@@ -66,6 +66,10 @@ function configurarFiltros() {
             }
         });
     }
+}
+
+function abrirPost(idPost) {
+    window.location.href = `./post-detalhe.html?id=${idPost}`;
 }
 
 listarPosts();
