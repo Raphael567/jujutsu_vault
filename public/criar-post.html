@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jujutsu Vault | Posts</title>
+    <title>JuJutsu Vault | Criar Post</title>
+
     <link rel="icon" href="./assets/icon/avatar6.svg" type="image/svg">
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/nav.css">
-    <link rel="stylesheet" href="./css/posts.css">
-
-    <script src="./js/posts.js" defer></script>
+    <link rel="stylesheet" href="./css/criar-post.css">
 </head>
 
 <body>
@@ -39,26 +38,31 @@
         </div>
     </header>
 
-    <section class="pagina-posts">
+    <section class="pagina-criar-post">
 
-        <header class="topo-posts">
-            <h1>Registros do JuJutsu</h1>
-            <p>Explore os Posts do mundo jujutsu</p>
-        </header>
+        <h1>Criar Post</h1>
 
-        <section class="filtros">
-            <button class="ativo">Todos</button>
-            <button>Feiticeiros</button>
-            <button>Maldições</button>
-            <button>Técnicas</button>
-            <button>Clãs</button>
-            <button>Arcos</button>
-            <button>Análises</button>
-        </section>
+        <div class="form-post">
+            <input type="text" id="iptTitulo" placeholder="Título">
 
-        <section class="grid-posts"></section>
+            <select id="selectCategoria">
+                <option>Feiticeiros</option>
+                <option>Maldições</option>
+                <option>Técnicas</option>
+                <option>Clãs</option>
+                <option>Arcos</option>
+                <option>Análises</option>
+            </select>
+
+            <textarea id="iptResumo" placeholder="Faça um breve resumo do seu artigo"></textarea>
+
+            <textarea id="iptConteudo" placeholder="Conteúdo completo"></textarea>
+
+            <button onclick="criarPost()">Publicar</button>
+
+        </div>
+
     </section>
-
 </body>
 
 </html>

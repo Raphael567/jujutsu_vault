@@ -1,0 +1,86 @@
+body {
+    background-color: var(--black);
+}
+
+.navbar {
+    background-image: url('../assets/imgs/posts/nav_bg_purple.svg');
+    height: 35vh;
+}
+
+.pagina-criar-post {
+
+    min-height: 100vh;
+    padding: 280px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-post {
+    width: 100%;
+    max-width: 900px;
+    background: #121212;
+    border-radius: 18px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pagina-criar-post h1 {
+    text-align: center;
+    color: var(--purple-toji);
+    font-size: 2.8rem;
+    margin-bottom: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.form-post input,
+.form-post select,
+.form-post textarea {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #1c1c1c;
+    color: var(--white);
+    font-size: 1rem;
+    outline: none;
+    transition: .3s;
+}
+
+.form-post input:focus,
+.form-post select:focus,
+.form-post textarea:focus {
+    box-shadow: 0 0 0 2px var(--purple-toji);
+}
+
+.form-post textarea {
+    resize: none;
+}
+
+#iptResumo {
+    height: 100px;
+}
+
+#iptConteudo {
+    min-height: 260px;
+}
+
+.form-post button {
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--purple-toji);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.form-post button:hover {
+    background: #7b2cbf;
+    transform: translateY(-2px);
+}
