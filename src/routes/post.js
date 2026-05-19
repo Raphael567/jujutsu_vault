@@ -11,4 +11,8 @@ router.get("/:idPost", function (req, res) {
     postController.buscarPostPorId(req, res);
 })
 
+router.post("/criar", function(req, res) {
+    postController.criar(req, res);
+});
+
 module.exports = router;

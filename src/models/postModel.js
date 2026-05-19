@@ -39,7 +39,18 @@ function buscarPostPorId(idPost) {
     return database.executar(instrucaoSql);
 }
 
+function criar(titulo, resumo, conteudo, categoria, fkUsuario) {
+    const instrucaoSql = `
+        INSERT INTO post
+        (titulo, resumo, conteudo, categoria, fk_usuario) VALUES
+        ('${titulo}', '${resumo}', '${conteudo}', '${categoria}', ${fkUsuario});
+    `;
+
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listarPosts,
-    buscarPostPorId
+    buscarPostPorId,
+    criar
 }

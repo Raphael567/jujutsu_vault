@@ -32,7 +32,24 @@ function buscarPostPorId(req, res) {
         });
 }
 
+function criar(req, res) {
+    const titulo = req.body.tituloServer;
+    const resumo = req.body.resumoServer;
+    const conteudo = req.body.conteudoServer;
+    const categoria = req.body.categoriaServer;
+    const fkUsuario = req.body.fkUsuarioServer;
+
+    postModel.criar(titulo, resumo, conteudo, categoria, fkUsuario)
+        .then(function (resultado) {
+            res.json(resultado);
+        })
+        .catch(function (erro) {
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     listarPosts,
-    buscarPostPorId
+    buscarPostPorId,
+    criar
 }

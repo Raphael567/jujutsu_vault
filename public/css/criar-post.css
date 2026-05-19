@@ -8,7 +8,9 @@ body {
 }
 
 .pagina-criar-post {
-
+    background-image: url('../assets/imgs/posts/toji_bg.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
     min-height: 100vh;
     padding: 280px 80px 80px;
     display: flex;
@@ -30,7 +32,7 @@ body {
 .pagina-criar-post h1 {
     text-align: center;
     color: var(--purple-toji);
-    font-size: 2.8rem;
+    font-size: 3rem;
     margin-bottom: 35px;
     text-transform: uppercase;
     letter-spacing: 2px;
