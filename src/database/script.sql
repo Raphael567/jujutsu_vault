@@ -12,10 +12,23 @@ CREATE TABLE usuario (
 
 CREATE TABLE post (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(100) NOT NULL,
+    titulo VARCHAR(150) NOT NULL,
+    resumo VARCHAR(255),
     conteudo TEXT NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
     dt_criacao DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_usuario INT NOT NULL,
+
+    CONSTRAINT chk_categoria CHECK (
+        categoria IN (
+            'Feiticeiros',
+            'Maldições',
+            'Técnicas',
+            'Clãs',
+            'Arcos',
+            'Análises'
+        )
+    ),
 
     FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
 );
@@ -237,9 +250,11 @@ INSERT INTO resposta_usuario (fk_tentativa, fk_resposta) VALUES
 (7, 12),
 (7, 16);
 
-INSERT INTO post (titulo, conteudo, fk_usuario) VALUES
+INSERT INTO post (titulo, resumo, conteudo, categoria, fk_usuario) VALUES
+
 (
 'Quem é Satoru Gojo?',
+'O feiticeiro mais poderoso da era moderna.',
 'Satoru Gojo sempre foi apresentado como o ápice absoluto do universo jujutsu. Desde sua introdução, a obra deixa claro que ele está em um nível completamente acima dos demais feiticeiros, sendo tratado como uma força capaz de alterar sozinho o equilíbrio entre humanidade e maldições.
 
 Sua técnica Ilimitada, combinada com os Seis Olhos, oferece uma combinação praticamente perfeita entre defesa, percepção e eficiência energética. Isso faz com que, em teoria, poucos personagens sequer consigam tocá-lo.
@@ -249,11 +264,13 @@ Por outro lado, Sukuna representa algo diferente. Ele não é apenas poder bruto
 Na minha opinião, se analisarmos apenas força pura e técnicas base, Gojo teria vantagem em vários cenários. Porém, quando se considera a capacidade adaptativa e a crueldade estratégica de Sukuna, o confronto se torna extremamente equilibrado.
 
 O que torna esse embate fascinante é justamente o contraste entre o talento absoluto de Gojo e a experiência monstruosa de Sukuna.',
+'Feiticeiros',
 1
 ),
 
 (
 'Energia Amaldiçoada',
+'Como funciona a base de poder em Jujutsu Kaisen.',
 'O sistema de energia amaldiçoada em Jujutsu Kaisen me chama muita atenção pela forma como ele consegue equilibrar criatividade, lógica interna e impacto narrativo.
 
 Diferente de outros sistemas que dependem apenas de aumento bruto de força, aqui existe toda uma construção baseada em emoções negativas, controle refinado e interpretação técnica das habilidades.
@@ -265,11 +282,13 @@ Outro ponto muito forte é como o sistema permite individualidade. Cada feiticei
 Isso torna cada luta imprevisível e muito mais interessante do que apenas medir quem tem mais energia ou mais força física.
 
 Pra mim, esse é um dos sistemas mais bem escritos da nova geração.',
+'Técnicas',
 2
 ),
 
 (
 'Rei das Maldições',
+'A lenda e o terror por trás de Sukuna.',
 'Sukuna é tratado como uma figura lendária desde os primeiros capítulos, e quanto mais a obra avança, mais entendemos por que ele recebe esse título.
 
 Não é apenas por força destrutiva. Sua presença impõe terror psicológico até mesmo em feiticeiros experientes, algo que poucos antagonistas conseguem transmitir.
@@ -281,11 +300,13 @@ Além disso, ele não depende de exageros narrativos para parecer ameaçador. Ca
 O que mais me impressiona é como ele consegue ser brutal e calculista ao mesmo tempo.
 
 Pra mim, ele não apenas merece o título, como é um dos antagonistas mais bem construídos dos animes modernos.',
+'Maldições',
 3
 ),
 
 (
 'Jinichi Zenin é Forte?',
+'Uma análise sobre o potencial desperdiçado do personagem.',
 'Jinichi Zenin é um personagem pouco explorado, mas que gera bastante discussão entre os fãs justamente pelo potencial que aparenta possuir.
 
 Por pertencer à elite do clã Zenin, presume-se que ele tenha passado por treinamento rigoroso e desenvolvido habilidades relevantes.
@@ -297,11 +318,13 @@ Muitos personagens secundários em Jujutsu Kaisen escondem níveis de poder impr
 Talvez, com mais tempo de tela, ele se tornasse uma peça interessante para aprofundar os conflitos internos do clã Zenin.
 
 Na minha visão, ele foi um personagem com potencial desperdiçado.',
+'Análises',
 4
 ),
 
 (
 'Novo Episódio',
+'Os acontecimentos mais recentes e seus impactos.',
 'O episódio mais recente trouxe uma sequência absurda de acontecimentos que podem redefinir completamente os rumos da narrativa.
 
 A direção conseguiu construir tensão do começo ao fim, e a animação elevou momentos importantes para outro nível.
@@ -313,6 +336,7 @@ Algumas teorias antigas ganharam força, enquanto outras foram praticamente desc
 O mais interessante foi como pequenos detalhes deixados em episódios anteriores finalmente começaram a fazer sentido.
 
 Se a obra continuar nesse ritmo, os próximos acontecimentos têm tudo para entregar um dos arcos mais memoráveis do anime.',
+'Arcos',
 5
 );
 
@@ -406,6 +430,8 @@ SELECT
     p.id AS post_id,
     p.titulo AS titulo,
     p.conteudo AS conteudo,
+    p.resumo AS resumo,
+    p.categoria AS categoria,
     DATE_FORMAT(p.dt_criacao, '%d/%m/%Y') AS data_post,
 
     u.nome AS autor_post,
@@ -433,6 +459,8 @@ SELECT
     post_id,
     titulo,
     conteudo,
+    resumo,
+    categoria,
     data_post,
     autor_post,
     autor_post_avatar,

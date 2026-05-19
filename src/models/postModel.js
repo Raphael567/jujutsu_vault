@@ -15,6 +15,8 @@ function buscarPostPorId(idPost) {
             post_id,
             titulo,
             conteudo,
+            resumo,
+            categoria,
             data_post,
             autor_post,
             autor_post_avatar,

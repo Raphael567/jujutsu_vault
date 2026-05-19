@@ -18,7 +18,8 @@ function carregarPost() {
 }
 
 function preencherPost(dado) {
-    document.getElementById("tituloPost").innerText = dado.titulo;
+    document.getElementById("categoriaPost").innerHTML = dado.categoria;
+    document.getElementById("tituloPost").innerHTML = dado.titulo;
 
     document.getElementById("infoPost").innerHTML = `
         <div class="autor-post">
