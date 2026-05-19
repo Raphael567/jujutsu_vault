@@ -25,6 +25,8 @@ function gerarGraficoBarras(tentativas) {
         distribuicao[pontuacao]++;
     }
 
+    console.log(tentativas);
+
     new Chart(ctx, {
         type: 'bar',
         data: {

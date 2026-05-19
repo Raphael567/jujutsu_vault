@@ -139,8 +139,18 @@
                                 </div>
                             </div>
 
-                            <div class="titulo">
-                                FEITICEIRO <span id="nivel-titulo" style="text-transform: uppercase;"></span>
+                            <div class="perfil-nivel">
+                                <div class="titulo">
+                                    FEITICEIRO <span id="nivel-titulo" style="text-transform: uppercase;"></span>
+                                    <div class="barra-container">
+                                        <div class="barra-progresso" id="barra-progresso"></div>
+                                    </div>    
+                                </div>
+                                
+                                <div class="perfil-proximo-nivel">
+                                    <div id="faltam-nivel"></div>
+                                    <div id="proximo-nivel"></div>
+                                </div>
                             </div>
 
                             <div class="titulo">
@@ -169,19 +179,7 @@
 
                         <div class="graficos">
                             <canvas class="dashboard-chart"></canvas>
-
                             <canvas class="dashboard-pizza"></canvas>
-                        </div>
-
-                        <div class="kpis bottom">
-                            <div class="kpi">
-                                <h2>Nível Atual</h2>
-                                <p id="nivel"></p>
-                            </div>
-                            <div class="kpi">
-                                <h2>Próximo Nível</h2>
-                                <p id="proximo-nivel"></p>
-                            </div>
                         </div>
                     </section>
 
