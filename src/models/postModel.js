@@ -2,7 +2,14 @@ var database = require('../database/config');
 
 function listarPosts() {
     var instrucaoSql = `
-        SELECT id, titulo, conteudo, dt_criacao, fk_usuario
+        SELECT 
+            id,
+            titulo,
+            resumo,
+            conteudo,
+            categoria,
+            dt_criacao,
+            fk_usuario
         FROM post;
     `;
 
