@@ -2,13 +2,8 @@ body {
     background-color: var(--black);
 }
 
-.pagina-post {
-    background-image: url('../assets/imgs/post-detalhe/toji_bg.png');
-    background-repeat: no-repeat;
-    background-position: top right;
-    min-height: 100vh;
-    color: var(--white);
-
+.navbar {
+    background-image: url('../assets/imgs/posts/nav_bg_purple.svg');
 }
 
 .autor-post {

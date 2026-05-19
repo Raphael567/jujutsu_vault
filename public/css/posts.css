@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--black);
+    color: var(--white);
+}
+
+.navbar {
+    background-image: url('../assets/imgs/posts/nav_bg_purple.svg');
+    height: 35vh;
+}
+
+.pagina-posts {
+    padding: 40px 80px;
+    background-image: url('../assets/imgs/posts/toji_bg.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    min-height: 100vh;
+    color: var(--white);
+}
+
+.topo-posts {
+    margin-top: 250px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.topo-posts h1 {
+    font-size: 3.5rem;
+    color: var(--purple-toji);
+}
+
+.topo-posts p {
+    color: #aaa;
+    font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filtros button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 30px;
+    background: #1a1a1a;
+    color: var(--white);
+    cursor: pointer;
+    transition: .3s;
+    font-size: 14px;
+}
+
+.filtros button:hover,
+.filtros .ativo {
+    background: var(--purple-toji);
+}
+
+.grid-posts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card-post {
+    background: #121212;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform .3s ease;
+    padding: 10px;
+}
+
+.card-post:hover {
+    transform: translateY(-8px);
+    border: 1px solid var(--white);
+    transition: 0.3s ease;
+}
+
+.card-post img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+}
+
+.conteudo-post {
+    padding: 20px;
+}
+
+.categoria {
+    color: var(--purple-toji);
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.conteudo-post h2 {
+    margin: 10px 0;
+    font-size: 1.4rem;
+}
+
+.conteudo-post p {
+    color: #b3b3b3;
+    line-height: 1.5;
+}

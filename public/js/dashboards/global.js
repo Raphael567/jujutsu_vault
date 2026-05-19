@@ -64,7 +64,7 @@ function gerarGraficoBarras(tentativas) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Distribuição de Acertos nas Tentativas dos Jogadores',
+                    text: 'Distribuição de Acertos dos Jogadores',
                     color: '#000',
                     font: {
                         size: 32,
@@ -107,10 +107,10 @@ function gerarGraficoPizza(tentativas) {
             plugins: {
                 title: {
                     display: true,
-                    text: 'Distribuição de Desempenho em Tentativas (0 a 10)',
+                    text: 'Distribuição de Desempenho',
                     color: '#000',
                     font: {
-                        size: 24,
+                        size: 32,
                         weight: '800',
                         family: 'Cinzel, serif'
                     }

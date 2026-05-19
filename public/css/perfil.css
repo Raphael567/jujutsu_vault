@@ -3,7 +3,12 @@
 }
 
 .perfil {
+    background-image: url('../assets/imgs/post-detalhe/toji_bg.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    min-height: 100vh;
     background-color: var(--black);
+    color: var(--white);
     min-height: 100vh;
     justify-content: center;
     padding-bottom: 150px;
