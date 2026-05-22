@@ -24,6 +24,7 @@ function exibirRanking(ranking) {
         if (item.id == usuarioLogado) {
             row.classList.add("me");
             document.getElementById("posicao-usuario").innerHTML = "#" + (i + 1);
+            document.getElementById("posicao-usuario2").innerHTML = "#" + (i + 1);
         }
 
         row.innerHTML = `

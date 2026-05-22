@@ -2,10 +2,11 @@
     height: 30vh;
 }
 
+.container {
+    gap: 30px;
+}
+
 .perfil {
-    background-image: url('../assets/imgs/post-detalhe/toji_bg.png');
-    background-repeat: no-repeat;
-    background-position: bottom right;
     min-height: 100vh;
     background-color: var(--black);
     color: var(--white);
@@ -52,7 +53,7 @@
 .tentativa-row {
     font-size: 25px;
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
     gap: 30px;
 }
@@ -74,6 +75,7 @@
     align-items: center;
     justify-content: center;
     height: 60px;
+    font-size: 30px
 }
 
 .tentativas-list::-webkit-scrollbar {
