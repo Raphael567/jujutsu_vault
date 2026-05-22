@@ -1,13 +1,20 @@
 
+body {
+    background-color: var(--black);
+}
+
 .navbar {
     background-image: url('../assets/imgs/quiz/nav_bg_green.svg');
+}
+
+.footer {
+    background: url('../assets/imgs/ranking/footer_bg_green.png') center/cover no-repeat;
 }
 
 .quiz {
     background-image: url('../assets/imgs/quiz/quiz_bg.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: var(--black);
     min-height: 100vh;
     align-items: center;
     gap: 75px;

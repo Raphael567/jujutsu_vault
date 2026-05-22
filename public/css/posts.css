@@ -14,6 +14,10 @@ body {
     height: 35vh;
 }
 
+.footer {
+    background: url('../assets/imgs/posts/footer_bg_purple.png') center/cover no-repeat;
+}
+
 .pagina-posts {
     padding: 40px 80px;
     background-image: url('../assets/imgs/posts/toji_bg.png');
