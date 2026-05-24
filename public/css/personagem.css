@@ -3,7 +3,15 @@ body {
 }
 
 .navbar {
+    background-image: url('../assets/imgs/personagens/nav_bg_white.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     height: 30vh;
+}
+
+.navbar a {
+    color: var(--black);
+    font-weight: 800;
 }
 
 main {
@@ -172,4 +180,28 @@ main {
 #voltar_btn {
     font-size: 2rem;
     margin-bottom: 100px;
+}
+
+.footer {
+    background-image: url('../assets/imgs/personagens/footer_bg_white.png');
+}
+
+.footer p,
+.footer h3,
+.footer a,
+.footer span {
+    color: var(--black);
+}
+
+.footer p:hover,
+.footer h3:hover,
+.footer a:hover,
+.footer span:hover {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+
+.footer__divider {
+    background-color: var(--black);
 }

@@ -167,9 +167,10 @@ main {
 }
 
 .card__title {
+    margin-top: 10px;
     font-size: 20px;
-    justify-self: flex-end;
-    align-self: flex-end;
+    justify-self: center;
+    align-self: center;
 }
 
 .card {
@@ -228,23 +229,6 @@ main {
 
 .select_characters {
     display: flex;
-}
-
-.select__character a {
-    position: relative;
-    display: inline-block;
-}
-
-.img-hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    transition: 0.3s;
-}
-
-.select__character a:hover .img-hover {
-    opacity: 1;
 }
 
 #arquivo_btn {

@@ -25,7 +25,7 @@ const personagens = {
         peso: "80kg",
         gosta: "Doces",
         odeia: "Conservadores",
-        cor: "#76d4fc",
+        cor: "#76D4FC",
         imagemPrincipal:
             "./assets/imgs/personagens/gojo/gojo.png",
 
@@ -105,6 +105,59 @@ const personagens = {
             "./assets/imgs/personagens/jinichi/cena1.png",
             "./assets/imgs/personagens/jinichi/cena2.png",
             "./assets/imgs/personagens/jinichi/cena3.png"
+        ]
+    },
+    yuki: {
+        nome: "Yuki Tsukumo",
+        descricao:
+            "Uma feiticeira de classe especial conhecida por sua personalidade livre e poder destrutivo absurdo.",
+        altura: "1,75m",
+        peso: "70kg",
+        gosta: "Viajar",
+        odeia: "Maldições",
+        cor: "#F2D16B",
+        imagemPrincipal:
+            "./assets/imgs/personagens/yuki/yuki.png",
+        cenas: [
+            "./assets/imgs/personagens/yuki/cena1.png",
+            "./assets/imgs/personagens/yuki/cena2.png",
+            "./assets/imgs/personagens/yuki/cena3.png"
+        ]
+    },
+
+    maki: {
+        nome: "Maki Zenin",
+        descricao:
+            "Uma integrante do Clã Zenin que luta contra as limitações impostas pela própria família.",
+        altura: "1,70m",
+        peso: "60kg",
+        gosta: "Treinar",
+        odeia: "Clã Zenin",
+        cor: "#3E6B5A",
+        imagemPrincipal:
+            "./assets/imgs/personagens/maki/maki.png",
+        cenas: [
+            "./assets/imgs/personagens/maki/cena1.png",
+            "./assets/imgs/personagens/maki/cena2.png",
+            "./assets/imgs/personagens/maki/cena3.png"
+        ]
+    },
+
+    nobara: {
+        nome: "Nobara Kugisaki",
+        descricao:
+            "Uma feiticeira determinada que utiliza martelo, pregos e a Técnica do Boneco de Palha.",
+        altura: "1,60m",
+        peso: "52kg",
+        gosta: "Compras",
+        odeia: "Ser subestimada",
+        cor: "#8B3E5E",
+        imagemPrincipal:
+            "./assets/imgs/personagens/nobara/nobara.png",
+        cenas: [
+            "./assets/imgs/personagens/nobara/cena1.png",
+            "./assets/imgs/personagens/nobara/cena2.png",
+            "./assets/imgs/personagens/nobara/cena3.png"
         ]
     }
 };

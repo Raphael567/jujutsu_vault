@@ -47,15 +47,14 @@
       <div class="hero_content">
         <h1 id="jujutsu_title">JuJutsu Vault</h1>
         <h2>Explore o universo das maldições, descubra personagens e teste seu conhecimento</h2>
-        <button class="btn" id="hero_btn">Explorar Agora</button>
+        <button class="btn" id="hero_btn"><a href="#destaques">Explorar Agora</a></button>
       </div>
 
       <img src="./assets/imgs/itadori_bg.svg" alt="Itadori Yuji" id="hero_yuji">
       <img src="./assets/imgs/hero_bt_bg.svg" alt="Fundo Escuro" id="hero_bt">
     </section>
 
-    <section class="destaques container">
-
+    <section class="destaques container" id="destaques">
       <h2 class="section-title destaques_title">
         <span>Registros do JuJutsu</span>
         <span>Posts Principais</span>
@@ -70,12 +69,6 @@
               <img src="./assets/imgs/gojo.svg" alt="Satoru Gojo">
             </div>
 
-            <div class="card__badge">
-              <span>
-                <img src="./assets/icon/avatar1.svg" alt="Avatar de Satoru Gojo">
-              </span>
-            </div>
-
             <div class="card__title">
               Quem é Satoru Gojo?
             </div>
@@ -84,12 +77,6 @@
           <div class="card" onclick="abrirPost(2)">
             <div class="card__image">
               <img src="./assets/imgs/nanami.svg" alt="Nanami Kento">
-            </div>
-
-            <div class="card__badge">
-              <span>
-                <img src="./assets/icon/avatar3.svg" alt="Avatar de Nanami Kento">
-              </span>
             </div>
 
             <div class="card__title">
@@ -102,12 +89,6 @@
               <img src="./assets/imgs/sukuna.svg" alt="Ryomen Sukuna">
             </div>
 
-            <div class="card__badge">
-              <span>
-                <img src="./assets/icon/avatar2.svg" alt="Avatar de Ryomen Sukuna">
-              </span>
-            </div>
-
             <div class="card__title">
               Rei das Maldições
             </div>
@@ -118,12 +99,6 @@
               <img src="./assets/imgs/jinichi.svg" alt="Jinichi Zenin">
             </div>
 
-            <div class="card__badge">
-              <span>
-                <img src="./assets/icon/avatar4.svg" alt="Avatar de Itadori Yuji">
-              </span>
-            </div>
-
             <div class="card__title">
               Jinichi Zenin é forte?
             </div>
@@ -132,12 +107,6 @@
           <div class="card" onclick="abrirPost(5)">
             <div class="card__image">
               <img src="./assets/imgs/yuta.svg" alt="Yuta Okkotsu">
-            </div>
-
-            <div class="card__badge">
-              <span>
-                <img src="./assets/icon/avatar5.svg" alt="Avatar de Panda">
-              </span>
             </div>
 
             <div class="card__title">
@@ -171,31 +140,28 @@
       <div class="container-content">
         <div class="select_characters">
 
-          <div class="select__character">
-            <a href="#">
-              <img class="img-default" src="./assets/imgs/ch_select/no_color/ch1.svg" alt="Personagem 1">
-              <img class="img-hover" src="./assets/imgs/ch_select/color/ch1.svg" alt="Personagem 1">
+          <div class="card-personagem">
+            <a href="./personagem.html?id=jinichi">
+              <img class="img-hover" src="./assets/imgs/ch_select/ch1.svg" alt="Personagem 1">
             </a>
           </div>
 
-          <div class="select__character">
-            <a href="#">
-              <img class="img-default" src="./assets/imgs/ch_select/no_color/ch2.svg" alt="Personagem 2">
-              <img class="img-hover" src="./assets/imgs/ch_select/color/ch2.svg" alt="Personagem 2">
+          <div class="card-personagem">
+            <a href="./personagem.html?id=toji">
+              <img class="img-hover" src="./assets/imgs/ch_select/ch2.svg" alt="Personagem 2">
             </a>
           </div>
 
-          <div class="select__character">
-            <a href="#">
-              <img class="img-default" src="./assets/imgs/ch_select/no_color/ch3.svg" alt="Personagem 3">
-              <img class="img-hover" src="./assets/imgs/ch_select/color/ch3.svg" alt="Personagem 3">
+          <div class="card-personagem">
+            <a href="./personagem.html?id=geto">
+              <img class="img-hover" src="./assets/imgs/ch_select/ch3.svg" alt="Personagem 3">
             </a>
           </div>
 
         </div>
 
         <div class="container-btn">
-          <button class="btn" id="arquivo_btn">Ver Todos os Personagens</button>
+          <button class="btn" id="arquivo_btn"><a href="./personagens.html">Ver Todos os Personagens</a></button>
         </div>
 
       </div>
@@ -346,7 +312,7 @@
       <div class="footer__links">
         <h3>Links</h3>
         <a href="./index.html">Home</a>
-        <a href="#">Personagens</a>
+        <a href="./personagens.html">Personagens</a>
         <a href="./quiz.html">Quiz</a>
         <a href="./ranking.html">Visão Geral</a>
         <a href="./historia.html">História</a>

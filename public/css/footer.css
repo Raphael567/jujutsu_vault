@@ -6,12 +6,21 @@
     background: url('../assets/imgs/footer_bg.svg') center/cover no-repeat;
 }
 
+.footer h3 {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
 .footer__grid {
     grid-column: 2 / 12;
 }
 
 .footer__brand {
     grid-column: 2 / 5;
+}
+
+.footer__brand p {
+    font-weight: 600;
 }
 
 .footer__brand img {
@@ -38,6 +47,7 @@
 }
 
 .footer__links a {
+    font-weight: 700;
     color: var(--gray);
     text-decoration: none;
 }
@@ -53,6 +63,12 @@
     gap: 0.8rem;
 }
 
+.footer__contact span {
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .contact__item {
     display: flex;
     align-items: center;
@@ -60,11 +76,15 @@
 }
 
 .contact__item img {
-    width: 18px;
+    width: 50px;
 }
 
 .footer__bottom {
     margin-top: 3rem;
     text-align: center;
     opacity: 0.7;
+}
+
+.footer__bottom p {
+    font-weight: 800;
 }

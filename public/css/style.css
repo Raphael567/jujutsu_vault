@@ -191,3 +191,17 @@ canvas {
 .section.active {
     display: block;
 }
+
+.card-personagem {
+    transition: .3s;
+    margin-bottom: 30px;
+}
+
+.card-personagem img {
+    filter: grayscale(100%);
+    transition: .3s;
+}
+
+.card-personagem:hover img {
+    filter: grayscale(0%);
+}
