@@ -1,7 +1,6 @@
 const usuarioLogado = sessionStorage.getItem("ID_USUARIO");
 
 // Listar tentativas
-
 function listarTentativasPorUsuario(idUsuario) {
     fetch(`/tentativas/usuario/${idUsuario}`)
         .then(response => response.json())
@@ -13,8 +12,7 @@ function listarTentativasPorUsuario(idUsuario) {
         });
 }
 
-// Exibir tentatvias
-
+// Exibir tentativas
 function exibirTentativas(tentativas) {
 
     const tentativasContainer = document.querySelector(".tentativas-list");
@@ -291,7 +289,6 @@ saveBtn.addEventListener("click", () => {
                 sessionStorage.setItem("AVATAR_USUARIO", avatarSelecionado);
             }
 
-
             //Atualiza a tela com os novos dados
             carregarPerfil();
 
@@ -314,7 +311,6 @@ saveBtn.addEventListener("click", () => {
 
             window.location.reload();
         });
-
 });
 
 listarTentativasPorUsuario(usuarioLogado);

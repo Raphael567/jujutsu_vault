@@ -6,6 +6,10 @@ body {
     background-image: url('../assets/imgs/posts/nav_bg_purple.svg');
 }
 
+.footer {
+    background: url('../assets/imgs/posts/footer_bg_purple.png') center/cover no-repeat;
+}
+
 .autor-post {
     display: flex;
     align-items: center;
