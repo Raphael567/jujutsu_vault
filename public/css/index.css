@@ -96,7 +96,7 @@ main {
 .destaques {
     margin-bottom: 150px;
     padding-bottom: 250px;
-    background-image: url('../assets/imgs/gojo_bg.svg');
+    background-image: url('../assets/imgs/gojo_bg.png');
     background-repeat: no-repeat;
     background-position: bottom right;
     /* X Y */
@@ -254,7 +254,7 @@ main {
 
 .quiz {
     padding-bottom: 35%;
-    background-image: url('../assets/imgs/yaga_bg.svg');
+    background-image: url('../assets/imgs/yaga_bg.png');
     background-repeat: no-repeat;
     background-position: 100% 100%;
 }
@@ -284,7 +284,7 @@ main {
 }
 
 .quiz__call h2 {
-    margin-top: -45px;
+    margin-top: -65px;
     margin-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -292,7 +292,7 @@ main {
 }
 
 .quiz__call span {
-    font-size: 100px;
+    font-size: 120px;
 }
 
 #quiz_line {
