@@ -89,7 +89,6 @@ function carregarPerfil() {
 carregarPerfil();
 
 //Entrar no modo de edição
-
 editBtn.addEventListener("click", () => {
 
     editBtn.classList.add("editing");
@@ -107,7 +106,6 @@ editBtn.addEventListener("click", () => {
 });
 
 //Selecionar avatar
-
 function selecionarAvatar(event) {
 
     for (let i = 0; i < avatars.length; i++) {
@@ -124,15 +122,12 @@ function selecionarAvatar(event) {
 }
 
 //Cancelar edição
-
 cancelBtn.addEventListener("click", () => {
 
     //Restaurar os dados do perfil para os valores atuais do sessionStorage
-
     carregarPerfil();
 
     // Restaurar o avatar selecionado para o original
-
     avatarSelecionado =
         sessionStorage.getItem("AVATAR_USUARIO")
         || "./assets/icon/avatar1.svg";
@@ -140,7 +135,6 @@ cancelBtn.addEventListener("click", () => {
     perfilAvatar.src = avatarSelecionado;
 
     //Voltar ao avatar selecionado
-
     for (let i = 0; i < avatars.length; i++) {
         avatars[i].classList.remove("selected");
 
@@ -151,13 +145,11 @@ cancelBtn.addEventListener("click", () => {
     }
 
     //Resetar campos de senha
-
     document.getElementById("current-password").value = "";
 
     document.getElementById("new-password").value = "";
 
     //Sair da Edição
-
     editBtn.classList.remove("editing");
 
     actions.classList.add("hidden");
@@ -272,7 +264,6 @@ saveBtn.addEventListener("click", () => {
 
 
             //Atualiza o avatar apenas se o usuário tiver selecionado um diferente do atual
-
             if (avatarSelecionado !== sessionStorage.getItem("AVATAR_USUARIO")) {
 
                 fetch("/usuarios/atualizarAvatar", {

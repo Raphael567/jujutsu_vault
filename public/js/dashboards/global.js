@@ -42,7 +42,6 @@ function gerarGraficoBarras(tentativas) {
             scales: {
                 y: {
                     beginAtZero: true,
-                    max: 10,
                     ticks: {
                         stepSize: 1,
                         color: '#000',

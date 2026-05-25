@@ -47,8 +47,10 @@
         <h1>Criar Post</h1>
 
         <div class="form-post">
-            <input type="text" id="iptTitulo" placeholder="Título">
+            <label for="iptTitulo">Título</label>
+            <input type="text" id="iptTitulo" placeholder="Digite o título do seu artigo">
 
+            <label for="selectCategoria">Categoria</label>
             <select id="selectCategoria">
                 <option>Feiticeiros</option>
                 <option>Maldições</option>
@@ -58,9 +60,11 @@
                 <option>Análises</option>
             </select>
 
+            <label for="iptResumo">Resumo</label>
             <textarea id="iptResumo" placeholder="Faça um breve resumo do seu artigo"></textarea>
 
-            <textarea id="iptConteudo" placeholder="Conteúdo completo"></textarea>
+            <label for="iptConteudo">Conteúdo</label>
+            <textarea id="iptConteudo" placeholder="Conteúdo completo do artigo"></textarea>
 
             <button onclick="criarPost()">Publicar</button>
 
@@ -89,7 +93,7 @@
                 <a href="./ranking.html">Visão Geral</a>
                 <a href="./historia.html">História</a>
                 <a href="./posts.html">Posts</a>
-                <a href="./criar-post.html">Publicar</a>
+                <a href="./criar-post.html" style="text-decoration: underline;">Publicar</a>
             </div>
 
             <div class="footer__contact">

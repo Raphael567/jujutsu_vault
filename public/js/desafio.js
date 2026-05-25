@@ -58,19 +58,21 @@ function listarPerguntasRespostas() {
         });
 }
 
-//Fisher–Yates
-function embaralharPerguntasRespostas(respostas) {
-    for (let i = respostas.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
+function embaralharPerguntasRespostas(lista) {
+    let novaLista = [];
 
-        [respostas[i], respostas[j]] = [respostas[j], respostas[i]];
+    while (lista.length > 0) {
+        let indiceAleatorio = Math.floor(Math.random() * lista.length);
+
+        novaLista.push(lista[indiceAleatorio]);
+
+        lista.splice(indiceAleatorio, 1);
     }
 
-    return respostas;
+    return novaLista;
 }
 
 function atualizarBarraProgresso() {
-
     const barra = document.getElementById("progress-bar");
 
     const progresso = ((perguntaAtual + 1) / totalPerguntas) * 100;
@@ -88,10 +90,6 @@ function exibirPerguntasRespostas() {
     const container = document.querySelector(".desafio-content");
 
     const item = perguntasRespostas[perguntaAtual];
-
-    // trava UI enquanto carrega
-    container.style.opacity = "0.4";
-    container.style.pointerEvents = "none";
 
     titulo.textContent = item.pergunta;
 

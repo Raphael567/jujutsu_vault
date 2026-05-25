@@ -40,22 +40,26 @@
     align-items: center;
 }
 
+#historico h1 {
+    font-size: 3rem;
+}
+
 .tentativas-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
     max-height: 450px;
     overflow-y: auto;
-    padding-right: 10px;
 }
 
 .tentativa-header,
 .tentativa-row {
-    font-size: 25px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+
     gap: 30px;
+    width: 100%;
 }
 
 .tentativa-header span {
@@ -63,19 +67,20 @@
     justify-content: center;
     color: var(--white);
     font-weight: 500;
+    font-size: 35px;
     margin-bottom: 15px;
 }
 
 .tentativa-row span {
     color: var(--black);
-    padding: 0px 25px;
-    font-weight: 500;
     background-color: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    font-size: 30px
+    padding: 25px;
+    min-height: 60px;
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .tentativas-list::-webkit-scrollbar {
@@ -166,7 +171,8 @@
     justify-content: space-between;
 }
 
-#faltam-nivel, #proximo-nivel {
+#faltam-nivel,
+#proximo-nivel {
     font-size: 16px;
 }
 

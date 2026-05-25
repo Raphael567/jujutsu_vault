@@ -40,71 +40,76 @@ function calcularKPIsUsuario(tentativasUsuario) {
     document.getElementById("tempo-medio").innerText = Math.round(tempoMedio) + "s";
     document.getElementById("total-tentativas").innerText = tentativasUsuario.length;
 
-    calcularNivel(media, tentativasUsuario.length);
+    calcularNivel(somaPontuacao*10);
 }
 
-function calcularNivel(media, tentativas) {
+function calcularNivel(xp) {
     let nivel = "";
     let proximoNivel = "";
     let progresso = 0;
-    let faltam = "";
+    let faltam = 0;
+    let xpAtualNivel = 0;
+    let xpProximoNivel = 0;
 
-    if (tentativas < 3) {
-        nivel = "Em treinamento";
-        proximoNivel = "Grau 4";
-        progresso = (tentativas / 3) * 100;
-        faltam = `Faltam ${3 - tentativas} quizzes`;
-    }
-    else if (media >= 4.5 && tentativas >= 10) {
+    if (xp >= 1000) {
         nivel = "Grau Especial";
         proximoNivel = "Nível máximo";
         progresso = 100;
         faltam = "Domínio completo";
     }
-    else if (media >= 4) {
+
+    else if (xp >= 700) {
         nivel = "Grau 1";
-        progresso = (media / 4.5) * 100;
-
-        const pontos = (4.5 - media).toFixed(1);
-        const quizzes = 10 - tentativas;
-
-        if (tentativas < 10) {
-            faltam = `Faltam ${quizzes} quizzes`;
-        } else {
-            faltam = `Faltam ${pontos} pontos de média`;
-        }
-
         proximoNivel = "Grau Especial";
+
+        xpAtualNivel = 700;
+        xpProximoNivel = 1000;
     }
-    else if (media >= 3) {
+
+    else if (xp >= 450) {
         nivel = "Grau 2";
-        progresso = (media / 4) * 100;
-        faltam = `Faltam ${(4 - media).toFixed(1)} pontos`;
         proximoNivel = "Grau 1";
+
+        xpAtualNivel = 450;
+        xpProximoNivel = 700;
     }
-    else if (media >= 2.5) {
+
+    else if (xp >= 250) {
         nivel = "Grau 3";
-        progresso = (media / 3) * 100;
-        faltam = `Faltam ${(3 - media).toFixed(1)} pontos`;
         proximoNivel = "Grau 2";
+
+        xpAtualNivel = 250;
+        xpProximoNivel = 450;
     }
-    else if (media >= 2) {
+
+    else if (xp >= 100) {
         nivel = "Grau 4";
-        progresso = (media / 2.5) * 100;
-        faltam = `Faltam ${(2.5 - media).toFixed(1)} pontos`;
         proximoNivel = "Grau 3";
+
+        xpAtualNivel = 100;
+        xpProximoNivel = 250;
     }
+
     else {
         nivel = "Iniciante";
-        progresso = (media / 2) * 100;
-        faltam = `Faltam ${(2 - media).toFixed(1)} pontos`;
         proximoNivel = "Grau 4";
+
+        xpAtualNivel = 0;
+        xpProximoNivel = 100;
+    }
+
+    if (xp < 1000) {
+        progresso = ((xp - xpAtualNivel) / (xpProximoNivel - xpAtualNivel)) * 100;
+        faltam = `Faltam ${xpProximoNivel - xp} XP`;
     }
 
     document.getElementById("nivel-titulo").innerText = nivel;
+
     document.getElementById("proximo-nivel").innerText = `Próximo: ${proximoNivel}`;
+
     document.getElementById("faltam-nivel").innerText = faltam;
-    document.getElementById("barra-progresso").style.width = `${Math.min(progresso, 100)}%`;
+
+    document.getElementById("barra-progresso").style.width = `${progresso}%`;
 }
 
 function gerarGraficoUsuario(tentativasUsuario) {

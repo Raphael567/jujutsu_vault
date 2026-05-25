@@ -88,3 +88,10 @@
 .footer__bottom p {
     font-weight: 800;
 }
+
+.footer p:hover,
+.footer h3:hover,
+.footer a:hover,
+.footer span:hover {
+    text-decoration: underline;
+}
