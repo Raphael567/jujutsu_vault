@@ -63,7 +63,7 @@ function verificarCampos(campos) {
 }
 
 function exibirMensagemErro(mensagem) {
-    error_msg.innerHTML = mensagem;
+    error_msg_cadastro.innerHTML = mensagem;
 }
 
 function cadastrar() {
@@ -79,6 +79,11 @@ function cadastrar() {
     const erros = verificarUsuarioCadastrado(nomeVar, emailVar);
     if (erros.length > 0) {
         exibirMensagemErro(`Já existe um usuário cadastrado com esse ${erros.join(" e ")}!`);
+        return false;
+    }
+
+    if(senhaVar.length < 6) {
+        exibirMensagemErro("Senha não pode ter menos que 6 caracteres");
         return false;
     }
 

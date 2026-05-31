@@ -205,3 +205,7 @@ canvas {
 .card-personagem:hover img {
     filter: grayscale(0%);
 }
+
+#error_msg_cadastro, #error_msg_login {
+    text-align: center;
+}

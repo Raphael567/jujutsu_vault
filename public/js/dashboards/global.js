@@ -39,6 +39,7 @@ function gerarGraficoBarras(tentativas) {
             }]
         },
         options: {
+            responsive: true,
             scales: {
                 y: {
                     beginAtZero: true,
@@ -67,7 +68,7 @@ function gerarGraficoBarras(tentativas) {
                     display: true,
                     text: 'Distribuição de Acertos dos Jogadores',
                     color: '#000',
-                    font: {
+                    font: {responsive: false,
                         size: 32,
                         weight: '800',
                         family: 'Cinzel, serif'
@@ -105,6 +106,7 @@ function gerarGraficoPizza(tentativas) {
             }]
         },
         options: {
+            responsive: true,
             plugins: {
                 title: {
                     display: true,
@@ -154,8 +156,22 @@ function calcularKPIs(tentativas) {
 
     document.getElementById("media-acertos").innerText = media.toFixed(1) + "/10";
     document.getElementById("total-jogadores").innerText = totalJogadores;
-    document.getElementById("tempo-medio").innerText = Math.round(tempoMedio) + "s";
+   document.getElementById("tempo-medio").innerText = formatarTempo(tempoMedio); 
     document.getElementById("total-tentativas").innerText = totalTentativas;
+}
+
+function formatarTempo(segundos) {
+    segundos = Math.round(segundos);
+
+    const horas = Math.floor(segundos / 3600);
+    const minutos = Math.floor((segundos % 3600) / 60);
+    const segundosRestantes = segundos % 60;
+
+    if (horas > 0) return `${horas}h ${minutos}min ${segundosRestantes}s`;
+
+    if (minutos > 0) return `${minutos}min ${segundosRestantes}s`;
+
+    return `${segundosRestantes}s`;
 }
 
 listarTentativas();

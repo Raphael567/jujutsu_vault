@@ -5,14 +5,7 @@ function inicializarMenu() {
     for (let i = 0; i < buttons.length; i++) {
         let btn = buttons[i];
 
-        btn.onclick = () => {
-            const isForm = btn.parentElement.parentElement.classList.contains('form');
-
-            if (isForm) {
-                const index = btn.classList.contains('login-btn') ? 0 : 1;
-                alternarSecao(btn, index);
-            } else alternarSecao(btn, i);
-        };
+        btn.onclick = () => alternarSecao(btn, i);
     }
 }
 

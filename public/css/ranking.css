@@ -36,7 +36,7 @@ body {
 .graficos {
     display: flex;
     gap: 30px;
-    height: 600px;
+    height: 650px;
     width: 100%;
 }
 

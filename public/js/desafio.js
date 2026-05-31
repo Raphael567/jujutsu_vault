@@ -96,14 +96,7 @@ function exibirPerguntasRespostas() {
     // limpa imagem anterior
     gif.src = "";
 
-    gif.onload = () => {
-
-        // libera só quando o gif terminar de carregar
-        container.style.opacity = "1";
-        container.style.pointerEvents = "auto";
-
-        iniciarContador();
-    };
+    iniciarContador();
 
     gif.src = item.gif_local || item.gif_url;
 

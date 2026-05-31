@@ -18,9 +18,8 @@ function entrar() {
 
     if (emailVar == "" || senhaVar == "" || (!emailVar.includes("@") || !emailVar.includes("."))) {
         error_msg_login.innerHTML = "Preencha os campos corretamente!";
-        return false;
-    }
-    else {
+        return;
+    } else {
         setInterval(sumirMensagem, 5000)
     }
 

@@ -77,11 +77,11 @@ CREATE TABLE resposta_usuario (
 );
 
 INSERT INTO usuario (nome, email, senha, avatar) VALUES
-('Raphael', 'raphael@email.com', '123', 'http://localhost:3333/assets/icon/avatar1.svg'),
-('Lucas', 'lucas@email.com', '123', 'http://localhost:3333/assets/icon/avatar3.svg'),
-('Ana', 'ana@email.com', '123', 'http://localhost:3333/assets/icon/avatar2.svg'),
-('Ricardo', 'ricardo@email.com', '123', 'http://localhost:3333/assets/icon/avatar4.svg'),
-('Julia', 'julia@email.com', '123', 'http://localhost:3333/assets/icon/avatar5.svg');
+('Raphael', 'raphael@email.com', '123456', './assets/icon/avatar1.svg'),
+('Lucas', 'lucas@email.com', '123456', './assets/icon/avatar3.svg'),
+('Ana', 'ana@email.com', '123456', './assets/icon/avatar2.svg'),
+('Ricardo', 'ricardo@email.com', '123456', './assets/icon/avatar4.svg'),
+('Julia', 'julia@email.com', '123456', './assets/icon/avatar5.svg');
 
 INSERT INTO pergunta (descricao, caminho_local, caminho_url) VALUES
 ('Qual é o nome completo do protagonista de Jujutsu Kaisen?', './assets/gifs/yuji.gif', 'https://giffiles.alphacoders.com/211/211840.gif'),

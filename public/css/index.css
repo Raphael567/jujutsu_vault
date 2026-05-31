@@ -45,12 +45,23 @@ main {
 .hero_content h2 {
     line-height: 150%;
     font-size: 28px;
+    font-weight: 600;
+
 }
 
 #hero_btn {
     font-size: 24px;
     padding: 16px;
     width: 250px;
+}
+
+#hero_btn a{
+    color: var(--black);
+    font-weight: 600;
+}
+
+#hero_btn:hover a{
+    color: var(--white)
 }
 
 .section-title {

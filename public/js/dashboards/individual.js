@@ -37,10 +37,24 @@ function calcularKPIsUsuario(tentativasUsuario) {
 
     document.getElementById("media-acertos").innerText = media.toFixed(1) + "/10";
     document.getElementById("melhor-pontuacao").innerText = melhor + "/10";
-    document.getElementById("tempo-medio").innerText = Math.round(tempoMedio) + "s";
+    document.getElementById("tempo-medio").innerText = formatarTempo(tempoMedio);
     document.getElementById("total-tentativas").innerText = tentativasUsuario.length;
 
     calcularNivel(somaPontuacao*10);
+}
+
+function formatarTempo(segundos) {
+    segundos = Math.round(segundos);
+
+    const horas = Math.floor(segundos / 3600);
+    const minutos = Math.floor((segundos % 3600) / 60);
+    const segundosRestantes = segundos % 60;
+
+    if (horas > 0) return `${horas}h ${minutos}min ${segundosRestantes}s`;
+
+    if (minutos > 0) return `${minutos}min ${segundosRestantes}s`;
+
+    return `${segundosRestantes}s`;
 }
 
 function calcularNivel(xp) {
@@ -104,11 +118,8 @@ function calcularNivel(xp) {
     }
 
     document.getElementById("nivel-titulo").innerText = nivel;
-
     document.getElementById("proximo-nivel").innerText = `Próximo: ${proximoNivel}`;
-
     document.getElementById("faltam-nivel").innerText = faltam;
-
     document.getElementById("barra-progresso").style.width = `${progresso}%`;
 }
 
