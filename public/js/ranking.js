@@ -11,10 +11,9 @@ function listarRanking() {
 
 function exibirRanking(ranking) {
     const rankingContainer = document.querySelector(".ranking-list");
-    rankingContainer.innerHTML = "";
-
     const usuarioLogado = sessionStorage.getItem("ID_USUARIO");
-
+    
+    rankingContainer.innerHTML = "";
     for (let i = 0; i < ranking.length; i++) {
         const item = ranking[i];
 
@@ -23,9 +22,10 @@ function exibirRanking(ranking) {
 
         if (item.id == usuarioLogado) {
             row.classList.add("me");
+
             let posicoes = document.querySelectorAll("#posicao-usuario");
-            for(let i = 0; i < posicoes.length; i++) {
-                posicoes[i].innerHTML = "#" + (i + 1);
+            for(let j = 0; j < posicoes.length; j++) {
+                posicoes[j].innerHTML = "#" + (i + 1);
             }
         }
 
